@@ -1,0 +1,126 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="pcommerce">
+  
+    <include package=".portlets" />
+    <include package=".viewlets" />
+      
+    <browser:page
+        for="*"
+        name="ShopFolder"
+        class=".views.ShopFolderListing"
+        permission="zope2.View"
+    />
+      
+    <browser:page
+        for="*"
+        name="Shop"
+        class=".views.ShopHomeView"
+        permission="zope2.View"
+    />
+      
+    <browser:page
+        for="pcommerce.core.interfaces.IProduct"
+        name="view"
+        class=".views.ProductView"
+        permission="zope2.View"
+    />
+    
+    <browser:page
+        for="pcommerce.core.interfaces.IProduct"
+        class=".views.VariationsView"
+        name="folder_contents"
+        template="templates/variations.pt"
+        permission="cmf.ListFolderContents"
+    />
+    
+    <browser:page
+        for="pcommerce.core.interfaces.IProduct"
+        class=".views.ImagesView"
+        name="images"
+        template="templates/images.pt"
+        permission="cmf.ListFolderContents"
+    />
+    
+    <browser:page
+        for="pcommerce.core.interfaces.IProduct"
+        class=".views.PricesView"
+        name="prices"
+        template="templates/prices.pt"
+        permission="cmf.ListFolderContents"
+    />
+      
+    <browser:page
+        for="pcommerce.core.interfaces.IVariation"
+        name="view"
+        class=".views.VariationView"
+        permission="zope2.View"
+    />
+    
+    <browser:page
+        for="pcommerce.core.interfaces.IVariation"
+        name="prices"
+        class=".views.PricesView"
+        permission="cmf.ListFolderContents"
+    />
+
+    <browser:page
+        for="Products.CMFCore.interfaces.ISiteRoot"
+        name="cart"
+        class=".cart.ShoppingCartView"
+        permission="pcommerce.AddToCart"
+    />
+
+    <browser:page
+        for="Products.CMFCore.interfaces.ISiteRoot"
+        name="checkout"
+        class=".checkout.CheckoutView"
+        permission="pcommerce.CheckOut"
+    />
+
+    <browser:page
+        for="Products.CMFCore.interfaces.ISiteRoot"
+        name="checkout.cancel"
+        class=".checkout.CheckoutCancelView"
+        permission="pcommerce.CheckOut"
+    />
+
+    <browser:page
+        for="Products.CMFCore.interfaces.ISiteRoot"
+        name="checkout.failed"
+        class=".checkout.CheckoutFailedView"
+        permission="pcommerce.CheckOut"
+    />
+
+    <browser:page
+        for="Products.CMFCore.interfaces.ISiteRoot"
+        name="pcommerce_configlet"
+        class=".views.PCommerceConfigletView"
+        permission="cmf.ManagePortal"
+    />
+
+    <browser:page
+        name="pcommerce_macros"
+        for="*"
+        template="templates/macros.pt"
+        permission="zope2.View"
+    />
+
+    <browser:resource
+        name="product_icon.gif"
+        image="images/product_icon.gif"
+    />
+
+    <browser:resource
+        name="variation_icon.gif"
+        image="images/variation_icon.gif"
+    />
+
+    <browser:resource
+        name="price_icon.gif"
+        image="images/price_icon.gif"
+    />
+
+</configure>

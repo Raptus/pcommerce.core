@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<import-steps>
+ <import-step id="pcommerce.core.various"
+               version="20091104-01"
+               handler="pcommerce.core.setuphandlers.setupVarious"
+               title="PCommerce: miscellaneous import steps">
+    Various import steps that are not handled by GS import/export
+    handlers.
+ </import-step>
+</import-steps>

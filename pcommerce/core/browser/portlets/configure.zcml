@@ -1,0 +1,17 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="plone">
+    
+    <include package="plone.app.portlets" />
+
+    <plone:portlet
+        name="pcommerce.Cart"
+        interface=".cart.IShoppingCartPortlet"
+        assignment=".cart.Assignment"
+        renderer=".cart.Renderer"
+        addview=".cart.AddForm"
+    />
+      
+</configure>

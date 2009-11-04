@@ -1,0 +1,132 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xml:lang="en" lang="en"
+      i18n:domain="plone"
+      metal:use-macro="here/main_template/macros/master">
+
+  <head>
+      <metal:block fill-slot="top_slot">
+        <tal:insert tal:replace="nothing"
+              tal:define="dummy python:request.set('enable_border', 1)" />
+      </metal:block>
+  </head>
+  <body>
+
+    <div metal:fill-slot="main"
+         tal:define="sharing python:checkPermission('Sharing page: Delegate roles', here);
+                     edit python:checkPermission('Modify portal content', here);
+                     add python:checkPermission('Add Attachment', here);">
+      
+      <a href="" class="addLink" i18n:domain="pcommerce" tal:condition="add" tal:attributes="href string:${context/absolute_url}/createObject?type_name=ImageAttachment">
+        <img src="image_icon.gif" alt="" /> <span i18n:translate="">Add image</span>
+      </a>
+
+      <h1 class="documentFirstHeading" i18n:domain="pcommerce" i18n:translate="">
+        Images
+      </h1>
+                      
+      <dl class="portalMessage info" tal:condition="python: edit and context.portal_type == 'Variation'">
+        <dt i18n:translate="">Info</dt>
+        <dd i18n:translate="info_Image"
+            i18n:domain="pcommerce">
+          You are currently looking at the images of a variation of the product
+          <a href="" i18n:name="product" tal:content="view/product/Title"
+             tal:attributes="href view/product/absolute_url">Product title</a>.
+        </dd>
+      </dl>
+  
+      <p class="discreet" i18n:domain="pcommerce"
+         tal:condition="not: view/items"
+         i18n:translate="description_no_images">
+        This product has no Images. To add a Image, press the
+        add button, or paste content from another location.
+      </p>
+
+      <form name="folderContentsForm"
+            method="post"
+            action="folder_object"
+            tal:attributes="action context/absolute_url">
+        <input type="hidden" name="orig_template" value="images" />
+      
+        <metal:listing define-macro="folder_listing">
+          
+          <div class="visualClear" id="clear-space-before-navigation"><!-- --></div>
+      
+          <table class="listing"
+                 tal:condition="view/items">
+            <thead>
+              <tr>
+                <th class="nosort">&nbsp;</th>
+                <th class="nosort column" i18n:domain="pcommerce"
+                    id="foldercontents-price-column">&nbsp;<tal:title i18n:translate=""
+                    >Image</tal:title>&nbsp;</th>
+                <th class="nosort column"
+                    id="foldercontents-modified-column">&nbsp;<tal:modified i18n:translate="listingheader_modified"
+                    >Modified</tal:modified>&nbsp;</th>
+                <th class="nosort" tal:condition="edit">&nbsp;</th>
+              </tr>
+            </thead>
+      
+            <metal:block tal:condition="view/items">
+              <tbody>
+                <tal:items tal:repeat="item view/items">
+                  <tr tal:attributes="class item/table_row_class;" >
+      
+                    <td class="notDraggable">
+                      <input type="checkbox"
+                             class="noborder"
+                             name="paths:list" id="#"
+                             value="#"
+                             tal:attributes="value item/path;
+                                             id string:cb_${item/id};
+                                             alt string:Select ${item/title_or_id};
+                                             title string:Select ${item/title_or_id}" />
+                      <input type="hidden" name="selected_obj_paths:list" value="#"
+                             tal:attributes="value item/relative_url" />
+                      <label tal:content="item/title_or_id"
+                             tal:attributes="for string:cb_${item/id}" 
+                             class="hiddenStructure">
+                        Item Title
+                      </label>
+                    </td>
+                    <td>
+                      <img tal:attributes="src item/image_thumb;
+                                           alt item/title_or_id"
+                      />
+                    </td>
+                    <td tal:content="item/modified">
+                      08/19/2001 03:01 AM
+                    </td>
+                    <td tal:condition="edit">
+                      <a href="" tal:attributes="href item/url/edit">
+                        <img src="edit.gif" alt="" />
+                        <tal:e i18n:translate="label_edit">Edit</tal:e></a>
+                    </td>
+                  </tr>
+                </tal:items>
+              </tbody>
+            </metal:block>
+          </table>
+          <input class="context" name="prices:method" value="Save" type="submit"
+                 i18n:attributes="value label_save" tal:condition="python:view.items and edit" />
+          <tal:buttons tal:repeat="button view/buttons">
+            <input class="context"
+                   type="submit"
+                   name=""
+                   value=""
+                   i18n:attributes="value"
+                   tal:attributes="value button/title; name button/url; class button/cssclass" />
+          </tal:buttons>
+        </metal:listing>
+        <input tal:replace="structure context/@@authenticator/authenticator" />
+      </form>
+    </div>
+  </body>
+  
+  
+  
+  
+  
+</html>

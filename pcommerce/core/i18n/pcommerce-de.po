@@ -1,0 +1,285 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2008-04-07 14:15-100\n"
+"Last-Translator: Simon Kaeser <skaeser@raptus.com>\n"
+"Language-code: de\n"
+"Language-name: Deutsch\n"
+"Preferred-encodings: utf-8 latin1\n"
+"Domain: pcommerce\n"
+"X-is-fallback-for: de-ch de-de de-at de-li de-lu\n"
+"Project-Id-Version: pcommerce.core\n"
+"PO-Revision-Date: 2007-11-01 10:18+0100\n"
+"Language-Team: Simon Kaeser <skaeser@raptus.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: German\n"
+"X-Poedit-Country: GERMANY\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+msgid "Shopping cart"
+msgstr "Warenkorb"
+
+msgid "Your shopping cart"
+msgstr "Ihr Warenkorb"
+
+msgid "No of articles:"
+msgstr "Anzahl Artikel:"
+
+msgid "Total ${currency}:"
+msgstr "Total ${currency}:"
+
+msgid "Check out"
+msgstr "zur Kasse gehen"
+
+msgid "price_offer"
+msgstr "${offer} statt ${price}"
+
+msgid "Product"
+msgstr "Produkt"
+
+msgid "Amount"
+msgstr "Anzahl"
+
+msgid "Price"
+msgstr "Preis"
+
+msgid "Price total"
+msgstr "Preis total"
+
+msgid "Total"
+msgstr "Total"
+
+msgid "VAT"
+msgstr "MwSt"
+
+msgid "Total incl. VAT"
+msgstr "Total inkl. MwSt"
+
+msgid "Name / Firm"
+msgstr "Name / Firma"
+
+msgid "Address 1"
+msgstr "Adresse 1"
+
+msgid "Address 2"
+msgstr "Adresse 2"
+
+msgid "ZIP / City"
+msgstr "PLZ / Ort"
+
+msgid "Country"
+msgstr "Land"
+
+msgid "Zone"
+msgstr "Zone"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Phone"
+msgstr "Telefon"
+
+msgid "Your shopping cart is empty"
+msgstr "Ihr Warenkorb ist leer"
+
+msgid "Remove"
+msgstr "Entfernen"
+
+msgid "You have to be registered to check out your order, either ${log_in} if you already have an account or head over to the ${registration_form} if you don't."
+msgstr "Sie müssen angemeldet sein um zur Kasse zu gehen, ${log_in}, falls Sie bereits einen Benutzer haben, oder füllen Sie das ${registration_form} aus falls nicht."
+
+msgid "log_in"
+msgstr "melden Sie sich an"
+
+msgid "registration_form"
+msgstr "Registrationsformular"
+
+msgid "Edit cart"
+msgstr "Warenkorb bearbeiten"
+
+msgid "checkout_title"
+msgstr "Kasse"
+
+msgid "Previous step"
+msgstr "Vorhergehender Schritt"
+
+msgid "Send order"
+msgstr "Bestellung absenden"
+
+msgid "Cancel checkout"
+msgstr "Bestellung abbrechen"
+
+msgid "Delivery address"
+msgstr "Lieferadresse"
+
+msgid "Payment method"
+msgstr "Zahlungsart"
+
+msgid "Your order has been sent"
+msgstr "Ihre Bestellung wurde gesendet"
+
+msgid "Next step"
+msgstr "Nächster Schritt"
+
+msgid "I accept the ${link}"
+msgstr "Ich akzeptiere die ${link}"
+
+msgid "general terms and conditions"
+msgstr "Allgemeinen Geschäftsbedingungen"
+
+msgid "PCommerce configuration"
+msgstr "PCommerce Einstellungen"
+
+msgid "Productname"
+msgstr "Produktname"
+
+msgid "The name appearing in payment-terminals"
+msgstr "Der Name der in den Zahlungsmasken angezeigt wird"
+
+msgid "GTC"
+msgstr "AGB"
+
+msgid "The path to the page holding the general terms and conditions to accept before payment"
+msgstr "Der Pfad zu der Seite welche die Allgemeinen Geschäftsbedingungen enthält, welche vor der Zahlung akzeptiert werden müssen"
+
+msgid "Taxes"
+msgstr "Steuern"
+
+msgid "remove"
+msgstr "löschen"
+
+msgid "Add new tax"
+msgstr "Neue Steuer hinzufügen"
+
+msgid "add"
+msgstr "hinzufügen"
+
+msgid "info_variation_prices"
+msgstr "Sie befinden sich momentan auf der Preisansicht einer Variation des Produktes ${product}."
+
+msgid "Add price"
+msgstr "Preis hinzufügen"
+
+msgid "Additional prices"
+msgstr "Zusätzliche Preise"
+
+msgid "description_no_prices"
+msgstr "Dieses Produkt hat keine zusätzlichen Preise. Um einen Preis hinzuzufügen, klicken Sie den Hinzufügen Knopf, oder fügen Sie Inhalte aus einem anderen Produkt ein."
+
+msgid "description_no_images"
+msgstr "Dieses Produkt hat keine weiteren Bilder. Um ein Bild hinzuzufügen, klicken Sie den Hinzufügen Knopf, oder fügen Sie Inhalte aus einem anderen Produkt ein."
+
+msgid "info_variation"
+msgstr "Sie befinden sich momentan auf einer Variation des Produktes ${product}."
+
+msgid "Add variation"
+msgstr "Variation hinzufügen"
+
+msgid "Variations"
+msgstr "Variationen"
+
+msgid "Add image"
+msgstr "Bild hinzufügen"
+
+msgid "Images"
+msgstr "Bilder"
+
+msgid "add to cart"
+msgstr "zum Warenkorb hinzufügen"
+
+msgid "Product highlights"
+msgstr "Produkte-Highlights"
+
+msgid "New products in our shop"
+msgstr "Jetzt aktuell im Shop"
+
+msgid "Related products"
+msgstr "Verwandte Produkte"
+
+msgid "product variations"
+msgstr "Produkt Variationen"
+
+msgid "Please select a variation"
+msgstr "Bitte wählen Sie eine Variation aus"
+
+msgid "Please specify an amount"
+msgstr "Bitte geben Sie eine Anzahl an"
+
+msgid "Added ${count} items to cart"
+msgstr "${count} Artikel dem Warenkorb hinzugefügt"
+
+msgid "Added item to cart"
+msgstr "Artikel dem Warenkorb hinzugefügt"
+
+msgid "Removed ${count} items from cart"
+msgstr "${count} Artikel vom Warenkorb entfernt"
+
+msgid "Removed item from cart"
+msgstr "Artikel vom Warenkorb entfernt"
+
+msgid "You have not yet added any products to your cart"
+msgstr "Sie haben noch keine Produkte in Ihrem Warenkorb"
+
+msgid "message_checkout_canceled"
+msgstr "Bestellung abgebrochen"
+
+msgid "message_checkout_failed"
+msgstr "Bestellung fehlgeschlagen"
+
+msgid "Please provide a zone name"
+msgstr "Bitte geben Sie einen Zonennamen an"
+
+msgid "Please enter a floating point number (e.g. 7.6)"
+msgstr "Bitte geben Sie eine Dezimalzahl ein (z.B. 7.6)"
+
+msgid "No"
+msgstr "Artikelnummer"
+
+msgid "New product"
+msgstr "Neues Produkt"
+
+msgid "Hot product"
+msgstr "Hot Produkt"
+
+msgid "Type"
+msgstr "Typ"
+
+msgid "Additional price"
+msgstr "Preisaufschlag"
+
+msgid "email_order_title"
+msgstr "Neue Bestellung [${orderid}]"
+
+msgid "email_order_body"
+msgstr ""
+"Neue Bestellung von ${name}\n"
+"\n"
+"Bestellnummer: ${orderid}\n"
+"\n"
+"Bestellung:\n"
+"\n"
+"Produkt\t\t\t\tAnzahl\tPreis\t\tPreis total\n"
+"-------------------------------------------------------------------\n"
+"\n"
+"${products}\n"
+"-------------------------------------------------------------------\n"
+"\n"
+"Total:\t\t\t\t\t\t\t${price}\n"
+"MwSt:\t\t\t\t\t\t\t${tax}\n"
+"Total inkl. MwSt:\t\t\t\t\t${total}\n"
+"\n"
+"Währung: ${currency}\n"
+"\n"
+"\n"
+"Lieferadresse:\n"
+"Name: ${name}\n"
+"Adresse 1: ${address1}\n"
+"Adresse 2: ${address2}\n"
+"PLZ: ${zip}\n"
+"Ort: ${city}\n"
+"Land: ${country}\n"
+"Zone: ${zone}\n"
+"\n"
+"Telefon: ${phone}\n"
+"eMail: ${email}"

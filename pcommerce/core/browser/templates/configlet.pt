@@ -1,0 +1,155 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="here/prefs_main_template/macros/master"
+      i18n:domain="pcommerce">
+
+<body>
+
+  <div metal:fill-slot="prefs_configlet_main">
+
+        <h1 class="documentFirstHeading" i18n:translate="">
+            PCommerce configuration
+        </h1>
+
+        <a href=""
+           class="link-parent"
+           tal:attributes="href string: $portal_url/plone_control_panel"
+           i18n:domain="plone"
+           i18n:translate="label_up_to_plone_setup">
+            Up to Site Setup
+        </a>
+
+        <form action="."
+              metal:define-macro="master"
+              tal:attributes="action request/URL;"
+              method="post"
+              class="edit-form enableUnloadProtection"
+              tal:define="errors view/errors">
+                
+            <div class="field"
+                 tal:attributes="class python:'field'+(errors.has_key('productname') and ' error' or '')">
+
+                <label i18n:translate=""
+                       for="productname">
+                    Productname
+                </label>
+
+                <span class="fieldRequired"
+                      title="Required"
+                      i18n:domain="plone"
+                      i18n:attributes="title title_required;"
+                      i18n:translate="label_required">
+                    (Required)
+                </span>
+
+                <div class="formHelp"
+                     i18n:translate="">
+                    The name appearing in payment-terminals
+                </div>
+
+                <div tal:condition="python:errors.has_key('productname')"
+                     tal:content="errors/title|nothing">
+                    The Error
+                </div>
+
+                <div class="widget">
+                    <input id="productname" name="productname" value="Subscription" type="text"
+                           tal:attributes="value request/productname|view/values/productname|nothing">
+                </div>
+            </div>
+            
+            <div class="field"
+                 tal:attributes="class python:'field'+(errors.has_key('gtc') and ' error' or '')">
+
+                <label i18n:translate=""
+                       for="gtc">
+                    GTC
+                </label>
+
+                <span class="fieldRequired"
+                      title="Required"
+                      i18n:domain="plone"
+                      i18n:attributes="title title_required;"
+                      i18n:translate="label_required">
+                    (Required)
+                </span>
+
+                <div class="formHelp"
+                     i18n:translate="">
+                    The path to the page holding the general terms and conditions to accept before payment
+                </div>
+
+                <div tal:condition="python:errors.has_key('gtc')"
+                     tal:content="errors/gtc|nothing">
+                    The Error
+                </div>
+
+                <div class="widget">
+                    <input id="gtc" name="gtc" value="" type="text"
+                           tal:attributes="value request/gtc|view/values/gtc|nothing">
+                </div>
+            </div>
+
+            <fieldset>
+                <legend i18n:translate="">Taxes</legend>
+                
+                <div class="field" tal:repeat="tax view/taxes"
+                     tal:attributes="class python:'field'+(errors.has_key(tax['id']) and ' error' or '')">
+
+                    <div tal:condition="python:errors.has_key(tax['id'])"
+                         tal:content="python:errors[tax['id']]">
+                        The Error
+                    </div>
+
+                    <div class="widget">
+                        <input type="hidden" name="taxes.id:records" value=""
+                               tal:attributes="value tax/id" />
+                        <input id="taxes.zone:record" name="taxes.zone:records" value="" type="text"
+                               tal:attributes="value tax/zone" />
+                        <input id="taxes.tax:records" name="taxes.tax:records" value="" type="text" size="5"
+                               tal:attributes="value tax/tax" />
+                        <label><input id="taxes.remove:record" name="taxes.remove:records" value="1" type="checkbox" /> <tal:r i18n:translate="">remove</tal:r></label>
+                    </div>
+                </div>
+                
+                <div class="field"
+                     tal:attributes="class python:'field'+(errors.has_key('new') and ' error' or '')">
+
+                    <label i18n:translate=""
+                           for="taxes.zone:records:ignore_empty">
+                        Add new tax
+                    </label>
+
+                    <div tal:condition="python:errors.has_key('new')"
+                         tal:content="errors/new|nothing">
+                        The Error
+                    </div>
+
+                    <div class="widget">
+                        <input id="taxes.zone:records:ignore_empty" name="taxes.zone:records:ignore_empty" value="" type="text"
+                               tal:attributes="value request/new/zone|nothing" />
+                        <input id="taxes.tax:records:ignore_empty" name="taxes.tax:records:ignore_empty" value="" type="text" size="5"
+                               tal:attributes="value request/new/tax|nothing" />
+                        <label><input type="checkbox" name="taxes.id:records:ignore_empty" value="new" /> <tal:a i18n:translate="">add</tal:a></label>
+                    </div>
+                </div>
+            </fieldset>
+
+            <div id="actionsView" class="formControls">
+                <span class="actionButtons">
+                    <input name="pcommerce_save" value="Save" class="context" type="submit"
+                           i18n:domain="plone"
+                           i18n:attributes="value label_save" />
+                </span>
+            </div>
+
+        </form>
+
+  </div>
+
+</body>
+</html>
+

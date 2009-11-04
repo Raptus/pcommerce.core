@@ -1,0 +1,11 @@
+<div class="related productList" tal:condition="view/related_items">
+  <h2 i18n:translate="" i18n:domain="pcommerce">
+    Related products
+  </h2>
+  <div class="list">
+    <tal:product repeat="product view/related_items">
+    <dl metal:use-macro="context/@@pcommerce_macros/productPortlet" />
+    </tal:product>
+    <div class="visualClear"><!-- --></div>
+  </div>
+</div>

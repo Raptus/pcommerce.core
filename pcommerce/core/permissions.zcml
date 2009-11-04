@@ -1,0 +1,29 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           i18n_domain="pcommerce">
+
+  <permission
+      id="pcommerce.AddProduct"
+      title="PCommerce: Add Product"
+      />
+
+  <permission
+      id="pcommerce.AddVariation"
+      title="PCommerce: Add Variation"
+      />
+
+  <permission
+      id="pcommerce.AddPrice"
+      title="PCommerce: Add Price"
+      />
+
+  <permission
+      id="pcommerce.AddToCart"
+      title="PCommerce: Add to Cart"
+      />
+
+  <permission
+      id="pcommerce.CheckOut"
+      title="PCommerce: Check out"
+      />
+
+</configure>

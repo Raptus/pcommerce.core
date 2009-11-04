@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<object name="portal_properties">
+    <object name="pcommerce_properties">
+        <property name="productname" type="string" purge="False">PCommerce order</property>
+        <property name="gtc" type="string" purge="False"></property>
+        <property name="columns" type="int" purge="False">3</property>
+        <property name="thumb_width" type="int" purge="False">0</property>
+        <property name="hot_columns" type="int" purge="False">3</property>
+        <property name="no_hot_products" type="int" purge="False">6</property>
+        <property name="thumb_width_hot_products" type="int" purge="False">0</property>
+        <property name="new_columns" type="int" purge="False">2</property>
+        <property name="no_new_products" type="int" purge="False">2</property>
+        <property name="thumb_width_new_products" type="int" purge="False">0</property>
+        <property name="thumb_width_detail" type="int" purge="False">0</property>
+    </object>
+</object>

@@ -1,0 +1,122 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+<body>
+
+<metal:main fill-slot="main">
+    <tal:main-macro metal:define-macro="main"
+                    i18n:domain="pcommerce">
+                      
+      <h1 class="documentFirstHeading" i18n:translate="">
+        Your shopping cart
+      </h1>
+  
+      <p class="discreet"
+         tal:condition="not: view/size"
+         i18n:translate="">
+        Your shopping cart is empty
+      </p>
+
+      <form name=""
+            id="cart"
+            method="post"
+            action=""
+            tal:condition="view/size"
+            tal:attributes="action context/absolute_url">
+              
+        <div class="formControls">
+          <input class="context" name="checkout:method" value="Check out" type="submit"
+                 i18n:attributes="value" tal:condition="view/checkout" />
+        </div>
+      
+        <table>
+          <thead>
+            <tr>
+              <th class="info" i18n:translate="">Product</th>
+              <th class="discreet" i18n:translate="">Amount</th>
+              <th class="discreet" i18n:translate="">Price</th>
+              <th i18n:translate="">Price total</th>
+              <th class="discreet" i18n:translate="">Remove</th>
+            </tr>
+          </thead>
+    
+          <tbody>
+          <tal:items tal:repeat="product view/products">
+            <tr tal:define="odd repeat/product/odd;"
+                tal:attributes="class python:odd and 'odd' or 'even';" >
+              <td class="info">
+                <input type="hidden" name="cartEdit.variation:tokens:records" value=""
+                       tal:attributes="value python:' '.join([v['uid'] for v in product['variations']])" />
+                <input type="hidden" name="cartEdit.uid:records" value=""
+                       tal:attributes="value product/uid" />
+                <span metal:use-macro="context/@@pcommerce_macros/productInfo" />
+              </td>
+              <td class="amount">
+                <input type="text" name="cartEdit.amount:records" value="1" size="5"
+                       tal:attributes="value product/amount" />
+              </td>
+              <td class="price discreet" tal:content="product/price/valueToString">
+                50.00
+              </td>
+              <td class="price" tal:content="product/price_total/valueToString">
+                500.00
+              </td>
+              <td class="amount">
+                <input type="checkbox" name="cartEdit.remove:records" value="1" />
+              </td>
+            </tr>
+          </tal:items>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th class="price" i18n:translate="">
+                Total
+              </th>
+              <td>
+                &nbsp;
+              </td>
+              <td>
+                &nbsp;
+              </td>
+              <td class="price">
+                <strong tal:content="view/price">
+                  500.00
+                </strong>
+              </td>
+              <td>
+                &nbsp;
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+        <p tal:condition="python:not view.checkout and isAnon"
+           i18n:translate="">
+          You have to be registered to check out your order, either
+          <a href=""
+             i18n:name="log_in"
+             tal:attributes="href string:${portal_url}/login_form"
+             i18n:translate="log_in">
+              log in</a>
+          if you already
+          have an account or head over to the
+          <a href=""
+             i18n:name="registration_form"
+             tal:attributes="href string:${portal_url}/join_form"
+             i18n:translate="registration_form">
+              registration form</a>
+          if you don't.
+        </p>
+        <div class="formControls">
+          <input class="standalone" name="cart:method" value="Edit cart" type="submit"
+                 i18n:attributes="value" />
+          <input class="context" name="checkout:method" value="Check out" type="submit"
+                 i18n:attributes="value" tal:condition="view/checkout" />
+        </div>
+      </form>
+
+    </tal:main-macro>
+</metal:main>
+
+</body>
+</html>

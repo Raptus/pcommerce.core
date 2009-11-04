@@ -1,0 +1,372 @@
+/* <dtml-with base_properties> (do not remove this :) */
+/* <dtml-call "REQUEST.set('portal_url', portal_url())"> (not this either :) */
+
+.portletShoppingCart .portletItem {
+  font-size:90%;
+}
+
+.portletShoppingCart .portletItem dt {
+  clear:left;
+  float:left;
+  width:60%;
+  font-weight:normal;
+}
+
+.portletShoppingCart .portletItem dd {
+  padding:0;
+  margin:0;
+  font-weight:bold;
+}
+
+.portletShoppingCart .portletFooter {
+  clear:both;
+}
+
+.portletShoppingCart .portletFooter a {
+  font-weight:bold;
+}
+
+#cart .formControls {
+  text-align:right;
+}
+
+#cart table {
+  border:none;
+  width:100%;
+  padding:0;
+  margin:0 0 1em 0;
+  border-collapse: collapse;
+}
+
+#cart table th,
+#cart table td {
+  vertical-align:baseline;
+  margin:0;
+  padding:0.5em 1em;
+  white-space:nowrap;
+  border-width:0 0 &dtml-borderWidth; 0;
+  border-style:&dtml-borderStyle;;
+  border-color:&dtml-globalBorderColor;;
+}
+
+#cart table .info {
+  text-align:left;
+  width:100%;
+  white-space:normal;
+}
+
+#cart table .amount {
+  text-align:center;
+}
+
+#cart table .price {
+  text-align:right;
+}
+
+#cart table tfoot td,
+#cart table tfoot th {
+  background-color:&dtml-globalBackgroundColor;;
+}
+
+#cart .formControls input.standalone {
+  background-image:none;
+  padding:1px;
+}
+
+#cart .formControls input.context {
+  padding:1px 8px 1px 1px;
+  background-image:url("arrowRight.gif");
+  background-position:right center; 
+}
+
+#checkout fieldset {
+  padding:1em;
+}
+
+#checkout fieldset legend {
+  margin-left:-1em;
+  padding:0.1em 1em;
+  font-size:110%;
+  background-color:&dtml-globalBackgroundColor;;
+  border:&dtml-borderWidth; &dtml-borderStyle; &dtml-globalBorderColor;;
+  .margin-bottom:1em;
+}
+
+#checkout #delivery {
+  width:45%;
+  float:left;
+}
+
+#checkout #billing {
+  width:45%;
+  float:right;
+}
+
+#checkout fieldset fieldset {
+  font-size:90%;
+}
+
+#checkout #billing h4 {
+  margin-top:0;
+}
+
+#checkout #billing fieldset {
+  clear:both;
+}
+
+#checkout address {
+  margin-bottom:1em;
+  font-style:normal;
+}
+
+#checkout #billing .image-right {
+  margin-top:0;
+  margin-right:0;
+  border-color:&dtml-globalBorderColor;;
+}
+
+#checkout .formControls {
+  clear:both;
+  text-align:center;
+  position:relative;
+  width:100%;
+}
+
+#checkout .formControls input {
+  background-image:none;
+  padding:1px;
+}
+
+#checkout #products {
+  clear:both;
+  padding-left:0;
+  padding-right:0;
+}
+
+#checkout #products legend {
+  margin-left:-1px;
+}
+
+#checkout .formControls .next {
+  position:absolute;
+  right:0;
+  padding-right:8px;
+  background-image:url("arrowRight.gif");
+  background-position:right center; 
+}
+
+#checkout .formControls .previous {
+  position:absolute;
+  left:0;
+  padding-left:8px;
+  background-image:url("arrowLeft.gif");
+  background-position:left center; 
+}
+
+#checkout .formControls .checkout {
+  padding-right:12px;
+  background-image:url("arrowRightmost.gif");
+}
+
+#checkout .editLink {
+  clear:both;
+  display:block;
+  float:right;
+}
+
+#checkout .field {
+  clear:both;
+  margin-right:0;
+}
+
+#checkout fieldset input,
+#checkout fieldset textarea {
+  width:99%;
+}
+
+#checkout .field.error {
+  width:auto;
+}
+
+#checkout .address .field label {
+  float:left;
+  width:25%;
+  margin-bottom:0.5em;
+}
+
+#checkout .address .field .fieldRequired {
+  width:1px;
+  float:right;
+  overflow:hidden;
+}
+
+#checkout .address .field input {
+  width:60%;
+}
+
+#checkout .address .field #zip {
+  width:10%;
+}
+
+#checkout .address .field #city {
+  width:48.7%;
+}
+
+.productInfo a {
+  display:block;
+  margin:0 0 0 40px;
+}
+
+.productInfo .no {
+  display:block;
+  font-size:90%;
+  margin:0 0 0.5em 40px;
+}
+
+.productInfo .productImage {
+  float:left;
+  margin:0;
+}
+
+.productInfo dl {
+  clear:both;
+  font-size:90%;
+  margin:0 0 0 40px;
+  padding:0;
+  line-height:normal;
+}
+
+.productInfo dl dt {
+  display:block;
+  float:left;
+  clear:left;
+  width:70px;
+  padding:0;
+  margin:0;
+  line-height:normal;
+}
+
+.productInfo dl dd {
+  display:block;
+  padding:0;
+  margin:0 0 0 75px;
+  line-height:normal;
+}
+
+.addLink {
+  display:block;
+  float:right;
+  font-size:90%;
+  text-decoration:none;
+  margin:1.4em 0.5em 0 0;
+  padding:0 0.5em;
+  background-color:&dtml-backgroundColor;;
+}
+
+.portletInfoBox {
+  float:right;
+  margin:0 0 0 1em;
+}
+
+.portletInfoBox .portletItem {
+  border-top:&dtml-borderWidth; &dtml-borderStyle; &dtml-globalBorderColor;;
+}
+
+.portletInfoBox .portletItem img {
+  display:block;
+}
+
+.priceInfo {
+  font-size:90%;
+}
+
+.buyViewlet {
+  clear:both;
+  width:100%;
+  background-color:&dtml-globalBackgroundColor;;
+  border:&dtml-borderWidth; &dtml-borderStyle; &dtml-globalBorderColor;;
+  margin:1em 0 2em 0;
+}
+
+.buyViewlet form {
+  clear:both;
+  padding:0.8em 1em;
+}
+
+.buyViewlet input,
+.buyViewlet select,
+.buyViewlet label {
+  margin-right:0.5em;
+}
+
+.buyViewlet .context {
+  background-color:&dtml-backgroundColor;;
+  background-image:none;
+  padding-left:1px;
+}
+
+.buyViewlet label {
+  font-size:90%;
+  color:&dtml-linkColor;;
+  line-height:1.4em;
+}
+
+.productList {
+  position:relative;
+  clear:both;
+  margin:4em 0;
+} 
+
+.productList .list {
+  position:relative;
+  margin:0 0 1em 0;
+}
+
+.new .list {
+  margin-right:0;
+}
+
+.portletProduct {
+  width:30.5%;
+  float:left;
+  margin-right:2%;
+}
+
+.portletProduct.col3,
+* html .portletProduct.col3 {
+  float:right;
+  margin-right:0;
+}
+
+.new .portletProduct {
+  width:48%;
+  margin-right:0;
+}
+
+.portletProduct.col1 {
+  clear:both;
+}
+
+.new .portletProduct.col2 {
+  float:right;
+}
+
+.portletProduct .portletItem {
+  border-top:&dtml-borderWidth; &dtml-borderStyle; &dtml-globalBorderColor;;
+}
+
+.portletProduct .portletItem a,
+.portletProduct .description {
+  border-bottom:none;
+  display:block;
+}
+
+.portletProduct .portletItem a.image {
+  margin-bottom:0.5em;
+}
+
+.portletProduct .priceInfo {
+  font-size:100%;
+}
+
+/* </dtml-with> */

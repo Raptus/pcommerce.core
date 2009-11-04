@@ -1,0 +1,19 @@
+<dl class="portlet portletInfoBox" i18n:domain="pcommerce">
+  <tal:block tal:repeat="image view/images">
+    <dd class="portletItem" tal:attributes="class python: 'portletItem ' + image['parity']">
+    
+      <a href="#" alt="" title="" rel="lightbox" class="image"
+         tal:attributes="href image/url;
+                         title image/caption;">
+        <img alt=""
+             tal:attributes="src image/thumb;
+                             alt image/caption" />
+      </a>
+    </dd>
+  </tal:block>
+  
+  <dd class="portletFooter"
+      tal:define="price nocall:view">
+    <span class="priceInfo" metal:use-macro="context/@@pcommerce_macros/priceinfo" />
+  </dd>
+</dl>

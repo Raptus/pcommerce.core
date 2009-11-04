@@ -1,0 +1,48 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+<body>
+
+<metal:main fill-slot="main">
+    <tal:main-macro metal:define-macro="main"
+           i18n:domain="pcommerce">
+
+      <div tal:replace="structure provider:plone.abovecontenttitle" />
+
+      <div class="productList folder" tal:condition="view/batch|nothing">
+
+        <h1 class="documentFirstHeading" tal:content="context/Title">
+          Title
+        </h1>
+  
+        <div tal:replace="structure provider:plone.belowcontenttitle" />
+  
+        <div class="documentDescription" tal:condition="context/Description" tal:content="context/Description">
+          Description
+        </div>
+      
+        <div tal:replace="structure provider:plone.abovecontentbody" />
+  
+        <div metal:use-macro="here/global_statusmessage/macros/portal_message">
+          Portal status message
+        </div>
+        
+        <div class="list">
+          <tal:product tal:repeat="product view/batch">
+          <dl metal:use-macro="context/@@pcommerce_macros/productPortlet" />
+          </tal:product>
+          <div class="visualClear"><!-- --></div>
+        </div>
+        
+      </div>
+
+      <div tal:replace="structure view/batching" tal:condition="view/multiple_pages|nothing" />
+
+      <div tal:replace="structure provider:plone.belowcontentbody" />
+
+    </tal:main-macro>
+</metal:main>
+
+</body>
+</html>

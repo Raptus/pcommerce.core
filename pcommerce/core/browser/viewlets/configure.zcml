@@ -1,0 +1,64 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="plone">
+      
+    <browser:viewlet
+        name="pcommerce.processor"
+        manager="plone.app.layout.viewlets.interfaces.IPortalTop"
+        class=".processor.ProcessorViewlet"
+        permission="pcommerce.AddToCart"
+    />
+      
+    <browser:viewlet
+        name="pcommerce.info"
+        manager="plone.app.layout.viewlets.interfaces.IAboveContentBody"
+        class=".info.InfoViewlet"
+        for="...interfaces.IProduct"
+        permission="zope2.View"
+    />
+      
+    <browser:viewlet
+        name="pcommerce.buy"
+        manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
+        class=".buy.BuyViewlet"
+        for="...interfaces.IProduct"
+        permission="pcommerce.AddToCart"
+    />
+    
+    <browser:viewlet
+        name="pcommerce.variation"
+        manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
+        class=".variation.VariationViewlet"
+        for="...interfaces.IProduct"
+        permission="zope2.View"
+    />
+      
+    <browser:viewlet
+        name="pcommerce.related"
+        manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
+        class=".related.RelatedViewlet"
+        for="...interfaces.IProduct"
+        permission="zope2.View"
+    />
+      
+    <browser:viewlet
+        name="pcommerce.new"
+        manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
+        class=".new.NewViewlet"
+        for="*"
+        view="...interfaces.IShop"
+        permission="zope2.View"
+    />
+      
+    <browser:viewlet
+        name="pcommerce.hot"
+        manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
+        class=".hot.HotViewlet"
+        for="*"
+        view="...interfaces.IShop"
+        permission="zope2.View"
+    />
+      
+</configure>

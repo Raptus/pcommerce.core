@@ -1,0 +1,25 @@
+<dl class="portlet portletShoppingCart"
+    tal:condition="view/size"
+    i18n:domain="pcommerce">
+
+    <dt class="portletHeader">
+        <span class="portletTopLeft"></span>
+        <a href="" tal:attributes="href string:${view/portal_url}/@@cart" i18n:translate="">Your shopping cart</a>
+        <span class="portletTopRight"></span>
+    </dt>
+
+    <dd class="portletItem odd">
+        <dl>
+            <dt i18n:translate="">No of articles:</dt>
+            <dd tal:content="view/size">6</dd>
+            <dt i18n:translate="">Total <span i18n:name="currency" tal:replace="view/price/getCurrencySymbol">CHF</span>:</dt>
+            <dd tal:content="view/price/valueToString">120.00</dd>
+        </dl>
+    </dd>
+
+    <dd class="portletFooter" tal:condition="view/checkout">
+        <span class="portletBottomLeft"></span>
+        <a href="" tal:attributes="href string:${view/portal_url}/@@checkout" i18n:translate="">Check out</a>
+        <span class="portletBottomRight"></span>
+    </dd>
+</dl>

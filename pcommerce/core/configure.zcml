@@ -1,0 +1,55 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:cmf="http://namespaces.zope.org/cmf"
+    i18n_domain="pcommerce">
+    
+  <five:registerPackage package="." initialize=".initialize" />
+
+  <include file="permissions.zcml" />
+  <include package=".browser" />
+
+  <!-- Register the installation GenericSetup extension profile -->
+  <genericsetup:registerProfile
+      name="default"
+      title="PCommerce Shop"
+      directory="profiles/default"
+      description="Provides PCommerce Shop"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <!-- File System Directory Views registration -->
+  <cmf:registerDirectory name="pcommerce"/>
+
+  <utility component=".pcommercedomain"
+           name="pcommerce" />
+
+  <utility component=".utility.registry"
+           provides=".interfaces.IPaymentRegistry" />
+
+  <adapter factory=".adapters.ShoppingCart"
+           provides=".interfaces.IShoppingCart"
+           for="zope.component.interfaces.Interface" />
+
+  <adapter factory=".adapters.Pricing"
+           provides=".interfaces.IPricing"
+           for=".interfaces.IProduct" />
+           
+  <adapter factory=".adapters.Imaging"
+           provides=".interfaces.IImaging"
+           for=".interfaces.IProduct" />
+
+  <adapter factory=".adapters.Taxes"
+           provides=".interfaces.ITaxes"
+           for="zope.component.interfaces.Interface" />
+
+  <adapter factory=".adapters.OrderRegistry"
+           provides=".interfaces.IOrderRegistry"
+           for="zope.component.interfaces.Interface" />
+
+  <adapter factory=".adapters.PaymentProcessor"
+           provides=".interfaces.IPaymentProcessor"
+           for="zope.component.interfaces.Interface" />
+
+</configure>

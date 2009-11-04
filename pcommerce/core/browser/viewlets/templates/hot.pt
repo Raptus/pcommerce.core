@@ -1,0 +1,11 @@
+<div class="hot productList" tal:condition="view/products">
+  <h2 i18n:translate="" i18n:domain="pcommerce">
+    Product highlights
+  </h2>
+  <div class="list">
+    <tal:product repeat="product view/products">
+    <dl metal:use-macro="context/@@pcommerce_macros/productPortlet" />
+    </tal:product>
+    <div class="visualClear"><!-- --></div>
+  </div>
+</div>

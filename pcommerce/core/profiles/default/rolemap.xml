@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<rolemap>
+  <permissions>
+    <permission name="PCommerce: Add Product" acquire="False">
+      <role name="Manager" />
+      <role name="Contributer" />
+      <role name="Owner" />
+    </permission>
+    <permission name="PCommerce: Add Variation" acquire="False">
+      <role name="Manager" />
+      <role name="Contributer" />
+      <role name="Owner" />
+    </permission>
+    <permission name="PCommerce: Add Price" acquire="False">
+      <role name="Manager" />
+      <role name="Contributer" />
+      <role name="Owner" />
+    </permission>
+    <permission name="PCommerce: Add to Cart" acquire="False">
+      <role name="Anonymous" />
+      <role name="Authenticated" />
+    </permission>
+    <permission name="PCommerce: Check out" acquire="False">
+      <role name="Authenticated" />
+    </permission>
+  </permissions>
+</rolemap>

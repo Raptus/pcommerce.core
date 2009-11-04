@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<object>
+
+ <order manager="plone.portaltop" skinname="*">
+  <viewlet name="pcommerce.processor" insert-before="*" />
+ </order>
+
+ <order manager="plone.abovecontentbody" skinname="*">
+  <viewlet name="pcommerce.info" insert-before="*" />
+ </order>
+
+ <order manager="plone.belowcontentbody" skinname="*">
+  <viewlet name="pcommerce.buy" insert-before="*" />
+  <viewlet name="pcommerce.variation" insert-after="pcommerce.buy" />
+  <viewlet name="pcommerce.related" insert-after="pcommerce.variation" />
+  <viewlet name="pcommerce.new" insert-after="pcommerce.related" />
+  <viewlet name="pcommerce.hot" insert-after="pcommerce.new" />
+ </order>
+
+</object>
