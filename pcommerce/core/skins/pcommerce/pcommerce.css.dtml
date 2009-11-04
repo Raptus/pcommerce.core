@@ -184,6 +184,11 @@
   width:99%;
 }
 
+#checkout fieldset input[type="checkbox"],
+#checkout fieldset input.noborder {
+  width:auto;
+}
+
 #checkout .field.error {
   width:auto;
 }
