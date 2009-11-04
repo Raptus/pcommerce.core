@@ -23,3 +23,12 @@ view providing those.
 
 For a simple example pcommerce.email provides a payment method which simply sends
 an email to the administrator containing the billing address.
+
+
+Optional dependencies
+---------------------
+
+Products.CurrencyUtility - to add support for multiple currencies
+
+ImageTag_CorePatch - to add support for dynamic image scaling
+[http://www.zope.org/Members/bowerymarc/ImageTag_CorePatch/0.3/ImageTag_CorePatch.tgz]
