@@ -1,6 +1,6 @@
 <div class="variation productList" tal:condition="view/variation_items">    
   <h2 i18n:translate="" i18n:domain="pcommerce">
-      product variations
+      Product variations
   </h2>
   <div class="list">
     <tal:product repeat="product view/variation_items">
