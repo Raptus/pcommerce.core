@@ -12,7 +12,6 @@ from pcommerce.core.currency import CurrencyAware
 class VariationViewlet(ViewletBase):
     index = ViewPageTemplateFile('templates/variation.pt')
     
-     
     @property
     @memoize
     def product(self):
@@ -44,8 +43,8 @@ class VariationViewlet(ViewletBase):
                 
                 items.append({'uid': variation.UID(),
                               'class': 'col%s' % col,
-                              'title': variation.Title(),
-                              'description': variation.Description(),
+                              'title': '%s: %s' % (variation.getType(), variation.Title()),
+                              'description': variation.Description() or self.product.Description(),
                               'price': CurrencyAware(adapter.getPrice()),
                               'base_price': CurrencyAware(adapter.getBasePrice()),
                               'offer': adapter.getPrice() < adapter.getBasePrice(),

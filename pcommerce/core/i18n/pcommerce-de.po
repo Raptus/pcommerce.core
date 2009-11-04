@@ -197,7 +197,7 @@ msgstr "Jetzt aktuell im Shop"
 msgid "Related products"
 msgstr "Verwandte Produkte"
 
-msgid "product variations"
+msgid "Product variations"
 msgstr "Produkt Variationen"
 
 msgid "Please select a variation"
