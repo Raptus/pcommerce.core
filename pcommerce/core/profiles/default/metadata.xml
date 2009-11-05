@@ -4,6 +4,5 @@
   <dependencies>
     <dependency>profile-Products.SingleKeywordWidget:default</dependency>
     <dependency>profile-Products.AttachmentTypes:default</dependency>
-    <dependency>profile-Products.CurrencyUtility:default</dependency>
   </dependencies>
 </metadata>

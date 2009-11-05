@@ -1,8 +1,13 @@
 Changelog
 =========
 
-0.1 - Unreleased
-----------------
+0.2 - Alpha release
+-------------------
+
+* Removed profile dependency to Products.CurrencyUtility
+
+0.1 - Alpha release
+-------------------
 
 * Initial release
 
