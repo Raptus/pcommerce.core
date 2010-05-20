@@ -1,6 +1,11 @@
 Changelog
 =========
 
+0.4 - Alpha release
+-------------------
+
+* Added Spanish translations (thanks to Manuel Gualda Caballero)
+
 0.3 - Alpha release
 -------------------
 
