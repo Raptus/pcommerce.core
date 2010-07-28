@@ -2,12 +2,9 @@
   <h2 i18n:translate="" i18n:domain="pcommerce">
       Product variations
   </h2>
-  <div class="list">
+  <div class="list clearfix">
     <tal:product repeat="product view/variation_items">
-   
     <dl metal:use-macro="context/@@pcommerce_macros/productPortlet" />
-    
     </tal:product>
-    <div class="visualClear"><!-- --></div>
   </div>
 </div>

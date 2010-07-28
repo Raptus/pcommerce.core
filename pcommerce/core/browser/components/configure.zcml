@@ -1,0 +1,61 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser"
+           i18n_domain="pcommerce">
+
+  <browser:view
+      for="*"
+      provides="...interfaces.IComponent"
+      class=".address.AddressComponent"
+      name="address"
+      permission="pcommerce.CheckOut" />
+      
+  <browser:view
+      for="*"
+      provides="...interfaces.IComponent"
+      class=".shipments.ShipmentsComponent"
+      name="shipments"
+      permission="pcommerce.CheckOut" />
+      
+  <browser:view
+      for="*"
+      provides="...interfaces.IComponent"
+      class=".shipment.ShipmentComponent"
+      name="shipment"
+      permission="pcommerce.CheckOut" />
+      
+  <browser:view
+      for="*"
+      provides="...interfaces.IComponent"
+      class=".payments.PaymentsComponent"
+      name="payments"
+      permission="pcommerce.CheckOut" />
+      
+  <browser:view
+      for="*"
+      provides="...interfaces.IComponent"
+      class=".payment.PaymentComponent"
+      name="payment"
+      permission="pcommerce.CheckOut" />
+      
+  <browser:view
+      for="*"
+      provides="...interfaces.IComponent"
+      class=".overview.OverviewComponent"
+      name="overview"
+      permission="pcommerce.CheckOut" />
+      
+  <browser:view
+      for="*"
+      provides="...interfaces.IComponent"
+      class=".confirmation.ConfirmationComponent"
+      name="confirmation"
+      permission="pcommerce.CheckOut" />
+      
+  <browser:view
+      for="*"
+      provides="...interfaces.IComponent"
+      class=".gtc.GTCComponent"
+      name="gtc"
+      permission="pcommerce.CheckOut" />
+      
+</configure>

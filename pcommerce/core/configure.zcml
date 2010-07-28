@@ -13,9 +13,9 @@
   <!-- Register the installation GenericSetup extension profile -->
   <gs:registerProfile
       name="default"
-      title="PCommerce Shop"
+      title="pcommerce.core"
       directory="profiles/default"
-      description="Provides PCommerce Shop"
+      description="PCommerce Shop"
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
@@ -24,32 +24,30 @@
 
   <utility component=".pcommercedomain"
            name="pcommerce" />
-
-  <utility component=".utility.registry"
-           provides=".interfaces.IPaymentRegistry" />
-
-  <adapter factory=".adapters.ShoppingCart"
-           provides=".interfaces.IShoppingCart"
-           for="zope.component.interfaces.Interface" />
-
-  <adapter factory=".adapters.Pricing"
-           provides=".interfaces.IPricing"
-           for=".interfaces.IProduct" />
            
-  <adapter factory=".adapters.Imaging"
-           provides=".interfaces.IImaging"
-           for=".interfaces.IProduct" />
+  <utility component=".vocabulary.shipments"
+           provides="zope.schema.interfaces.IVocabularyFactory"
+           name="pcommerce.core.vocabulary.shipments" />
+           
+  <adapter factory=".vocabulary.ShipmentsDefault" name="shipments" />
+           
+  <adapter factory=".cart.ShoppingCart" />
+  
+  <adapter factory=".adapters.Pricing" />
+  <adapter factory=".adapters.Imaging" />
+  <adapter factory=".adapters.Taxes" />
 
-  <adapter factory=".adapters.Taxes"
-           provides=".interfaces.ITaxes"
-           for="zope.component.interfaces.Interface" />
+  <adapter for="zope.publisher.interfaces.browser.IBrowserRequest"
+           factory=".address.AddressFactory" />
 
-  <adapter factory=".adapters.OrderRegistry"
-           provides=".interfaces.IOrderRegistry"
-           for="zope.component.interfaces.Interface" />
+  <adapter factory=".order.OrderRegistry" />
+  <adapter factory=".order.get_order" />
 
-  <adapter factory=".adapters.PaymentProcessor"
-           provides=".interfaces.IPaymentProcessor"
-           for="zope.component.interfaces.Interface" />
+  <adapter factory=".registry.Payment" />
+  <adapter factory=".registry.Shipment" />
+  
+  <adapter factory=".steps.steps" />
+
+  <adapter factory=".processor.PaymentProcessor" />
 
 </configure>

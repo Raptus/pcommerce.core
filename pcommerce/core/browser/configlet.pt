@@ -26,6 +26,7 @@
               metal:define-macro="master"
               tal:attributes="action request/URL;"
               method="post"
+              id="pcommerce_configlet"
               class="edit-form enableUnloadProtection"
               tal:define="errors view/errors">
                 
@@ -69,14 +70,6 @@
                     GTC
                 </label>
 
-                <span class="fieldRequired"
-                      title="Required"
-                      i18n:domain="plone"
-                      i18n:attributes="title title_required;"
-                      i18n:translate="label_required">
-                    (Required)
-                </span>
-
                 <div class="formHelp"
                      i18n:translate="">
                     The path to the page holding the general terms and conditions to accept before payment
@@ -92,50 +85,128 @@
                            tal:attributes="value request/gtc|view/values/gtc|nothing">
                 </div>
             </div>
+            
+            <div class="field"
+                 tal:attributes="class python:'field'+(errors.has_key('post_checkout') and ' error' or '')">
+
+                <label i18n:translate=""
+                       for="post_checkout">
+                    Post checkout
+                </label>
+
+                <div class="formHelp"
+                     i18n:translate="">
+                    The path to the page to be redirected to after checkout
+                </div>
+
+                <div tal:condition="python:errors.has_key('post_checkout')"
+                     tal:content="errors/post_checkout|nothing">
+                    The Error
+                </div>
+
+                <div class="widget">
+                    <input id="post_checkout" name="post_checkout" value="" type="text"
+                           tal:attributes="value request/post_checkout|view/values/post_checkout|nothing">
+                </div>
+            </div>
 
             <fieldset>
                 <legend i18n:translate="">Taxes</legend>
                 
-                <div class="field" tal:repeat="tax view/taxes"
-                     tal:attributes="class python:'field'+(errors.has_key(tax['id']) and ' error' or '')">
-
-                    <div tal:condition="python:errors.has_key(tax['id'])"
-                         tal:content="python:errors[tax['id']]">
-                        The Error
-                    </div>
-
-                    <div class="widget">
+                <table>
+                  <thead>
+                    <tr>
+                      <th i18n:translate="">Zone</th>
+                      <th i18n:translate="">Tax name</th>
+                      <th i18n:translate="">Tax factor</th>
+                      <th></th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="field" tal:repeat="tax view/taxes"
+                         tal:attributes="class python:'field'+(errors.has_key(tax['id']) and ' error' or '')">
+                      <td>
                         <input type="hidden" name="taxes.id:records" value=""
                                tal:attributes="value tax/id" />
                         <input id="taxes.zone:record" name="taxes.zone:records" value="" type="text"
                                tal:attributes="value tax/zone" />
+                      </td>
+                      <td>
+                        <input id="taxes.tax:records" name="taxes.taxname:records" value="" type="text" size="5"
+                               tal:attributes="value tax/taxname" />
+                      </td>
+                      <td>
                         <input id="taxes.tax:records" name="taxes.tax:records" value="" type="text" size="5"
                                tal:attributes="value tax/tax" />
+                      </td>
+                      <td>
                         <label><input id="taxes.remove:record" name="taxes.remove:records" value="1" type="checkbox" /> <tal:r i18n:translate="">remove</tal:r></label>
-                    </div>
-                </div>
-                
-                <div class="field"
-                     tal:attributes="class python:'field'+(errors.has_key('new') and ' error' or '')">
-
-                    <label i18n:translate=""
-                           for="taxes.zone:records:ignore_empty">
-                        Add new tax
-                    </label>
-
-                    <div tal:condition="python:errors.has_key('new')"
-                         tal:content="errors/new|nothing">
-                        The Error
-                    </div>
-
-                    <div class="widget">
+                      </td>
+                      <td>
+                        <tal:error tal:condition="python:errors.has_key(tax['id'])"
+                                   tal:content="python:errors[tax['id']]">
+                            The Error
+                        </tal:error>
+                      </td>
+                    </tr>
+                    <tr class="field"
+                         tal:attributes="class python:'field'+(errors.has_key('new') and ' error' or '')">
+                      <td>
                         <input id="taxes.zone:records:ignore_empty" name="taxes.zone:records:ignore_empty" value="" type="text"
                                tal:attributes="value request/new/zone|nothing" />
+                      </td>
+                      <td>
+                        <input id="taxes.taxname:records:ignore_empty" name="taxes.taxname:records:ignore_empty" value="" type="text" size="5"
+                               tal:attributes="value request/new/taxname|nothing" />
+                      </td>
+                      <td>
                         <input id="taxes.tax:records:ignore_empty" name="taxes.tax:records:ignore_empty" value="" type="text" size="5"
                                tal:attributes="value request/new/tax|nothing" />
+                      </td>
+                      <td>
                         <label><input type="checkbox" name="taxes.id:records:ignore_empty" value="new" /> <tal:a i18n:translate="">add</tal:a></label>
-                    </div>
-                </div>
+                      </td>
+                      <td>
+                        <tal:error tal:condition="python:errors.has_key('new')"
+                                   tal:content="python:errors['new']">
+                            The Error
+                        </tal:error>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+            </fieldset>
+            
+            <fieldset>
+                <legend i18n:translate="">Tax included in product price</legend>
+                <table>
+                  <thead>
+                    <tr>
+                      <th i18n:translate="">Tax name</th>
+                      <th i18n:translate="">Tax factor</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <input id="taxincl.taxname" name="taxincl.taxname" value="" type="text"
+                               tal:attributes="value view/taxincl/taxname|request/taxincl.taxname|nothing" />
+                      </td>
+                      <td>
+                        <input id="taxincl.tax" name="taxincl.tax" value="" type="text" size="5"
+                               tal:attributes="value view/taxincl/tax|request/taxincl.tax|nothing" />
+                      </td>
+                      <td>
+                        <tal:error tal:condition="python:errors.has_key('taxincl')"
+                                   tal:content="python:errors['taxincl']">
+                            The Error
+                        </tal:error>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
             </fieldset>
 
             <div id="actionsView" class="formControls">

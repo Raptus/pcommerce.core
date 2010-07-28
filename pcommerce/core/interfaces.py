@@ -1,4 +1,5 @@
 from zope.interface import Interface, Attribute
+from zope.publisher.interfaces.browser import IBrowserView
 
 class IProduct(Interface):
     """ A product
@@ -34,7 +35,7 @@ class IShoppingCart(Interface):
     """
     
     def getProducts():
-        """ returns list of products currently in the cart
+        """ returns a list of products currently in the cart
         """
     
     def getPrice():
@@ -97,20 +98,31 @@ class IOrderRegistry(Interface):
         """ returns a order by its id
         """
     
-    def createFromSession(zone, info={}):
+    def create(order):
         """ generates an order from the cart
         """
         
-    def recoverOrder(orderid):
+    def recover(orderid):
         """ recover an order from the registry
         """
                 
-    def sendOrder(orderid):
+    def send(orderid, lang=None):
         """ sends an order
         """
         
+    def cancel(orderid):
+        """ cancel an order
+        """
+        
+    def fail(orderid):
+        """ fail an order
+        """
+        
 class IAddress(Interface):
-    """"""
+    """ An address
+    """
+    
+    salutation = Attribute("""string""")
     
     name = Attribute("""string""")
     
@@ -129,9 +141,25 @@ class IAddress(Interface):
     email = Attribute("""string""")
     
     phone = Attribute("""string""")
+    
+    def mailInfo(request, lang=None, customer=False):
+        """ returns plain text information about the address to be sent by email """
+    
+class IAddressFactory(Interface):
+    """ An adapter to validate and create IAddress objects
+    """
+    
+    def create(tag):
+        """ Returns a new Address object based on the request
+        """
+        
+    def validate(tag):
+        """ Validates the data in the request to match the ones used for an Address
+        """
         
 class IOrder(Interface):
-    """"""
+    """ An order
+    """
     
     state = Attribute(
         """integer: the current state of the order""")
@@ -152,99 +180,77 @@ class IOrder(Interface):
         """float: the price""")
     
     zone = Attribute(
-        """tuple: (name, tax)""")
-    
-    delivery = Attribute(
-        """address""")
+        """tuple: (name, (tax, taxname))""")
     
     currency = Attribute(
         """string: the currency""")
-
+    
+    address = Attribute(
+        """IAddress: customer address""")
+    
+    paymentid = Attribute(
+        """string: name of the payment method""")
+    
+    paymentdata = Attribute(
+        """IPayment: data stored by the payment method""")
+    
+    shipmentids = Attribute(
+        """dict: mapping of shipmentid to product uids""")
+    
+    shipmentdata = Attribute(
+        """dict: mapping of IShipmentData objects to shipmentid""")
+    
+    pretaxcharges = Attribute(
+        """tuple: list of IChargeData objects""")
+    
+    posttaxcharges = Attribute(
+        """tuple: list of IChargeData objects""")
+    
+    total = Attribute(
+        """float: the total price including tax and pre tax shipment prices""")
+    
+    subtotal = Attribute(
+        """float: the total price including pre tax shipment prices""")
+    
+    totalincl = Attribute(
+        """float: the total price including tax and shipment prices""")
+    
+    pretaxcharge = Attribute(
+        """float: pre tax charge""")
+    
+    posttaxcharge = Attribute(
+        """float: post tax charge""")
+    
+    zonename = Attribute(
+        """string: the name of the zone""")
+    
+    taxname = Attribute(
+        """string: the name of the tax""")
+    
+    tax = Attribute(
+        """float: the tax factor""")
+    
+    pricetax = Attribute(
+        """float: the tax price""")
+        
+class IPaymentProcessor(Interface):
+    """"""
+    
+    def processOrder(orderid, paymentid, lang=None):
+        """ Processes an order """
+    
 class IOrderEvent(Interface):
-    """An event that's fired upon order change.
+    """ An event that's fired upon order change.
     """
     order = Attribute(u'The order object')
     
 class IOrderProcessedEvent(IOrderEvent):
-    """An event fired after a order has been processed
+    """ An event fired after a order has been processed
     """
     
 class IOrderProcessingFailedEvent(IOrderEvent):
-    """An event that's fired if processiong an order failed
+    """ An event that's fired if processiong an order failed
     """
-
-class IPaymentProcessor(Interface):
-    """
-    """
-        
-class IProcessView(Interface):
-    """A view to process a payment of a specific payment-method"""
-    
-    def getOrderId(self):
-        """returns the orderid"""
-
-class IPaymentRegistry(Interface):
-    """A utility holding registered payment-utilities"""
-
-    def getPaymentMethods():
-        """get all registered payment-methods"""
-
-class IPaymentMethod(Interface):
-    """A payment-method"""
-
-    title = Attribute(
-        """unicode: the title of the payment method""")
-
-    decription = Attribute(
-        """unicode: the description of the payment method""")
-
-    icon = Attribute(
-        """string: icon resource""")
-
-    logo = Attribute(
-        """string: logo resource""")
-
-    pre_view_name = Attribute(
-        """string: the name of the view used pre order""")
-
-    info_view_name = Attribute(
-        """string: the name of the view used to display additional informations""")
-
-    post_view_name = Attribute(
-        """string: the name of the view used post order""")
-    
-    def convertAmount(amount):
-        """method to convert the amount"""
-
-    def getOrderId(context):
-        """returns the unique id of an order"""
-    
-    def getOrder(context):
-        """returns an object implementing the IOrder-interface"""
-
-    def startCheckout(context):
-        """start the payment process"""
-        
-    def checkout(context, order):
-        """"""
-
-    def cancelCheckout(context, order):
-        """cancel the payment process"""
-
-    def verifyPayment(context, order):
-        """checks whether the payment was successfull or not"""
-        
-class IPostOrderFormView(Interface):
-    """Marker interface for payment-forms which are view-classes rather than simple page-templates"""
-    
-class IPreOrderView(Interface):
-    """"""
-    
-    def validate(order):
-        """"""
-        
-    def process(order):
-        """"""
     
 class IPricing(Interface):
     """ An adapter to handle prices of a product
@@ -280,6 +286,159 @@ class ITaxes(Interface):
     def edit(taxes):
         """ edits the taxes
         
-            taxes has to be a list of dicts with keys 'zone', 'tax'
+            taxes has to be a list of dicts with keys 'zone', 'tax', 'taxname'
         """
+
+class ICheckoutView(Interface):
+    """ Checkout view
+    """
+
+class ISteps(Interface):
+    """ Steps provider
+    """
+    
+class IComponent(IBrowserView):
+    """ A component for the checkout steps
+    """
+    
+    dependencies  = Attribute(u'Tuple: name of dependencies components')
+    
+    def validate(self):
+        """ validate the form values """
+
+    def process(self):
+        """ process of the component """
+    
+    def renders(self):
+        """ defines whether a component renders or not """
+
+class IPaymentRegistry(Interface):
+    """ An adapter holding registered payment
+    """
+
+    def getPayments():
+        """ get all registered payment methods """
         
+class IShipmentRegistry(Interface):
+    """ An adapter holding registered shipments
+    """
+
+    def getShipments():
+        """ get all registered shipment methods """
+        
+class IPaymentMethod(Interface):
+    """ A payment method
+    """
+
+    title = Attribute(
+        """unicode: the title of the payment method""")
+
+    decription = Attribute(
+        """unicode: the description of the payment method""")
+
+    icon = Attribute(
+        """string: icon resource""")
+
+    logo = Attribute(
+        """string: logo resource""")
+    
+    def verifyPayment(order):
+        """verify the payment"""
+    
+    def mailInfo(order, lang=None, customer=False):
+        """ returns plain text information about the payment to be sent by email """
+    
+class IPaymentData(Interface):
+    """ A payment object to be stored on the order
+    """
+    
+    paymentid = Attribute(
+        """ the name of the corresponding payment method """)
+        
+    pretaxcharge = Attribute(
+        """ returns the pre tax charge for this payment """)
+        
+    posttaxcharge = Attribute(
+        """ returns the post tax charge for this payment """)
+
+class IPaymentView(Interface):
+    """ A payment view
+    """
+    
+    def validate(self):
+        """ validate the form values """
+
+    def process(self):
+        """ process of the payment view and return a IPaymentData object """
+    
+    def renders(self):
+        """ defines whether a payment view renders or not """
+    
+class IShipmentMethod(Interface):
+    """ A shipment method
+    """
+
+    title = Attribute(
+        """unicode: the title of the payment method""")
+
+    decription = Attribute(
+        """unicode: the description of the payment method""")
+
+    icon = Attribute(
+        """string: icon resource""")
+
+    logo = Attribute(
+        """string: logo resource""")
+    
+    def mailInfo(order, lang=None, customer=False):
+        """ returns plain text information about the shipment to be sent by email """
+    
+class IShipmentData(Interface):
+    """ A shipment object to be stored on the order
+    """
+    
+    shipmentid = Attribute(
+        """ the name of the corresponding shipment method """)
+        
+    pretaxcharge = Attribute(
+        """ returns the pre tax charge for this shipment """)
+        
+    posttaxcharge = Attribute(
+        """ returns the post tax charge for this shipment """)
+
+class IShipmentView(Interface):
+    """ A shipment view
+    """
+    
+    def validate(self):
+        """ validate the form values """
+
+    def process(self):
+        """ process of the shipment view and return a IShipmentData object """
+
+    def renders(self):
+        """ defines whether a shipment view renders or not """
+        
+class IPreTaxCharge(Interface):
+    """ An adapter to provide a pre tax charge
+    """
+    
+    def process(order):
+        """ returns an IChargeData object containing the charge """
+        
+class IPostTaxCharge(Interface):
+    """ An adapter to provide a post tax charge
+    """
+    
+    def process(order):
+        """ returns an IChargeData object containing the charge """
+        
+class IChargeData(Interface):
+    """ An additional charge for an order
+    """
+    
+    title = Attribute(
+        """unicode: the title of the charge""")
+    
+    price = Attribute(
+        """flaot: the price""")

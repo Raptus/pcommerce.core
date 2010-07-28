@@ -1,300 +1,346 @@
 import re
+
+from time import time
 from Acquisition import aq_inner, aq_parent
 
-from zope.component import getMultiAdapter, getUtility
+from zope.component import getMultiAdapter, getUtility, getAdapter
+from zope.interface import implements
 from zope.interface import implements
 from zope.i18n import translate
 
-from Products.statusmessages.interfaces import IStatusMessage
+from plone.memoize.instance import memoize
 
 from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-
 from Products.CMFCore.utils import getToolByName
-
-from plone.memoize.instance import memoize
-
 from Products.CMFPlone import PloneMessageFactory as _p
-
+from Products.statusmessages.interfaces import IStatusMessage
 from Products.validation.validators.BaseValidators import EMAIL_RE
 email_re = re.compile(EMAIL_RE)
 
-from pcommerce.core.config import INITIALIZED, SENT, CANCELED, FAILED
-from pcommerce.core.address import Address
-from pcommerce.core.interfaces import IShoppingCart, IOrderRegistry, IPaymentRegistry, ITaxes
-from pcommerce.core.currency import CurrencyAware
 from pcommerce.core import PCommerceMessageFactory as _
+from pcommerce.core.address import Address
+from pcommerce.core.config import INITIALIZED, SENT, CANCELED, FAILED, PROCESSED
+from pcommerce.core.currency import CurrencyAware
+from pcommerce.core.interfaces import IShoppingCart, IOrderRegistry, ICheckoutView, IComponent, IOrder, ISteps
 
-class CheckoutBaseView(BrowserView):
-    """
-    """
-    payment_method = None
-    payment_id = None
-    
-    def __call__(self):
-        self.request.set('disable_border', True)
-        
-        payments = self.getPayments()
-        payment_id = None
-        if len(payments) == 1:
-            payment_id = payments.keys()[0]
-        elif self.request.form.get('payment_id', None) is not None:
-            payment_id = self.request.form.get('payment_id', None)
-            self.request.SESSION.set('pcommerce.payment_id', payment_id)
-        elif self.request.SESSION.get('pcommerce.payment_id', None) is not None:
-            payment_id = self.request.SESSION.get('pcommerce.payment_id', None)
-        if payment_id is not None and payments.has_key(payment_id):
-            self.payment_id = payment_id
-        if self.payment_id is not None:
-            self.payment_method = payments[self.payment_id]
-    
-    @memoize
-    def getPayments(self):
-        registry = getUtility(IPaymentRegistry)
-        return registry.getPaymentMethods()
-    
-    @property
-    @memoize
-    def payments(self):
-        payments = []
-        for name, payment in self.getPayments().items():
-            payments.append({'id': name,
-                             'title': payment.title,
-                             'description': payment.description,
-                             'icon': payment.icon,
-                             'logo': payment.logo})
-        return payments
-        
-    def _resetSession(self):
-        self.request.SESSION.set('pcommerce.payment_id', 0)
+from pcommerce.core.order import Order, ORDER_SESSION_KEY
 
-class CheckoutView(CheckoutBaseView):
+class Checkout(BrowserView):
     """checkout view
     """
+    implements(ICheckoutView)
+
+    template = ViewPageTemplateFile('checkout.pt')
+       
+    errors = {}
     cart = None
     order = None
-    required = ('name', 'address1', 'city', 'country','gtc',)
-    fields = ('name', 'address1', 'address2', )
-    errors = {}
+    stepid = 0
+    components = []
+    redirect = None
 
-    template = ViewPageTemplateFile('templates/checkout.pt')
-    template_pre = ViewPageTemplateFile('templates/checkout_pre.pt')
-    template_info = ViewPageTemplateFile('templates/checkout_info.pt')
-    template_post = ViewPageTemplateFile('templates/checkout_post.pt')
-    
     def __call__(self):
-        CheckoutBaseView.__call__(self)
+        self.request.set('disable_border', 1)
         self.errors = {}
-        self.order = None
         
         self.cart = IShoppingCart(self.context)
+
         if not len(self.cart):
             statusmessage = IStatusMessage(self.request)
             statusmessage.addStatusMessage(_(u'You have not yet added any products to your cart'), 'error')
             return self.request.RESPONSE.redirect('%s/@@cart' % self.context.absolute_url())
-                
-        if self.request.form.get('pcommerce.cancel', None):
+
+        if self.request.form.get('checkout.cancel', None):
             return getMultiAdapter((self.context, self.request), name=u'checkout.cancel')()
- 
-        if self.payment_method is not None:
+        
+        self.stepid = int(self.request.form.get('checkout.stepid', 0))
+
+        temp_state = None
+        registry = IOrderRegistry(self.context)
+        self.order = registry.getOrder(self.request.SESSION.get(ORDER_SESSION_KEY, 0))
+        if self.order is not None and self.order.state != INITIALIZED:
+            temp_state = self.order.state
+            self.order.state = INITIALIZED
             
-            # get the orderid from the payment method
-            orderid = self.payment_method.getOrderId(self.context)
+        self.order = IOrder(self.context)
+        
+        self._stepid_validator()
+        
+        if self.request.form.get('checkout.next') and self.stepid < len(self.steps) - 1:
+            self.next()
+        elif self.request.form.get('checkout.previous') and self.stepid > 0:
+            self.previous()
+        elif self.request.get('stepid'):
+            self.gotostep(int(self.request.get('stepid', 0)))
+        
+        if self.redirect is not None:
+            return self.request.RESPONSE.redirect(self.redirect)
+        
+        html = self.template()
+        
+        if temp_state is not None:
+            self.order.state = temp_state
             
-            # get the order
-            orders = IOrderRegistry(self.context)
-            if orderid and orders.has_key(orderid):
-                self.order = orders[orderid]
-                if self.order.state is INITIALIZED:
-                    orders.create(self.order, self.order.delivery.zone)
-                else:
-                    self.order = None
-            
-            if self.request.form.get('pcommerce.checkout', None) and self.order:
-                orders.send(self.order.orderid)
-                self.payment_method.checkout(self.context, self.order)
-                self.cart.clear()
-                return self.template_post()
+        if self.laststep:
+            registry = IOrderRegistry(self.context)
+            registry.send(self.order.orderid)
+            self.cart.clear()
+        
+        return html
+    
+    @property
+    def steps(self):
+        return ISteps(self.context)
+    
+    def next(self):
+        self._nextstep()
+        while 1:
+            for component in self.components:
+                if component.renders():
+                    return
+            self._nextstep()
                 
-            # render pre payment page
-            if self.request.get('pcommerce.pre', None) is not None:
-                if not self.pre_payment:
-                    return self.template_info()
-                if self.request.get('pcommerce.pre.edit', None):
-                    if self.pre_payment.validate(self.order):
-                        self.pre_payment.process(self.order)
-                        return self.template_info()
-                    statusmessage = IStatusMessage(self.request)
-                    statusmessage.addStatusMessage(_p(u'Please correct the indicated errors'), 'error')
-                return self.template_pre()
+    def previous(self):
+        self._previousstep()
+        while 1:
+            for component in self.components:
+                if component.renders():
+                    return
+            self._previousstep()
+    
+    def gotostep(self, stepid):
+        self._gotostep(stepid)
+        renders = False
+        for component in self.components:
+            if component.renders():
+                renders = True
+        if not renders:
+            self.gotostep(self.stepid+1)
+        
+    def _nextstep(self):
+        if self.validate():
+            self.process()
+            self.stepid += 1
+            self._stepid_validator()
             
-            # render delivery page
-            if self.request.form.get('pcommerce.delivery', None) is not None:
-                if self.request.get('pcommerce.delivery.edit', None):
-                    if self.validate():
-                        if not self.order or self.order.state is not INITIALIZED:
-                            self.payment_method.startCheckout(self.context)
-                            self.order = self.payment_method.getOrder(self.context)
-                        self.order.delivery = Address(name=self.request.get('name').decode('utf-8'),
-                                                      address1=self.request.get('address1').decode('utf-8'),
-                                                      address2=self.request.get('address2').decode('utf-8'),
-                                                      zip=self.request.get('zip').decode('utf-8'),
-                                                      city=self.request.get('city').decode('utf-8'),
-                                                      country=self.request.get('country').decode('utf-8'),
-                                                      zone=self.request.get('zone', '').decode('utf-8'),
-                                                      email=self.request.get('email').decode('utf-8'),
-                                                      phone=self.request.get('phone'))
-                        orders[self.payment_method.getOrderId(self.context)] = self.order
-                        if self.pre_payment:
-                            self.request.form = {}
-                            return self.template_pre()
-                        return self.template_info()
-                    statusmessage = IStatusMessage(self.request)
-                    statusmessage.addStatusMessage(_p(u'Please correct the indicated errors'), 'error')
+    def _previousstep(self):
+        self.stepid -= 1
+        self._stepid_validator()
+        
+    def _gotostep(self, stepid):
+        self.stepid = stepid
+        self._stepid_validator()
+        
+    def _stepid_validator(self):
+        if self.stepid < 0:
+            self.stepid = 0
+            self._initialize_components()
+            return
+        elif self.stepid > len(self.steps)-1:
+            self.stepid = len(self.steps)-1
             
-        return self.template()
+        for stepid in range(0, self.stepid):
+            if not stepid in self.order.processed_steps:
+                self.stepid = stepid
+                self._initialize_components()
+                return
+        
+        self._initialize_components()
+        
+    def _initialize_components(self):
+        self.components = []
+        for name in self.steps[self.stepid]['components']:
+            component = getMultiAdapter((self.context, self.request), interface=IComponent, name=name).__of__(self.context)
+            self.components.append(component)
+        return self.components
     
     def validate(self):
-        if self.request.get('as_delivery', 0):
-            if self.order.delivery:
-                return True
-        for field in self.required:
-            if not self.request.get(field, ''):
-                self.errors[field] = _p(u'This field is required, please provide some information.')
-        if self.request.get('email', 0):
-            if not email_re.match(self.request.get('email', '')):
-                self.errors['email'] = _p(u'Please submit a valid email address.')
-        return len(self.errors) == 0
-    
-    @property
-    @memoize
-    def amount(self):
-        return self.cart.amount()
-    
-    @property
-    @memoize
-    def products(self):
-        return self.cart.getProducts()
-    
-    @property
-    @memoize
-    def price(self):
-        if self.order:
-            return CurrencyAware(self.order.price)
-        return CurrencyAware(self.cart.getPrice())
-    
-    @property
-    @memoize
-    def price_tax(self):
-        if self.order:
-            return CurrencyAware(self.order.price_tax)
-        return None
-    
-    @property
-    @memoize
-    def tax(self):
-        if self.order:
-            return self.order.tax
-        return None
-    
-    @property
-    @memoize
-    def total(self):
-        if self.order:
-            return CurrencyAware(self.order.total)
-        return None
-    
-    @property
-    @memoize
-    def zones(self):
-        taxes = ITaxes(self.context)
-        return [{'name': name,
-                 'tax': tax} for name, tax in taxes.items()]
-            
-    @memoize
-    def gtc(self):
-        props = getToolByName(self.context, 'portal_properties').pcommerce_properties
-        return '%s/%s' % (getToolByName(self.context, 'portal_url')(), props.getProperty('gtc', ''))
-    
-    @memoize
-    def getDescription(self):
-        props = getToolByName(self.context, 'portal_properties').pcommerce_properties
-        return props.getProperty('productname', self.context.Title())
-        
-    @property
-    @memoize
-    def pre_payment(self):
-        if self.payment_method is not None and self.payment_method.pre_view_name:
-            return getMultiAdapter((self.context, self.request), name=self.payment_method.pre_view_name)
-        return None
-        
-    @property
-    @memoize
-    def info_payment(self):
-        if self.payment_method is not None and self.payment_method.info_view_name:
-            return getMultiAdapter((self.context, self.request), name=self.payment_method.info_view_name)
-        return None
-        
-    @property
-    @memoize
-    def post_payment(self):
-        if self.payment_method is not None and self.payment_method.post_view_name:
-            return getMultiAdapter((self.context, self.request), name=self.payment_method.post_view_name)
-        return None
-        
-    @property
-    @memoize
-    def post_payment_type(self):
-        if not self.post_payment:
-            return None
-        return IPaymentFormView.providedBy(self.post_payment)
-    
-    @property
-    @memoize
-    def member_info(self):
-        mship = getToolByName(self.context, 'portal_membership')
-        return mship.getMemberInfo()
-    
-    @memoize
-    def getOrderId(self):
-        return self.payment_method.getOrderId(self.context)
+        valid = True
+        for component in self.components:
+            if not component.validate():
+                valid = False
+        return valid
 
-class CheckoutCancelView(CheckoutBaseView):
+    def process(self):
+        self.redirect = None
+        for component in self.components:
+            component.process()
+            if not (self.stepid in self.order.processed_steps):
+                self.order.processed_steps = self.order.processed_steps + (self.stepid,)
+            for i in range(0, len(self.steps)):
+                step = self.steps[i]
+                for name in step['components']:
+                    s_component = getMultiAdapter((self.context, self.request), interface=IComponent, name=name).__of__(self.context)
+                    if component.__name__ in s_component.dependencies:
+                        self.order.processed_steps = tuple([n for n in self.order.processed_steps if not n == i])
+            if hasattr(component, 'action'):
+                action = component.action()
+                if action:
+                    self.redirect = action
+    
+    def renders(self, step):
+        components = []
+        for name in step['components']:
+            component = getMultiAdapter((self.context, self.request), interface=IComponent, name=name).__of__(self.context)
+            if component.renders():
+                return True
+        return False
+    
+    @property
+    def stepnavigation(self):
+        steps = []
+        step = None
+        
+        for i in range(0, len(self.steps)):
+            step = self.steps[i]
+            if len(steps) and step['name'] == steps[-1]['name']:
+                continue
+            renders = False
+            for name in step['components']:
+                component = getMultiAdapter((self.context, self.request), interface=IComponent, name=name).__of__(self.context)
+                if component.renders():
+                    renders = True
+            if not renders:
+                continue
+            
+            selected = False
+            if step['name'] == self.steps[self.stepid]['name']:
+                selected = True
+            
+            _class = 'step'
+            if i is 0:
+                _class+=' first'
+            elif i is len(self.steps):
+                _class+=' last'
+            if selected:
+                _class+=' select'
+            if i in self.order.processed_steps:
+                _class+=' processed'
+            href = None
+            if (i in self.order.processed_steps or (i-1) in self.order.processed_steps) and not selected and not self.laststep:
+                href = '%s/@@checkout?stepid=%s' % (self.context.absolute_url(), i)
+                
+            steps.append({'stepid': str(i),
+                          'name': step['name'],
+                          'selected': selected,
+                          'href': href,
+                          'class': _class, })
+        return steps
+    
+    @property
+    def previous_label(self):
+        for component in self.components:
+            if hasattr(component, 'previous_label'):
+                return component.previous_label
+        if self.laststep:
+            return _(u'Print')
+        return _(u'Previous step')
+    
+    @property
+    def next_label(self):
+        for component in self.components:
+            if hasattr(component, 'next_label'):
+                return component.next_label
+        if self.laststep:
+            return _(u'Continue shopping')
+        if self.stepid == len(self.steps) - 2:
+            return _(u'Send order')
+        return _(u'Next step')
+    
+    @property
+    def cancel_label(self):
+        for component in self.components:
+            if hasattr(component, 'cancel_label'):
+                return component.cancel_label
+        return _(u'Cancel checkout')
+    
+    @property
+    def previous_onclick(self):
+        for component in self.components:
+            if hasattr(component, 'previous_onclick'):
+                return component.previous_onclick
+        if self.laststep:
+            return "print()"
+        return None
+    
+    @property
+    def next_onclick(self):
+        for component in self.components:
+            if hasattr(component, 'next_onclick'):
+                return component.next_onclick
+        return None
+    
+    @property
+    def cancel_onclick(self):
+        for component in self.components:
+            if hasattr(component, 'cancel_onclick'):
+                return component.cancel_onclick
+        return None
+    
+    @property
+    def action(self):
+        if self.laststep:
+            props = getToolByName(self.context, 'portal_properties').pcommerce_properties
+            portal_state = getMultiAdapter((self.context, self.request), name=u'plone_portal_state')
+            return '%s/%s' % (portal_state.portal_url(), props.getProperty('post_checkout', ''))
+        return self.context.absolute_url()+'/@@checkout'
+    
+    @property
+    def laststep(self):
+        return self.stepid == len(self.steps) - 1
+    
+class PaymentFailed(BrowserView):
+    """ Payment failed
+    """
+    
+    def __call__(self):
+        order = IOrder(self.context)
+        m = max(order.processed_steps)
+        order.processed_steps = tuple([n for n in order.processed_steps if n != m])
+        statusmessage = IStatusMessage(self.request)
+        statusmessage.addStatusMessage(_(u'Payment failed'), 'error')
+        return self.request.RESPONSE.redirect('%s/@@checkout?stepid=%s' % (self.context.absolute_url(), m))
+    
+class PaymentCancel(BrowserView):
+    """ Payment canceled
+    """
+    
+    def __call__(self):
+        order = IOrder(self.context)
+        m = max(order.processed_steps)
+        order.processed_steps = tuple([n for n in order.processed_steps if n != m])
+        statusmessage = IStatusMessage(self.request)
+        statusmessage.addStatusMessage(_(u'Payment canceled'), 'error')
+        return self.request.RESPONSE.redirect('%s/@@checkout?stepid=%s' % (self.context.absolute_url(), m))
+    
+class PaymentSuccess(BrowserView):
+    """ Payment successful
+    """
+    
+    def __call__(self):
+        registry = IOrderRegistry(self.context)
+        order = registry.getOrder(self.request.SESSION.get(ORDER_SESSION_KEY, 0))
+        return self.request.RESPONSE.redirect('%s/@@checkout?checkout.stepid=%s' % (self.context.absolute_url(), max(order.processed_steps) + 1))
+
+class CheckoutCancel(BrowserView):
     """checkout cancel view
     """
 
     def __call__(self):
-        CheckoutBaseView.__call__(self)
-        
-        if self.payment_method is not None:
-            registry = IOrderRegistry(self.context)
-            orderid = self.payment_method.getOrderId(self.context)
-            if registry.has_key(orderid):
-                order = registry[orderid]
-                order.state = CANCELED
-                self.payment_method.cancelCheckout(self.context, order)
-                registry.recover(orderid)
+        registry = IOrderRegistry(self.context)
+        registry.cancel(self.request.SESSION.get(ORDER_SESSION_KEY, 0))
         statusmessage = IStatusMessage(self.request)
         statusmessage.addStatusMessage(_('message_checkout_canceled', default=u'Check out canceled'), 'info')
-        self._resetSession()
         return self.request.RESPONSE.redirect('%s/@@cart' % self.context.absolute_url())
     
-class CheckoutFailedView(CheckoutBaseView):
+class CheckoutFailed(BrowserView):
     """checkout failed view
     """
 
     def __call__(self):
-        CheckoutBaseView.__call__(self)
-        
-        if self.payment_method is not None:
-            registry = IOrderRegistry(self.context)
-            orderid = self.payment_method.getOrderId(self.context)
-            if registry.has_key(orderid):
-                order = registry[orderid]
-                order.state = FAILED
-                self.payment_method.cancelCheckout(self.context, order)
-                registry.recover(orderid)
+        registry = IOrderRegistry(self.context)
+        registry.fail(self.request.SESSION.get(ORDER_SESSION_KEY, 0))
         statusmessage = IStatusMessage(self.request)
         statusmessage.addStatusMessage(_('message_checkout_failed', default=u'Check out failed'), 'error')
-        self._resetSession()
         return self.request.RESPONSE.redirect('%s/@@cart' % self.context.absolute_url())

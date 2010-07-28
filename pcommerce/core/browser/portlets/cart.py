@@ -44,7 +44,7 @@ class Renderer(base.Renderer):
     def checkout(self):
         return getToolByName(self.context, 'portal_membership').checkPermission(CheckOut, self.context)
 
-    render = ViewPageTemplateFile('templates/cart.pt')
+    render = ViewPageTemplateFile('cart.pt')
 
 class AddForm(base.NullAddForm):
 

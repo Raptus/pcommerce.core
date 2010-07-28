@@ -12,6 +12,11 @@
       />
 
   <permission
+      id="pcommerce.AddImage"
+      title="PCommerce: Add Image"
+      />
+
+  <permission
       id="pcommerce.AddPrice"
       title="PCommerce: Add Price"
       />
@@ -24,6 +29,11 @@
   <permission
       id="pcommerce.CheckOut"
       title="PCommerce: Check out"
+      />
+
+  <permission
+      id="pcommerce.ManageOrders"
+      title="PCommerce: Manage Orders"
       />
 
 </configure>

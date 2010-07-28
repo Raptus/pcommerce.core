@@ -1,0 +1,523 @@
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# SOME DESCRIPTIVE TITLE.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2010-03-15 11:25+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: pcommerce\n"
+
+#. Default: "Add image"
+#: ./browser/images.pt:23
+msgid "Add image"
+msgstr ""
+
+#. Default: "Add price"
+#: ./browser/prices.pt:24
+msgid "Add price"
+msgstr ""
+
+#. Default: "Add variation"
+#: ./browser/variations.pt:22
+msgid "Add variation"
+msgstr ""
+
+#: ./browser/viewlets/processor.py:46
+msgid "Added ${count} items to cart"
+msgstr ""
+
+#: ./browser/viewlets/processor.py:48
+msgid "Added item to cart"
+msgstr ""
+
+#: ./content/variation.py:35
+msgid "Additional price"
+msgstr ""
+
+#. Default: "Additional prices"
+#: ./browser/prices.pt:27
+msgid "Additional prices"
+msgstr ""
+
+#. Default: "Address"
+#: ./browser/components/overview.pt:9
+msgid "Address"
+msgstr ""
+
+#. Default: "Address 1"
+#: ./browser/address.pt:109
+msgid "Address 1"
+msgstr ""
+
+#. Default: "Address 2"
+#: ./browser/address.pt:136
+msgid "Address 2"
+msgstr ""
+
+#. Default: "Amount"
+#: ./browser/cart.pt:37
+msgid "Amount"
+msgstr ""
+
+#: ./browser/checkout.py:253
+msgid "Cancel checkout"
+msgstr ""
+
+#. Default: "Check out"
+#: ./browser/cart.pt:29
+msgid "Check out"
+msgstr ""
+
+#. Default: "Company"
+#: ./browser/address.pt:82
+msgid "Company"
+msgstr ""
+
+#. Default: "Confirmation"
+#: ./browser/components/confirmation.pt:11
+msgid "Confirmation"
+msgstr ""
+
+#: ./browser/checkout.py:243
+msgid "Continue shopping"
+msgstr ""
+
+#. Default: "Country"
+#: ./browser/address.pt:194
+msgid "Country"
+msgstr ""
+
+#. Default: "Customer address"
+#: ./browser/components/address.pt:5
+msgid "Customer address"
+msgstr ""
+
+#. Default: "Edit cart"
+#: ./browser/cart.pt:111
+msgid "Edit cart"
+msgstr ""
+
+#. Default: "Email"
+#: ./browser/address.pt:264
+msgid "Email"
+msgstr ""
+
+#. Default: "GTC"
+#: ./browser/configlet.pt:68
+msgid "GTC"
+msgstr ""
+
+#: ./content/product.py:59
+msgid "Hot product"
+msgstr ""
+
+#. Default: "I accept the ${link}"
+#: ./browser/components/gtc.pt:10
+msgid "I accept the ${link}"
+msgstr ""
+
+#. Default: "Image"
+#: ./browser/images.pt:63
+msgid "Image"
+msgstr ""
+
+#. Default: "Images"
+#: ./browser/images.pt:26
+msgid "Images"
+msgstr ""
+
+#. Default: "Mr."
+#: ./browser/address.pt:36
+msgid "Mr."
+msgstr ""
+
+#. Default: "Mrs. / Ms."
+#: ./browser/address.pt:42
+msgid "Mrs. / Ms."
+msgstr ""
+
+#. Default: "Name"
+#: ./browser/address.pt:54
+msgid "Name"
+msgstr ""
+
+#: ./content/product.py:51
+msgid "New product"
+msgstr ""
+
+#. Default: "New products in our shop"
+#: ./browser/viewlets/new.pt:2
+msgid "New products in our shop"
+msgstr ""
+
+#: ./browser/checkout.py:246
+msgid "Next step"
+msgstr ""
+
+#: ./content/product.py:35
+msgid "No"
+msgstr ""
+
+#. Default: "No of articles:"
+#: ./browser/portlets/cart.pt:13
+msgid "No of articles:"
+msgstr ""
+
+#. Default: "Overview"
+#: ./browser/components/overview.pt:3
+msgid "Overview"
+msgstr ""
+
+#. Default: "PCommerce configuration"
+#: ./browser/configlet.pt:13
+msgid "PCommerce configuration"
+msgstr ""
+
+#. Default: "Payment"
+#: ./browser/components/confirmation.pt:42
+msgid "Payment"
+msgstr ""
+
+#: ./browser/checkout.py:288
+msgid "Payment canceled"
+msgstr ""
+
+#: ./browser/checkout.py:276
+msgid "Payment failed"
+msgstr ""
+
+#. Default: "Phone"
+#: ./browser/address.pt:292
+msgid "Phone"
+msgstr ""
+
+#: ./browser/configlet.py:43
+msgid "Please enter a floating point number (e.g. 7.6)"
+msgstr ""
+
+#: ./browser/configlet.py:39
+msgid "Please provide a tax name"
+msgstr ""
+
+#: ./browser/configlet.py:37
+msgid "Please provide a zone name"
+msgstr ""
+
+#: ./browser/components/payments.py:17
+msgid "Please select a payment method."
+msgstr ""
+
+#: ./browser/components/shipments.py:25
+msgid "Please select a shipment method."
+msgstr ""
+
+#: ./browser/viewlets/processor.py:29
+msgid "Please select a variation"
+msgstr ""
+
+#: ./browser/viewlets/processor.py:17
+msgid "Please specify an amount"
+msgstr ""
+
+#. Default: "Post checkout"
+#: ./browser/configlet.pt:92
+msgid "Post checkout"
+msgstr ""
+
+#: ./browser/checkout.py:235
+msgid "Previous step"
+msgstr ""
+
+#. Default: "Price"
+#: ./browser/cart.pt:38
+msgid "Price"
+msgstr ""
+
+#. Default: "Price total"
+#: ./browser/cart.pt:39
+msgid "Price total"
+msgstr ""
+
+#. Default: "Product"
+#: ./browser/cart.pt:36
+msgid "Product"
+msgstr ""
+
+#. Default: "Product highlights"
+#: ./browser/viewlets/hot.pt:2
+msgid "Product highlights"
+msgstr ""
+
+#. Default: "Product variations"
+#: ./browser/viewlets/variation.pt:2
+msgid "Product variations"
+msgstr ""
+
+#. Default: "Productname"
+#: ./browser/configlet.pt:36
+msgid "Productname"
+msgstr ""
+
+#. Default: "Related products"
+#: ./browser/viewlets/related.pt:2
+msgid "Related products"
+msgstr ""
+
+#. Default: "Remove"
+#: ./browser/cart.pt:40
+msgid "Remove"
+msgstr ""
+
+#: ./browser/viewlets/processor.py:50
+msgid "Removed ${count} items from cart"
+msgstr ""
+
+#: ./browser/viewlets/processor.py:52
+msgid "Removed item from cart"
+msgstr ""
+
+#. Default: "Salutation"
+#: ./browser/address.pt:25
+msgid "Salutation"
+msgstr ""
+
+#. Default: "Select the desired payment method"
+#: ./browser/components/payments.pt:5
+msgid "Select the desired payment method"
+msgstr ""
+
+#. Default: "Select the desired shipment method"
+#: ./browser/components/shipments.pt:6
+msgid "Select the desired shipment method"
+msgstr ""
+
+#. Default: "Select the desired shipment method for the following products:"
+#: ./browser/components/shipments.pt:47
+msgid "Select the desired shipment method for the following products:"
+msgstr ""
+
+#: ./browser/checkout.py:245
+msgid "Send order"
+msgstr ""
+
+#. Default: "Shipment"
+#: ./browser/components/confirmation.pt:24
+msgid "Shipment"
+msgstr ""
+
+#: ./browser/portlets/cart.py:23
+msgid "Shopping cart"
+msgstr ""
+
+#. Default: "Tax factor"
+#: ./browser/configlet.pt:121
+msgid "Tax factor"
+msgstr ""
+
+#. Default: "Tax name"
+#: ./browser/configlet.pt:120
+msgid "Tax name"
+msgstr ""
+
+#. Default: "Taxes"
+#: ./browser/configlet.pt:114
+msgid "Taxes"
+msgstr ""
+
+#. Default: "Thank you!"
+#: ./browser/components/confirmation.pt:3
+msgid "Thank you!"
+msgstr ""
+
+#: ./browser/components/gtc.py:17
+msgid "The general terms and conditions have to be accepted to finish your check out."
+msgstr ""
+
+#. Default: "The name appearing in payment-terminals"
+#: ./browser/configlet.pt:49
+msgid "The name appearing in payment-terminals"
+msgstr ""
+
+#. Default: "The path to the page holding the general terms and conditions to accept before payment"
+#: ./browser/configlet.pt:73
+msgid "The path to the page holding the general terms and conditions to accept before payment"
+msgstr ""
+
+#. Default: "The path to the page to be redirected to after checkout"
+#: ./browser/configlet.pt:97
+msgid "The path to the page to be redirected to after checkout"
+msgstr ""
+
+#. Default: "Total"
+#: ./browser/cart.pt:73
+msgid "Total"
+msgstr ""
+
+#. Default: "Total ${currency}:"
+#: ./browser/portlets/cart.pt:15
+msgid "Total ${currency}:"
+msgstr ""
+
+#. Default: "Total incl. ${taxname}"
+#: ./browser/macros.pt:152
+msgid "Total incl. ${taxname}"
+msgstr ""
+
+#. Default: "Total incl. charges"
+#: ./browser/macros.pt:125
+msgid "Total incl. charges"
+msgstr ""
+
+#. Default: "Total incl. charges and ${taxname}"
+#: ./browser/macros.pt:181
+msgid "Total incl. charges and ${taxname}"
+msgstr ""
+
+#: ./content/variation.py:26
+msgid "Type"
+msgstr ""
+
+#. Default: "Variations"
+#: ./browser/variations.pt:25
+msgid "Variations"
+msgstr ""
+
+#. Default: "We successfully received your order. An Email has been sent to you containing all the order details."
+#: ./browser/components/confirmation.pt:6
+msgid "We successfully received your order. An Email has been sent to you containing all the order details."
+msgstr ""
+
+#: ./browser/checkout.py:50
+msgid "You have not yet added any products to your cart"
+msgstr ""
+
+#. Default: "You have to be registered to check out your order, either ${log_in} if you already have an account or head over to the ${registration_form} if you don't."
+#: ./browser/cart.pt:103
+msgid "You have to be registered to check out your order, either ${log_in} if you already have an account or head over to the ${registration_form} if you don't."
+msgstr ""
+
+#. Default: "Your shopping cart"
+#: ./browser/cart.pt:11
+msgid "Your shopping cart"
+msgstr ""
+
+#. Default: "Your shopping cart is empty"
+#: ./browser/cart.pt:15
+msgid "Your shopping cart is empty"
+msgstr ""
+
+#. Default: "ZIP / City"
+#: ./browser/address.pt:155
+msgid "ZIP / City"
+msgstr ""
+
+#. Default: "Zone"
+#: ./browser/address.pt:223
+msgid "Zone"
+msgstr ""
+
+#. Default: "add"
+#: ./browser/configlet.pt:168
+msgid "add"
+msgstr ""
+
+#. Default: "add to cart"
+#: ./browser/viewlets/buy.pt:17
+msgid "add to cart"
+msgstr ""
+
+#. Default: "Check out"
+#: ./browser/checkout.pt:12
+msgid "checkout_title"
+msgstr ""
+
+#. Default: "This product has no Images. To add a Image, press the add button, or paste content from another location."
+#: ./browser/images.pt:40
+msgid "description_no_images"
+msgstr ""
+
+#. Default: "This product has no additional prices. To add a price, press the add button, or paste content from another location."
+#: ./browser/prices.pt:41
+msgid "description_no_prices"
+msgstr ""
+
+#. Default: "Dear ${name}\n\nYour order has successfully been registered. Please find a complete\noverview of your order below.\n\nOrder ID: ${orderid}\n\n${cart}\nCurrency: ${currency}\n\n\nAddress:\n${address}\n\nPayment:\n${payment}\n\nShipment:\n${shipments}\n\n\nIf you have any questions concerning your purchase do not hesitate\nto contact us at ${from_email}.\n\nBest regards\n\n${from_name}\n"
+#: ./order.py:400
+msgid "email_customer_body"
+msgstr ""
+
+#. Default: "Confirmation Email"
+#: ./order.py:351
+msgid "email_customer_title"
+msgstr ""
+
+#. Default: "New order by ${name}\n\nOrderid: ${orderid}\n\n${cart}\nCurrency: ${currency}\n\n\nAddress:\n${address}\n\nPayment:\n${payment}\n\nShipment:\n${shipments}\n\n"
+#: ./order.py:379
+msgid "email_order_body"
+msgstr ""
+
+#. Default: "New order [${orderid}]"
+#: ./order.py:343
+msgid "email_order_title"
+msgstr ""
+
+#. Default: "general terms and conditions"
+#: ./browser/components/gtc.pt:10
+msgid "general terms and conditions"
+msgstr ""
+
+#. Default: "You are currently looking at the images of a variation of the product ${product}."
+#: ./browser/images.pt:35
+msgid "info_Image"
+msgstr ""
+
+#. Default: "You are currently looking at a variation of the product ${product}."
+#: ./browser/variation.pt:22
+msgid "info_variation"
+msgstr ""
+
+#. Default: "You are currently looking at the prices of a variation of the product ${product}."
+#: ./browser/prices.pt:36
+msgid "info_variation_prices"
+msgstr ""
+
+#. Default: "log in"
+#: ./browser/cart.pt:96
+msgid "log_in"
+msgstr ""
+
+#. Default: "Check out canceled"
+#: ./browser/checkout.py:308
+msgid "message_checkout_canceled"
+msgstr ""
+
+#. Default: "Check out failed"
+#: ./browser/checkout.py:319
+msgid "message_checkout_failed"
+msgstr ""
+
+#. Default: "${offer} instead of ${price}"
+#: ./browser/macros.pt:5
+msgid "price_offer"
+msgstr ""
+
+#. Default: "registration form"
+#: ./browser/cart.pt:103
+msgid "registration_form"
+msgstr ""
+
+#. Default: "remove"
+#: ./browser/configlet.pt:144
+msgid "remove"
+msgstr ""
+

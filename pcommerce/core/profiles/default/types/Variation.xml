@@ -14,7 +14,7 @@
  <property name="filter_content_types">True</property>
  <property name="allowed_content_types">
   <element value="Price"/>
-  <element value="ImageAttachment"/>
+  <element value="Image"/>
  </property>
  <property name="allow_discussion">False</property>
  <alias from="(Default)" to="view"/>

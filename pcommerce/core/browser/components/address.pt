@@ -1,0 +1,9 @@
+<div id="address" class="component clearfix" i18n:domain="pcommerce" 
+     tal:define="address view/address;
+                 errors view/errors;
+                 tag string:customer;">
+  <h2 i18n:translate="">
+    Billing address
+  </h2>
+  <metal:address use-macro="context/@@pcommerce_address/addressForm" />
+</div>

@@ -1,0 +1,18 @@
+<div id="shipment" class="component" i18n:domain="pcommerce">
+  <h2 i18n:translate="">
+     Shipment
+  </h2>
+  <tal:shipments tal:repeat="shipment view/shipments">
+  <div class="shipment" tal:condition="shipment/renders"
+                        tal:omit-tag="not:view/multiple">
+    <h3 tal:content="shipment/title"
+            tal:condition="view/multiple">
+      Title
+    </h3>
+    <div class="logo" tal:condition="shipment/logo">
+      <img src="" tal:attributes="src shipment/logo" />
+    </div>
+    <tal:shipment replace="structure shipment/view" />
+  </div>
+  </tal:shipments>
+</div>

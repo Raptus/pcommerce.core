@@ -1,0 +1,47 @@
+<div id="overview" class="component" i18n:domain="pcommerce">
+  <h2 i18n:translate="">
+    Overview
+  </h2>
+  <div class="overview clearfix">
+    <div class="box customer"
+              tal:define="address view/address">
+      <h3 i18n:translate="">
+        Billing address
+      </h3>
+      <metal:address use-macro="context/@@pcommerce_address/addressInfo" />
+    </div>
+    
+    <div class="box shipment">
+      <h3 i18n:translate="">
+        Shipment
+      </h3>
+      <tal:shipments tal:repeat="shipment view/shipments">
+        <div class="shipmentinfo clearfix" tal:omit-tag="python:len(view.shipments) == 1">
+          <div class="logo" tal:condition="shipment/logo">
+            <img src="" tal:attributes="src shipment/logo" />
+          </div>
+          <h4>
+            <span tal:replace="shipment/title">Title</span>
+            <sup tal:condition="python:len(view.shipments) > 1" tal:content="shipment/number">1</sup>
+          </h4>
+          <tal:shipment replace="structure shipment/view"/>
+        </div>
+      </tal:shipments>
+    </div>
+    
+    <div class="box payment" tal:condition="view/paymentview">
+      <h3 i18n:translate="">
+        Payment
+      </h3>
+      <div class="logo" tal:condition="view/payment/logo">
+        <img src="" tal:attributes="src view/payment/logo" />
+      </div>
+      <h4 tal:content="view/payment/title">
+        Title
+      </h4>
+      <tal:payment replace="structure view/paymentview"/>
+    </div>
+  </div>
+  
+  <metal:payment use-macro="context/@@pcommerce_macros/cartInfo" />
+</div>

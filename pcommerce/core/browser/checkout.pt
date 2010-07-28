@@ -1,0 +1,69 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+<body>
+
+<metal:main fill-slot="main">
+    <div metal:define-macro="main"
+         i18n:domain="pcommerce"
+         id="checkout">
+                      
+      <h1 class="documentFirstHeading" i18n:translate="checkout_title">
+        Check out
+      </h1>
+      <div class="steps">
+      <tal:rep tal:repeat="navpart view/stepnavigation">
+        <tal:if tal:condition="navpart/href">
+          <a class="step"
+             tal:content="navpart/name"
+             tal:attributes="class navpart/class;
+                             href navpart/href;">
+          </a>
+        </tal:if>
+        <tal:if tal:condition="not:navpart/href">
+          <div class="step"
+               tal:content="navpart/name"
+               tal:attributes="class navpart/class;">
+          </div>
+        </tal:if>
+      </tal:rep>
+      </div>
+      <form name=""
+            id="checkout"
+            method="post"
+            action=""
+            tal:attributes="action view/action">
+                
+       <tal:components tal:repeat="component view/components">
+           <tal:component replace="structure component"/>
+       </tal:components>
+       
+       <input type="hidden" name="checkout.stepid" value="0" tal:attributes="value view/stepid"/>
+
+       <div class="formControls clearfix">
+          <input class="context previous" name="checkout.previous" value="Previous step" type="submit"
+                 tal:attributes="value view/previous_label;
+                                 onclick view/previous_onclick;
+                                 type python:view.previous_onclick is not None and 'button' or 'submit';"
+                 tal:condition="python:view.stepid is not 0" />
+          <input class="context next" name="checkout.next" value="Next step" type="submit"
+                 tal:attributes="value view/next_label;
+                                 onclick view/next_onclick;
+                                 type python:view.next_onclick is not None and 'button' or 'submit';" />
+          <input class="standalone" name="checkout.cancel" value="Cancel checkout" type="submit"
+                 tal:attributes="value view/cancel_label;
+                                 onclick view/cancel_onclick;
+                                 type python:view.cancel_onclick is not None and 'button' or 'submit';"
+                 tal:condition="not: view/laststep" />
+        </div>
+        
+      </form>
+
+    </div>
+    
+    
+    
+</metal:main>
+</body>
+</html>

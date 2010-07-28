@@ -7,13 +7,13 @@ from Products.CMFCore.utils import getToolByName
 
 from pcommerce.core.currency import CurrencyAware
 from pcommerce.core.config import CheckOut
-from pcommerce.core.interfaces import IShoppingCart
+from pcommerce.core.interfaces import IShoppingCart, ITaxes
 
-class ShoppingCartView(BrowserView):
+class Cart(BrowserView):
     """view of the shopping cart
     """
 
-    template = ViewPageTemplateFile('templates/cart.pt')
+    template = ViewPageTemplateFile('cart.pt')
 
     def __call__(self):
         self.request.set('disable_border', 1)
@@ -39,3 +39,11 @@ class ShoppingCartView(BrowserView):
     @memoize
     def price(self):
         return CurrencyAware(self.cart.getPrice())
+    
+    @property 
+    @memoize
+    def taxincl(self):
+        taxes = ITaxes(self.context)
+        return {'tax': taxes.taxincl[0],
+                'taxname': taxes.taxincl[1]}
+        

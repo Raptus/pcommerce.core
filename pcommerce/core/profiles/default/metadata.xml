@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <metadata>
-  <version>0.4</version>
+  <version>0.3</version>
   <dependencies>
     <dependency>profile-Products.SingleKeywordWidget:default</dependency>
-    <dependency>profile-Products.AttachmentTypes:default</dependency>
   </dependencies>
 </metadata>

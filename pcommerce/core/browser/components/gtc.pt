@@ -1,0 +1,20 @@
+<div id="gtc" i18n:domain="pcommerce">
+  <div class="field"
+       tal:attributes="class python:'field'+(view.errors.has_key('gtc') and ' error' or '')">
+    <div tal:condition="python:view.errors.has_key('gtc')"
+         tal:content="view/errors/gtc|nothing">
+      The Error
+    </div>
+    <label>
+      <input id="test" class="noborder" name="gtc:boolean" type="checkbox" value="1" />
+      <tal:label i18n:translate="">I accept the <a href="" target="_blank" i18n:name="link" tal:attributes="href view/gtc" i18n:translate="">general terms and conditions</a></tal:label>
+    </label>
+    <span class="fieldRequired"
+          title="Required"
+          i18n:domain="plone"
+          i18n:attributes="title title_required;"
+          i18n:translate="label_required">
+          (Required)
+    </span>
+  </div>
+</div>

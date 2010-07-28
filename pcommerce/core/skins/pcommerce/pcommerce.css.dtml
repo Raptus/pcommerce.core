@@ -1,6 +1,8 @@
 /* <dtml-with base_properties> (do not remove this :) */
 /* <dtml-call "REQUEST.set('portal_url', portal_url())"> (not this either :) */
 
+/* shopping cart portlet */
+
 .portletShoppingCart .portletItem {
   font-size:90%;
 }
@@ -26,13 +28,16 @@
   font-weight:bold;
 }
 
+
+/* shopping cart */
+
 #cart .formControls {
   text-align:right;
 }
 
 #cart table {
+  position:relative;
   border:none;
-  width:100%;
   padding:0;
   margin:0 0 1em 0;
   border-collapse: collapse;
@@ -68,6 +73,13 @@
   background-color:&dtml-globalBackgroundColor;;
 }
 
+#cart table tr.discreet th,
+#cart table tr.discreet td {
+  background-color: &dtml-evenRowBackgroundColor;;
+  padding-top:0.2em;
+  padding-bottom:0.2em;
+}
+
 #cart .formControls input.standalone {
   background-image:none;
   padding:1px;
@@ -79,57 +91,25 @@
   background-position:right center; 
 }
 
-#checkout fieldset {
+
+/* checkout */
+
+#checkout .component {
+  margin:1em 0;
   padding:1em;
-}
-
-#checkout fieldset legend {
-  margin-left:-1em;
-  padding:0.1em 1em;
-  font-size:110%;
-  background-color:&dtml-globalBackgroundColor;;
   border:&dtml-borderWidth; &dtml-borderStyle; &dtml-globalBorderColor;;
-  .margin-bottom:1em;
 }
 
-#checkout #delivery {
-  width:45%;
-  float:left;
-}
-
-#checkout #billing {
-  width:45%;
-  float:right;
-}
-
-#checkout fieldset fieldset {
-  font-size:90%;
-}
-
-#checkout #billing h4 {
-  margin-top:0;
-}
-
-#checkout #billing fieldset {
-  clear:both;
-}
-
-#checkout address {
-  margin-bottom:1em;
-  font-style:normal;
-}
-
-#checkout #billing .image-right {
-  margin-top:0;
-  margin-right:0;
-  border-color:&dtml-globalBorderColor;;
+#checkout .component h2 {
+  margin:0 0 1em 0;
+  font-size:1.2em;
 }
 
 #checkout .formControls {
   clear:both;
   text-align:center;
+  height:2em;
   position:relative;
-  width:100%;
 }
 
 #checkout .formControls input {
@@ -137,17 +117,8 @@
   padding:1px;
 }
 
-#checkout #products {
-  clear:both;
-  padding-left:0;
-  padding-right:0;
-}
-
-#checkout #products legend {
-  margin-left:-1px;
-}
-
 #checkout .formControls .next {
+  display:block;
   position:absolute;
   right:0;
   padding-right:8px;
@@ -168,24 +139,18 @@
   background-image:url("arrowRightmost.gif");
 }
 
-#checkout .editLink {
-  clear:both;
-  display:block;
-  float:right;
-}
-
 #checkout .field {
   clear:both;
+  position:relative;
   margin-right:0;
 }
 
-#checkout fieldset input,
-#checkout fieldset textarea {
-  width:99%;
+#checkout .component input,
+#checkout .component textarea {
+  width:95%;
 }
 
-#checkout fieldset input[type="checkbox"],
-#checkout fieldset input.noborder {
+#checkout .component input.noborder {
   width:auto;
 }
 
@@ -195,27 +160,168 @@
 
 #checkout .address .field label {
   float:left;
-  width:25%;
+  width:120px;
   margin-bottom:0.5em;
 }
 
+#checkout .address .field .widget {
+  margin:0 10px 0 120px;
+}
+
+* html #checkout .address .field .widget,
+*+html #checkout .address .field .widget {
+  float:left;
+  margin:0;
+}
+
 #checkout .address .field .fieldRequired {
+  position:absolute;
+  right:0;
   width:1px;
-  float:right;
   overflow:hidden;
 }
 
-#checkout .address .field input {
-  width:60%;
+#checkout .address .field .zip_city_wrap {
+  width:95%;
+  left:0;
 }
 
-#checkout .address .field #zip {
+#checkout .address .field .zip {
+  display:inline;
   width:10%;
+  margin:0;
 }
 
-#checkout .address .field #city {
-  width:48.7%;
+#checkout .address .field .city {
+  display:inline;
+  width:87%;
+  margin: 0 -2px 0 0;
+  float: right;
 }
+
+#checkout .steps {
+  position: relative;
+  text-align: center;
+  margin-top:1em;
+}
+
+#checkout .steps .step {
+  display:inline;
+  padding: 0.5em;
+  text-decoration: none;
+  border:&dtml-borderWidth; &dtml-borderStyle; &dtml-globalBorderColor;;
+}
+
+* html #checkout .steps .step,
+*+html #checkout .steps .step {
+  margin:0 0.2em;
+}
+
+#checkout .steps .step.select {
+  background-color:&dtml-globalBackgroundColor;;
+}
+
+#checkout .description {
+  margin:0;
+}
+
+#checkout ul.products {
+  margin-top:0;
+  margin-bottom:1em;
+  font-size:0.9em;
+}
+
+#checkout #shipment .shipment {
+  margin:0 0 2em 0;
+}
+
+#checkout ul.selection li {
+  padding:0;
+  margin:0;
+  display:block;
+}
+
+#checkout ul.selection label {
+  display:block;
+  padding:0.5em;
+  font-weight:normal;
+  line-height:1.2em;
+}
+
+#checkout ul.selection label:hover {
+  cursor:pointer;
+  background-color:&dtml-globalBackgroundColor;;
+}
+
+#checkout ul.selection label input {
+  float:left;
+  display:block;
+  margin:0 1em 0 0;
+}
+
+#checkout ul.selection label img,
+#checkout .logo {
+  display:block;
+  float:right;
+  margin:0 0 0 1em;
+  border:&dtml-borderWidth; &dtml-borderStyle; &dtml-globalBorderColor;;
+}
+
+#checkout .logo {
+  margin-bottom:1em;
+}
+
+#checkout ul.selection label strong,
+#checkout ul.selection label span {
+  display:block;
+  margin-left:3em;
+}
+
+#checkout .overview {
+  position:relative;
+  width:100%;
+}
+
+#checkout .overview .box {
+  float:left;
+  width:27%;
+  border:&dtml-borderWidth; &dtml-borderStyle; &dtml-globalBorderColor;;
+  margin:0 3% 0 0;
+  padding:2%;
+  overflow:hidden;
+}
+
+#checkout .overview .box h3 {
+  font-size:1.1em;
+  font-weight:bold;
+  margin:0;
+  border:none;
+}
+
+#checkout .overview .box h4 {
+  font-size:1em;
+  font-weight:bold;
+}
+
+#checkout .overview .box .shipmentinfo {
+  margin-bottom:1em;
+}
+
+#checkout .overview .shipment {
+  margin-right:0;
+}
+
+#checkout .overview .payment {
+  float:right;
+  margin-right:0;
+}
+
+#checkout #cart {
+  margin:1em 0;
+}
+
+
+/* product view */
 
 .productInfo a {
   display:block;
@@ -270,7 +376,11 @@
 
 .portletInfoBox {
   float:right;
-  margin:0 0 0 1em;
+  margin:0 0 1em 1em;
+}
+
+* html .portletInfoBox {
+  width:1%;
 }
 
 .portletInfoBox .portletItem {
@@ -287,7 +397,6 @@
 
 .buyViewlet {
   clear:both;
-  width:100%;
   background-color:&dtml-globalBackgroundColor;;
   border:&dtml-borderWidth; &dtml-borderStyle; &dtml-globalBorderColor;;
   margin:1em 0 2em 0;
@@ -316,11 +425,36 @@
   line-height:1.4em;
 }
 
+.buyViewlet .table {
+    display: table;
+}
+
+.buyViewlet .row {
+    display: table-row;
+}
+
+.buyViewlet .cell {
+    display: table-cell;
+}
+
+.buyViewlet .varitions .varition .cell{
+    margin-bottom: 1em;
+}
+
+.buyViewlet .varition label {
+    padding-right: 2em;
+}
+
+.infobox .buyViewlet  .varition select {
+    vertical-align: baseline;
+    margin-bottom: 0;
+}
+
 .productList {
   position:relative;
   clear:both;
   margin:4em 0;
-} 
+}
 
 .productList .list {
   position:relative;
@@ -372,6 +506,38 @@
 
 .portletProduct .priceInfo {
   font-size:100%;
+}
+
+
+/* configlet */
+
+#pcommerce_configlet table th {
+  text-align:left;
+}
+
+.clearfix:after,
+.component:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+ 
+.clearfix,
+.component {
+  display: inline-block;
+}
+ 
+html[xmlns] .clearfix,
+html[xmlns] .component {
+  display: block;
+}
+ 
+* html .clearfix,
+* html .component {
+  height: 1%;
 }
 
 /* </dtml-with> */

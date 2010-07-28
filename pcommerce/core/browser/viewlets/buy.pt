@@ -1,0 +1,25 @@
+<div tal:condition="view/price"
+     i18n:domain="pcommerce"
+     class="buyViewlet">
+  <form action="" method="post">
+    
+    <div class="varitions table">
+        <div class="varition row" tal:repeat="variationType view/variations">
+            <label class="cell" for="cartVariation:list" tal:content="string:${variationType/name}:">Name</label>
+            <select class="cell" name="cartVariation:list" size="1">
+              <option tal:repeat="variation variationType/variations"
+                      tal:attributes="value variation/uid;
+                                      selected variation/selected | nothing"
+                      tal:content="python:variation['name']+' ('+ ( variation['add_price'] is not None and ((variation['add_price_raw'] >= 0 and '+') or '')+(variation['add_price'].valueToString()) or variation['price'].valueToString() )+')'">Variation</option>
+                      
+            </select>
+        </div>
+    </div>
+    <label for="cartAmount" i18n:translate="">Amount</label>
+    <input type="text" name="cartAmount" id="cartAmount" value="1" size="4">
+    <input type="hidden" class="hidden" name="cartAdd" value=""
+           tal:condition="not: view/variations" tal:attributes="value view/product/UID" />
+    <input type="submit" class="context" name="submit" value="add to cart"
+           i18n:attributes="value" />
+  </form>
+</div>

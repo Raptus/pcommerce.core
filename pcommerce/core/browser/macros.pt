@@ -1,0 +1,213 @@
+<span class="priceInfo" i18n:domain="pcommerce" metal:define-macro="priceinfo">
+  <tal:offer condition="price/offer" i18n:translate="price_offer">
+    <span i18n:name="offer" tal:replace="price/price">CHF 150.00</span>
+    instead of
+    <span i18n:name="price" tal:replace="price/base_price/valueToString">CHF 200.00</span>
+  </tal:offer>
+  <tal:price condition="not: price/offer" content="price/price">
+    CHF 200.00
+  </tal:price>
+</span>
+
+<span class="productInfo" metal:define-macro="productInfo">
+  <a class="productImage" tal:condition="product/object/getImage"
+     tal:attributes="href product/url;
+                     title product/description">
+    <img src="" tal:attributes="src string:${product/url}/image_icon" />
+  </a>
+  <a href="" tal:attributes="href product/url;
+                             title product/description"
+             tal:define="uid product/uid;
+                         number python:hasattr(view, 'getProductNumber') and view.getProductNumber(uid) or None">
+    <span tal:replace="product/title">Title</span>
+    <sup tal:condition="number" tal:content="number">
+      1
+    </sup>
+  </a>
+  <strong class="no" tal:content="product/no">
+    No
+  </strong>
+  <dl tal:condition="product/variations">
+  <tal:variation tal:repeat="variation product/variations">
+    <dt><span tal:replace="variation/type">Type</span>:</dt>
+    <dd tal:content="variation/name">Name</dd>
+  </tal:variation>
+  </dl>
+</span>
+
+<dl class="portlet portletProduct" metal:define-macro="productPortlet"
+    tal:attributes="class string:portlet portletProduct ${product/class|nothing}">
+  <dd class="portletItem">
+    <a href="#" title="" class="image"
+       tal:condition="product/image"
+       tal:attributes="href product/url;
+                       title product/image/caption;">
+        <img tal:attributes="src product/image/thumb;
+                             alt product/image/caption;" alt="" src="" />
+    </a>
+    <a class="title" href="" 
+       tal:attributes="href product/url"
+       tal:content="product/title">
+      Title
+    </a>
+    <span class="description"
+          tal:condition="product/description"
+          tal:content="product/description">
+      Description
+    </span>
+  </dd>
+  <dd class="portletFooter"
+      tal:define="price product">
+    <span class="priceInfo" metal:use-macro="context/@@pcommerce_macros/priceinfo" />
+  </dd>
+</dl>
+
+<div id="cart" i18n:domain="pcommerce" metal:define-macro="cartInfo">
+  <table>
+    <thead>
+      <tr>
+        <th class="info" i18n:translate="">Product</th>
+        <th i18n:translate="">Amount</th>
+        <th class="discreet" i18n:translate="">Price</th>
+        <th i18n:translate="">Price total</th>
+      </tr>
+    </thead>
+    <tbody>
+    <tal:items tal:repeat="product view/products">
+      <tr tal:define="odd repeat/product/odd;"
+          tal:attributes="class python:odd and 'odd' or 'even';" >
+        <td class="info">
+          <span metal:use-macro="context/@@pcommerce_macros/productInfo" />
+        </td>
+        <td class="amount" tal:content="product/amount">
+          10
+        </td>
+        <td class="price discreet" tal:content="product/price/valueToString">
+          50.00
+        </td>
+        <td class="price" tal:content="product/price_total/valueToString">
+          500.00
+        </td>
+      </tr>
+    </tal:items>
+    </tbody>
+    <tfoot>
+      <tr>
+        <th class="price" i18n:translate="">
+          Total
+        </th>
+        <td>
+          &nbsp;
+        </td>
+        <td colspan="2" class="price">
+          <strong tal:content="view/price">
+            500.00
+          </strong>
+        </td>
+      </tr>
+      <tr class="discreet"
+          tal:condition="view/pretaxcharges|nothing"
+          tal:repeat="price view/pretaxcharges">
+        <th class="price">
+          <span tal:replace="price/title">Title</span>
+          <sup tal:condition="price/number|nothing" tal:content="price/number">1</sup>
+        </th>
+        <td>
+          &nbsp;
+        </td>
+        <td colspan="2" class="price">
+          <strong tal:content="price/price">
+            500.00
+          </strong>
+        </td>
+      </tr>
+      <tr tal:condition="view/subtotal|nothing">
+        <th class="price" i18n:translate="">
+          Total incl. charges
+        </th>
+        <td>
+          &nbsp;
+        </td>
+        <td colspan="2" class="price">
+          <strong tal:content="view/subtotal">
+            500.00
+          </strong>
+        </td>
+      </tr>
+      <tr class="discreet" tal:condition="view/tax|nothing">
+        <th class="price" i18n:translate="" tal:content="view/taxname">
+          VAT
+        </th>
+        <td>
+          <tal:tax content="view/tax" /> %
+        </td>
+        <td colspan="2" class="price">
+          <strong tal:content="view/pricetax">
+            500.00
+          </strong>
+        </td>
+      </tr>
+      <tr class="total" tal:condition="view/tax|nothing">
+        <th class="price" i18n:translate="">
+          Total incl. <span i18n:name="taxname" tal:replace="view/taxname" />
+        </th>
+        <td>
+          &nbsp;
+        </td>
+        <td colspan="2" class="price">
+          <strong tal:content="view/total">
+            500.00
+          </strong>
+        </td>
+      </tr>
+      <tr class="discreet"
+          tal:condition="view/posttaxcharges|nothing"
+          tal:repeat="price view/posttaxcharges">
+        <th class="price">
+          <span tal:replace="price/title">Title</span>
+          <sup tal:condition="price/number|nothing" tal:content="price/number">1</sup>
+        </th>
+        <td>
+          &nbsp;
+        </td>
+        <td colspan="2" class="price">
+          <strong tal:content="price/price">
+            500.00
+          </strong>
+        </td>
+      </tr>
+      <tr tal:condition="view/totalincl|nothing">
+        <th class="price" i18n:translate="" tal:condition="view/taxname|nothing">
+          Total incl. charges and <span i18n:name="taxname" tal:replace="view/taxname" />
+        </th>
+        <th class="price" i18n:translate="" tal:condition="view/taxincl|nothing">
+          Total incl. charges and <span i18n:name="tax" tal:replace="view/taxincl" />% <span i18n:name="taxname" tal:replace="view/taxinclname" />
+        </th>
+        <th class="price" i18n:translate="" tal:condition="python:view.taxname is None and view.taxincl is None">
+          Total incl. charges
+        </th>
+        <td>
+          &nbsp;
+        </td>
+        <td colspan="2" class="price">
+          <strong tal:content="view/totalincl">
+            500.00
+          </strong>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+</div>
+
+<div metal:define-macro="paymentInfo"
+     class="paymentInfo">
+  <img src="" alt="" class="image-right" tal:condition="payment/logo" 
+       tal:attributes="src payment/logo;
+                       alt payment/title;" />
+  <h4 tal:content="payment/title">
+    Title
+  </h4>
+  <p tal:condition="payment/description" tal:content="payment/description">
+    Description
+  </p>
+</div>

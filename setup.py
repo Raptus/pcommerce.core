@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '0.4'
+version = '0.3'
 
 setup(name='pcommerce.core',
       version=version,
@@ -25,7 +25,6 @@ setup(name='pcommerce.core',
       install_requires=[
           'setuptools',
           'Products.SingleKeywordWidget',
-          'Products.AttachmentTypes',
           # -*- Extra requirements: -*-
       ],
       entry_points="""

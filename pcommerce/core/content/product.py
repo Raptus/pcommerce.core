@@ -24,6 +24,8 @@ from pcommerce.core.config import PROJECTNAME
 from Products.CMFPlone.interfaces import INonStructuralFolder
 from Products.CMFPlone import PloneMessageFactory as _p
 
+from zope.schema.interfaces import IVocabularyFactory
+
 ProductSchema = ATDocumentSchema.copy() + Schema((
 
     StringField(
@@ -57,6 +59,18 @@ ProductSchema = ATDocumentSchema.copy() + Schema((
             label=_(u'Hot product'),
         )
     ),
+    
+    LinesField(
+        name='shipments',
+        required = True,
+        multiValued = True,
+        widget = MultiSelectionWidget(label = _p(u'label_shipments_methods', default=u'Shipments methods'),
+                                      description = _p(u'description_shipments_methods', default=u'Shipments methods for this product'),
+                                      format = 'checkbox',
+                                     ),
+        vocabulary_factory = u"pcommerce.core.vocabulary.shipments"
+    
+    ),
 
     ImageField(
         name='image',
@@ -74,7 +88,6 @@ ProductSchema = ATDocumentSchema.copy() + Schema((
         validators=(('isNonEmptyFile', V_REQUIRED),
                     ('checkImageMaxSize', V_REQUIRED),),
         widget=ImageWidget(label= _p(u'label_news_image', default=u'Image'),
-                           description = _(u""),
                            show_content_type = False,),
     ),
 
@@ -99,7 +112,8 @@ ProductSchema.moveField('no', after='title')
 ProductSchema.moveField('price', after='no')
 ProductSchema.moveField('hot', after='description')
 ProductSchema.moveField('new', after='hot')
-ProductSchema.moveField('image', after='new')
+ProductSchema.moveField('shipments', after='new')
+ProductSchema.moveField('image', after='shipments')
 ProductSchema.moveField('imageCaption', after='image')
 
 class Product(OrderedBaseFolder, ATDocumentBase):

@@ -6,7 +6,7 @@ from plone.app.layout.viewlets.common import ViewletBase
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 class InfoViewlet(ViewletBase):
-    index = ViewPageTemplateFile('templates/info.pt')
+    index = ViewPageTemplateFile('info.pt')
     
     def update(self):
         self.product_view = getMultiAdapter((self.context, self.request), name=u'view')

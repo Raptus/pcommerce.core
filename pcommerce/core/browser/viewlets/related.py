@@ -11,7 +11,7 @@ from pcommerce.core.interfaces import IPricing, IProduct
 from pcommerce.core.currency import CurrencyAware
 
 class RelatedViewlet(ViewletBase):
-    index = ViewPageTemplateFile('templates/related.pt')
+    index = ViewPageTemplateFile('related.pt')
     
     def update(self):
         self.view = getMultiAdapter((self.context, self.request), name=u'view')

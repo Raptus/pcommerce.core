@@ -4,107 +4,143 @@
     xmlns:plone="http://namespaces.plone.org/plone"
     i18n_domain="pcommerce">
   
+    <include package=".components" />
     <include package=".portlets" />
     <include package=".viewlets" />
       
     <browser:page
         for="*"
         name="ShopFolder"
-        class=".views.ShopFolderListing"
+        class=".folder.ShopFolderListing"
         permission="zope2.View"
     />
       
     <browser:page
         for="*"
         name="Shop"
-        class=".views.ShopHomeView"
+        class=".folder.ShopHome"
         permission="zope2.View"
     />
       
     <browser:page
-        for="pcommerce.core.interfaces.IProduct"
+        for="..interfaces.IProduct"
+        name="getprice"
+        class=".getprice.GetPrcie"
+        permission="zope2.View"
+    />
+      
+    <browser:page
+        for="..interfaces.IProduct"
         name="view"
-        class=".views.ProductView"
+        class=".product.Product"
         permission="zope2.View"
     />
     
     <browser:page
-        for="pcommerce.core.interfaces.IProduct"
-        class=".views.VariationsView"
+        for="..interfaces.IProduct"
+        class=".variations.Variations"
         name="folder_contents"
-        template="templates/variations.pt"
+        template="variations.pt"
         permission="cmf.ListFolderContents"
     />
     
     <browser:page
-        for="pcommerce.core.interfaces.IProduct"
-        class=".views.ImagesView"
+        for="..interfaces.IProduct"
+        class=".images.Images"
         name="images"
-        template="templates/images.pt"
+        template="images.pt"
         permission="cmf.ListFolderContents"
     />
     
     <browser:page
-        for="pcommerce.core.interfaces.IProduct"
-        class=".views.PricesView"
+        for="..interfaces.IProduct"
+        class=".prices.Prices"
         name="prices"
-        template="templates/prices.pt"
+        template="prices.pt"
         permission="cmf.ListFolderContents"
     />
       
     <browser:page
-        for="pcommerce.core.interfaces.IVariation"
+        for="..interfaces.IVariation"
         name="view"
-        class=".views.VariationView"
+        class=".variation.Variation"
         permission="zope2.View"
     />
     
     <browser:page
-        for="pcommerce.core.interfaces.IVariation"
+        for="..interfaces.IVariation"
         name="prices"
-        class=".views.PricesView"
+        class=".prices.Prices"
         permission="cmf.ListFolderContents"
     />
 
     <browser:page
         for="Products.CMFCore.interfaces.ISiteRoot"
         name="cart"
-        class=".cart.ShoppingCartView"
+        class=".cart.Cart"
         permission="pcommerce.AddToCart"
     />
 
     <browser:page
         for="Products.CMFCore.interfaces.ISiteRoot"
         name="checkout"
-        class=".checkout.CheckoutView"
+        class=".checkout.Checkout"
         permission="pcommerce.CheckOut"
     />
 
     <browser:page
         for="Products.CMFCore.interfaces.ISiteRoot"
         name="checkout.cancel"
-        class=".checkout.CheckoutCancelView"
+        class=".checkout.CheckoutCancel"
         permission="pcommerce.CheckOut"
     />
 
     <browser:page
         for="Products.CMFCore.interfaces.ISiteRoot"
         name="checkout.failed"
-        class=".checkout.CheckoutFailedView"
+        class=".checkout.CheckoutFailed"
+        permission="pcommerce.CheckOut"
+    />
+
+    <browser:page
+        for="Products.CMFCore.interfaces.ISiteRoot"
+        name="payment.failed"
+        class=".checkout.PaymentFailed"
+        permission="pcommerce.CheckOut"
+    />
+
+    <browser:page
+        for="Products.CMFCore.interfaces.ISiteRoot"
+        name="payment.cancel"
+        class=".checkout.PaymentCancel"
+        permission="pcommerce.CheckOut"
+    />
+
+    <browser:page
+        for="Products.CMFCore.interfaces.ISiteRoot"
+        name="payment.success"
+        class=".checkout.PaymentSuccess"
         permission="pcommerce.CheckOut"
     />
 
     <browser:page
         for="Products.CMFCore.interfaces.ISiteRoot"
         name="pcommerce_configlet"
-        class=".views.PCommerceConfigletView"
+        class=".configlet.PCommerceConfiglet"
         permission="cmf.ManagePortal"
     />
 
     <browser:page
         name="pcommerce_macros"
         for="*"
-        template="templates/macros.pt"
+        template="macros.pt"
+        permission="zope2.View"
+    />
+
+    <browser:page
+        name="pcommerce_address"
+        for="*"
+        template="address.pt"
         permission="zope2.View"
     />
 
@@ -121,6 +157,16 @@
     <browser:resource
         name="price_icon.gif"
         image="images/price_icon.gif"
+    />
+    
+    <browser:resource
+        name="as_customer.js"
+        file="javascripts/as_customer.js"
+    />
+    
+    <browser:resource
+        name="getprice.js"
+        file="getprice.js"
     />
 
 </configure>

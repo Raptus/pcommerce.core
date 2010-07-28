@@ -11,6 +11,10 @@ security.declarePublic('AddVariation')
 AddVariation = 'PCommerce: Add Variation'
 setDefaultRoles(AddVariation, ('Manager','Contributer','Owner',))
 
+security.declarePublic('AddImage')
+AddVariation = 'PCommerce: Add Image'
+setDefaultRoles(AddVariation, ('Manager','Contributer','Owner',))
+
 security.declarePublic('AddPrice')
 AddPrice = 'PCommerce: Add Price'
 setDefaultRoles(AddPrice, ('Manager','Contributer','Owner',))
@@ -22,6 +26,10 @@ setDefaultRoles(AddToCart, ('Anonymous', 'Authenticated',))
 security.declarePublic('CheckOut')
 CheckOut = 'PCommerce: Check out'
 setDefaultRoles(CheckOut, ('Authenticated',))
+
+security.declarePublic('ManageOrders')
+ManageOrders = 'PCommerce: Manage Orders'
+setDefaultRoles(ManageOrders, ('Manager',))
 
 permissions = {'Product': AddProduct,
                'Variation': AddVariation,

@@ -11,6 +11,11 @@
       <role name="Contributer" />
       <role name="Owner" />
     </permission>
+    <permission name="PCommerce: Add Image" acquire="False">
+      <role name="Manager" />
+      <role name="Contributer" />
+      <role name="Owner" />
+    </permission>
     <permission name="PCommerce: Add Price" acquire="False">
       <role name="Manager" />
       <role name="Contributer" />
@@ -22,6 +27,9 @@
     </permission>
     <permission name="PCommerce: Check out" acquire="False">
       <role name="Authenticated" />
+    </permission>
+    <permission name="PCommerce: Manage Orders" acquire="False">
+      <role name="Manager" />
     </permission>
   </permissions>
 </rolemap>

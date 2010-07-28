@@ -47,6 +47,10 @@ VariationSchema.moveField('addPrice', after='price')
 VariationSchema.moveField('effectiveDate', after='imageCaption')
 VariationSchema.moveField('expirationDate', after='effectiveDate')
 
+
+
+VariationSchema['price'].widget.description = _(u'description_price', default=u'If multiple selected variations in different categories have unit prices, the greater price will be accounted for in pricing of the selected combination.')
+
 class Variation(Product):
     """ A variation of a product
     """

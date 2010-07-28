@@ -10,7 +10,7 @@ from pcommerce.core.interfaces import IPricing, IProduct, IVariation
 from pcommerce.core.currency import CurrencyAware
 
 class VariationViewlet(ViewletBase):
-    index = ViewPageTemplateFile('templates/variation.pt')
+    index = ViewPageTemplateFile('variation.pt')
     
     @property
     @memoize
@@ -33,7 +33,7 @@ class VariationViewlet(ViewletBase):
             i += 1
             
             variation = variation.getObject()
-            adapter = IPricing(variation)
+            adapter = IPricing(self.product)
             
             if variation.UID() != self.context.UID():
                 image = None
@@ -45,9 +45,9 @@ class VariationViewlet(ViewletBase):
                               'class': 'col%s' % col,
                               'title': '%s: %s' % (variation.getType(), variation.Title()),
                               'description': variation.Description() or self.product.Description(),
-                              'price': CurrencyAware(adapter.getPrice()),
+                              'price': CurrencyAware(adapter.getPrice([variation, ])),
                               'base_price': CurrencyAware(adapter.getBasePrice()),
-                              'offer': adapter.getPrice() < adapter.getBasePrice(),
+                              'offer': adapter.getPrice([variation, ]) < adapter.getBasePrice(),
                               'image': image,
                               'url': variation.absolute_url()})
         return items

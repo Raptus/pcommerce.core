@@ -12,7 +12,7 @@ from pcommerce.core.interfaces import IPricing, IProduct
 from pcommerce.core.currency import CurrencyAware
 
 class HotViewlet(ViewletBase):
-    index = ViewPageTemplateFile('templates/hot.pt')
+    index = ViewPageTemplateFile('hot.pt')
         
     def products(self):
         catalog = getToolByName(self.context, 'portal_catalog')
