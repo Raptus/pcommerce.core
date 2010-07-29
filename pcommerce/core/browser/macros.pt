@@ -183,7 +183,7 @@
         <th class="price" i18n:translate="" tal:condition="view/taxincl|nothing">
           Total incl. charges and <span i18n:name="tax" tal:replace="view/taxincl" />% <span i18n:name="taxname" tal:replace="view/taxinclname" />
         </th>
-        <th class="price" i18n:translate="" tal:condition="python:view.taxname is None and view.taxincl is None">
+        <th class="price" i18n:translate="" tal:condition="python:not view.taxname and not view.taxincl">
           Total incl. charges
         </th>
         <td>
