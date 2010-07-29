@@ -20,7 +20,7 @@ class PaymentsComponent(BaseComponent):
     def process(self):
         id = self.request.form.get('payment_id', len(self._payments()) == 1 and self.payments[0]['id'])
         self.context.order.paymentid = id
-        if self.context.order.paymentdata and not self.context.order.paymentid == id:
+        if self.context.order.paymentdata and not self.context.order.paymentdata.id == id:
             self.context.order.paymentdata = None
     
     def renders(self):

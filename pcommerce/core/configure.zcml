@@ -19,6 +19,13 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
+  <gs:importStep
+      name="pcommerce.core.migrate05a105a2"
+      title="pcommerce.core: migration from 0.5a1 to 0.5a2"
+      description=""
+      handler="pcommerce.core.setuphandlers.migrate05a105a2"
+      />
+
   <!-- File System Directory Views registration -->
   <cmf:registerDirectory name="pcommerce"/>
 

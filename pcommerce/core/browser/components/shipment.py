@@ -25,7 +25,7 @@ class ShipmentComponent(BaseComponent):
         for shipment in self.shipments:
             if shipment['view'] is not None:
                 shipmentdata = shipment['view'].process()
-                self.order.shipmentdata[shipmentdata.shipmentid] = shipmentdata
+                self.order.shipmentdata[shipmentdata.id] = shipmentdata
                 
     def renders(self):
         for shipment in self.shipments:

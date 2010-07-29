@@ -7,9 +7,9 @@ from pcommerce.core.interfaces import IPaymentData, IShipmentData
 class BaseData(Persistent):
     pretaxcharge = 0.0
     posttaxcharge = 0.0
-            
-    def __init__(self, shipmentid, pretaxcharge=0.0, posttaxcharge=0.0, **kwargs):
-        self.shipmentid = shipmentid
+    
+    def __init__(self, id, pretaxcharge=0.0, posttaxcharge=0.0, **kwargs):
+        self.id = id
         self.pretaxcharge = pretaxcharge
         self.posttaxcharge = posttaxcharge
         for key, value in kwargs.items():
