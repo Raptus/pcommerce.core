@@ -410,7 +410,9 @@
 .buyViewlet input,
 .buyViewlet select,
 .buyViewlet label {
-  margin-right:0.5em;
+  margin:0 0.5em 0.5em 0;
+  display:block;
+  float:left;
 }
 
 .buyViewlet .context {
@@ -420,34 +422,10 @@
 }
 
 .buyViewlet label {
+  clear:left;
   font-size:90%;
   color:&dtml-linkColor;;
   line-height:1.4em;
-}
-
-.buyViewlet .table {
-    display: table;
-}
-
-.buyViewlet .row {
-    display: table-row;
-}
-
-.buyViewlet .cell {
-    display: table-cell;
-}
-
-.buyViewlet .varitions .varition .cell{
-    margin-bottom: 1em;
-}
-
-.buyViewlet .varition label {
-    padding-right: 2em;
-}
-
-.infobox .buyViewlet  .varition select {
-    vertical-align: baseline;
-    margin-bottom: 0;
 }
 
 .productList {

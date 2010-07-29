@@ -1,6 +1,11 @@
 Changelog
 =========
 
+0.5a3
+-----
+
+* CSS and HTML Bugfix in buy viewlet
+
 0.5a2
 -----
 
