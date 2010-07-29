@@ -1,9 +1,19 @@
 Changelog
 =========
 
+0.5a2
+-----
+
+* Fixed payment and shipmentdata class and added migration method to fix existing orders
+* Fixed cartInfo macro
+
 0.5a1
 -----
 
+* Added pluggable shipment methods
+* Added pre and post tax charges
+* Added selection of available shipment methods per product
+* Rewrote the whole architecture (Not backward compatible)
 * First alpha release containing internal developments
 
 0.3 - Alpha release

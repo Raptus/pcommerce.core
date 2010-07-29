@@ -8,21 +8,39 @@ PCommerce (Plone commerce) provides a simple shop system which supports:
   (over the sharing tab) and prices only available for a specific time
   (by using the expiration date)
 * multiple pluggable payment methods
+* multiple pluggable shipment methods
+* multiple taxes by zone
+* pre and post tax charges per payment and shipment method
+* component based checkout to easily customize the checkout process
 * multiple currencies by using Products.CurrencyUtility
 
 
 Pluggable Payment Methods
 -------------------------
 
-To register a new payment method for PCommerce register a utility implementing
-the IPaymentMethod interface. If your payment method requires data from the user
-set the pre_view_name attribute of the utility to the name of the view implementing
-IPreOrderView which provides the necessary fields. If you would like to display
-information after ordering set the post_view_name attribute to the name of the
-view providing those.
+A payment plugin consists of a named adapter implementing
+pcommerce.core.interfaces.IPaymentMethod and named by the id (usually
+the package name) of the method and one or more views injecting data
+into the checkout process. The views are registered for the payment
+method and have to implement pcommerce.core.interfaces.IPaymentView.
+The name of the view corresponds to the name of the component where
+the data has to be injected (e.g. payment, confirmation, overview etc.).
 
-For a simple example pcommerce.email provides a payment method which simply sends
-an email to the administrator containing the billing address.
+As an example of a simple payment plugin pcommerce.payment.invoice is
+available, which simply collects a billing address and injects it into
+the confirmation and order email.
+
+
+Pluggable Shipment Methods
+--------------------------
+
+A shipment plugin works much like a payment plugin, the only differences
+are the interfaces to be implemented by the adapter and the corresponding
+views, which there are pcommerce.core.interfaces.IShipmentMethod respectively
+pcommerce.core.interfaces.IShipmentView.
+
+As an example pcommerce.shipment.parcel is available, which collects a delivery
+address and injects it into the confirmation and order email.
 
 
 Optional dependencies
