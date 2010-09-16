@@ -5,7 +5,7 @@ from pcommerce.core.browser.components.base import BaseComponent
 from pcommerce.core import interfaces
 
 class AddressComponent(BaseComponent):
-    template = ViewPageTemplateFile('address.pt')
+    index = ViewPageTemplateFile('address.pt')
     
     def validate(self):
         self.errors = {}

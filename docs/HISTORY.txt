@@ -1,6 +1,18 @@
 Changelog
 =========
 
+
+2.0b1 (2010-09-16)
+------------------
+
+plone 4 compatibility
+
+-remove PTS utility
+-fix javascripts under query 1.4.2
+-browser view need a index attribute instead the call method 
+-remove actionsicons because is no more supported in plone 4
+-fix access of user-order
+
 0.5a3
 -----
 

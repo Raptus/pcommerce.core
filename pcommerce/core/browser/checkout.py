@@ -86,7 +86,6 @@ class Checkout(BrowserView):
             registry = IOrderRegistry(self.context)
             registry.send(self.order.orderid)
             self.cart.clear()
-        
         return html
     
     @property

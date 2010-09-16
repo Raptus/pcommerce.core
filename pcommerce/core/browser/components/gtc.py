@@ -8,7 +8,7 @@ from pcommerce.core.browser.components.base import BaseComponent
 from pcommerce.core import PCommerceMessageFactory as _
         
 class GTCComponent(BaseComponent):
-    template = ViewPageTemplateFile('gtc.pt')
+    index = ViewPageTemplateFile('gtc.pt')
     
     def validate(self):
         self.errors = {}

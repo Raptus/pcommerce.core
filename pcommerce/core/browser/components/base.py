@@ -24,7 +24,7 @@ class BaseComponent(BrowserView):
         self.cart = interfaces.IShoppingCart(self.context)
         
     def __call__(self):
-        return self.template()
+        return self.index()
 
     def _shipments(self):
         registry = interfaces.IShipmentRegistry(self.context)
@@ -57,12 +57,12 @@ class BaseComponent(BrowserView):
                     shipment = shipments[id]
                     
                     # check is selected
-                    selected = False                  
+                    selected = False
                     uids = []
                     for product in products:
                         uids.append(product.UID())
                     uids = tuple(uids)
-                    for shipment_id, products_uids in self.context.order.shipmentids.items():
+                    for shipment_id, products_uids in self.order.shipmentids.items():
                         if shipment_id == id and products_uids == uids:
                             selected = True
                             break
@@ -112,7 +112,7 @@ class BaseComponent(BrowserView):
         payments = []
         for name, payment in self._payments().items():
             selected = False
-            if name == self.context.order.paymentid:
+            if name == self.order.paymentid:
                 selected = True
             payments.append({'id': name,
                              'plugin': payment,

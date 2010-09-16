@@ -8,7 +8,7 @@ from pcommerce.core.interfaces import IShipmentView
 from pcommerce.core.browser.components.base import BaseComponent
 
 class ShipmentComponent(BaseComponent):
-    template = ViewPageTemplateFile('shipment.pt')
+    index = ViewPageTemplateFile('shipment.pt')
     
     dependencies = ('shipments',)
     
@@ -47,3 +47,4 @@ class ShipmentComponent(BaseComponent):
             if shipment['renders']:
                 count += 1
         return count > 1
+

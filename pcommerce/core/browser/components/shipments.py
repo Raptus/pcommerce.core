@@ -8,7 +8,7 @@ from pcommerce.core.browser.components.base import BaseComponent
 from pcommerce.core import PCommerceMessageFactory as _
 
 class ShipmentsComponent(BaseComponent):
-    template = ViewPageTemplateFile('shipments.pt')
+    index = ViewPageTemplateFile('shipments.pt')
     
     @property
     @memoize

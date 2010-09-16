@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<action-icons xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-    i18n:domain="pcommerce">
- <action-icon category="controlpanel"
-              action_id="PCommerceConfiglet"
-              title="PCommerce configuration" priority="0"
-              icon_expr="++resource++price_icon.gif"
-              i18n:attributes="title"/>
-</action-icons>

@@ -3,59 +3,59 @@
            i18n_domain="pcommerce">
 
   <browser:view
+      name="address"
       for="*"
       provides="...interfaces.IComponent"
       class=".address.AddressComponent"
-      name="address"
       permission="pcommerce.CheckOut" />
       
   <browser:view
+      name="shipments"
       for="*"
       provides="...interfaces.IComponent"
       class=".shipments.ShipmentsComponent"
-      name="shipments"
       permission="pcommerce.CheckOut" />
       
   <browser:view
+      name="shipment"
       for="*"
       provides="...interfaces.IComponent"
       class=".shipment.ShipmentComponent"
-      name="shipment"
       permission="pcommerce.CheckOut" />
       
   <browser:view
+      name="payments"
       for="*"
       provides="...interfaces.IComponent"
       class=".payments.PaymentsComponent"
-      name="payments"
       permission="pcommerce.CheckOut" />
       
   <browser:view
+      name="payment"
       for="*"
       provides="...interfaces.IComponent"
       class=".payment.PaymentComponent"
-      name="payment"
       permission="pcommerce.CheckOut" />
       
   <browser:view
+      name="overview"
       for="*"
       provides="...interfaces.IComponent"
       class=".overview.OverviewComponent"
-      name="overview"
       permission="pcommerce.CheckOut" />
       
   <browser:view
+      name="confirmation"
       for="*"
       provides="...interfaces.IComponent"
       class=".confirmation.ConfirmationComponent"
-      name="confirmation"
       permission="pcommerce.CheckOut" />
       
   <browser:view
+      name="gtc"
       for="*"
       provides="...interfaces.IComponent"
       class=".gtc.GTCComponent"
-      name="gtc"
       permission="pcommerce.CheckOut" />
       
 </configure>

@@ -6,7 +6,7 @@ from pcommerce.core.interfaces import IPaymentView
 from pcommerce.core.browser.components.base import BaseComponent
 
 class PaymentComponent(BaseComponent):
-    template = ViewPageTemplateFile('payment.pt')
+    index = ViewPageTemplateFile('payment.pt')
     
     dependencies = ('payments',)
 
