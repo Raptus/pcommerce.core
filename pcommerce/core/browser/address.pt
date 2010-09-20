@@ -1,342 +1,348 @@
-<div metal:define-macro="addressInfo"
-     class="addressInfo"
-     i18n:domain="pcommerce">
-  
-  <address>
-    <span tal:condition="python:address.salutation == 'mr'" i18n:translate="" tal:replace="string:Mr." />
-    <span tal:condition="python:address.salutation == 'mrs'" i18n:translate="" tal:replace="string:Mrs. / Ms." />
-    <span tal:replace="address/firstname|nothing" />
-    <span tal:replace="address/lastname|nothing" />
-    <br tal:condition="address/salutation|address/firstname|address/firstname|nothing" />
-    <span tal:replace="address/company|nothing" /><br tal:condition="address/company|nothing" />
-    <span tal:replace="address/address1|nothing" /><br tal:condition="address/address1|nothing" />
-    <span tal:replace="address/address2|nothing" /><br tal:condition="address/address2|nothing" />
-    <span tal:replace="address/zip|nothing" /> <span tal:replace="address/city|nothing" /><br tal:condition="address/zip|address/city|nothing" />
-    <span tal:replace="address/country|nothing" /><br tal:condition="address/country|nothing" />
-  </address>
-  <br tal:condition="python:address.email or address.phone" />
-  <span class="email" tal:condition="address/email|nothing" tal:content="address/email|nothing" /><br tal:condition="python:address.email and address.phone" />
-  <span class="phone" tal:condition="address/phone|nothing" tal:content="address/phone|nothing" />
-</div>
-
-<metal:address define-macro="addressForm"
-               i18n:domain="pcommerce"
-               tal:define="tag tag|string:address;
-                           data python:tag and request.get(tag, {}) or request.get('form', {})">
-<div class="address">
-  <div class="field clearfix"
-       tal:attributes="class python:'field clearfix'+(errors.has_key(tag+'.salutation') and ' error' or'')">
-
-      <label i18n:translate=""
-             for="salutation">
-          Salutation
-      </label>
-
-      <div tal:condition="python:errors.has_key(tag+'.salutation')"
-           tal:content="python:errors[tag+'.salutation'] or None">
-          The Error
-      </div>
-
-      <div class="widget">
-          <label title="Mr." i18n:attributes="title">
-              <input class="noborder" id="salutation_mr" name="salutation" value="mr" type="radio"
-                     tal:attributes="name string:${tag}.salutation:record;
-                                     checked python:data.get('salutation')=='mr' or address and address.salutation=='mr';" />
-              <span i18n:translate="">Mr.</span>
-          </label>
-          <label title="Mrs. / Ms." i18n:attributes="title">
-              <input class="noborder" id="salutation_mrs" name="salutation" value="mrs" type="radio"
-                     tal:attributes="name string:${tag}.salutation:record;
-                                     checked python:data.get('salutation')=='mrs' or address and address.salutation=='mrs';" />
-              <span i18n:translate="">Mrs. / Ms.</span>
-          </label>
-      </div>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xml:lang="en" lang="en">
+  <div metal:define-macro="addressInfo"
+       class="addressInfo"
+       i18n:domain="pcommerce">
+    
+    <address>
+      <span tal:condition="python:address.salutation == 'mr'" i18n:translate="" tal:replace="string:Mr." />
+      <span tal:condition="python:address.salutation == 'mrs'" i18n:translate="" tal:replace="string:Mrs. / Ms." />
+      <span tal:replace="address/firstname|nothing" />
+      <span tal:replace="address/lastname|nothing" />
+      <br tal:condition="address/salutation|address/firstname|address/firstname|nothing" />
+      <span tal:replace="address/company|nothing" /><br tal:condition="address/company|nothing" />
+      <span tal:replace="address/address1|nothing" /><br tal:condition="address/address1|nothing" />
+      <span tal:replace="address/address2|nothing" /><br tal:condition="address/address2|nothing" />
+      <span tal:replace="address/zip|nothing" /> <span tal:replace="address/city|nothing" /><br tal:condition="address/zip|address/city|nothing" />
+      <span tal:replace="address/country|nothing" /><br tal:condition="address/country|nothing" />
+    </address>
+    <br tal:condition="python:address.email or address.phone" />
+    <span class="email" tal:condition="address/email|nothing" tal:content="address/email|nothing" /><br tal:condition="python:address.email and address.phone" />
+    <span class="phone" tal:condition="address/phone|nothing" tal:content="address/phone|nothing" />
   </div>
   
-  <div class="field clearfix"
-       tal:attributes="class python:'field clearfix'+(errors.has_key(tag+'.firstname') and ' error' or'')">
-
-      <label i18n:translate=""
-             for="firstname">
-          First name
-      </label>
-
-      <span class="fieldRequired"
-            title="Required"
-            i18n:domain="plone"
-            i18n:attributes="title title_required;"
-            i18n:translate="label_required">
-          (Required)
-      </span>
-
-      <div tal:condition="python:errors.has_key(tag+'.firstname')"
-           tal:content="python:errors[tag+'.firstname'] or None">
-          The Error
-      </div>
-
-      <div class="widget">
-          <input id="firstname" name="firstname" value="" type="text"
-                 tal:attributes="value data/firstname|address/firstname|nothing;
-                                 name string:${tag}.firstname:record" />
-      </div>
-  </div>
+  <metal:address define-macro="addressForm"
+                 i18n:domain="pcommerce"
+                 tal:define="tag tag|string:address;
+                             data python:tag and request.get(tag, {}) or request.get('form', {})">
+  <div class="address">
+    <div class="field clearfix"
+         tal:attributes="class python:'field clearfix'+(errors.has_key(tag+'.salutation') and ' error' or'')">
   
-  <div class="field clearfix"
-       tal:attributes="class python:'field clearfix'+(errors.has_key(tag+'.lastname') and ' error' or'')">
-
-      <label i18n:translate=""
-             for="lastname">
-          Last name
-      </label>
-
-      <span class="fieldRequired"
-            title="Required"
-            i18n:domain="plone"
-            i18n:attributes="title title_required;"
-            i18n:translate="label_required">
-          (Required)
-      </span>
-
-      <div tal:condition="python:errors.has_key(tag+'.lastname')"
-           tal:content="python:errors[tag+'.lastname'] or None">
-          The Error
-      </div>
-
-      <div class="widget">
-          <input id="lastname" name="lastname" value="" type="text"
-                 tal:attributes="value data/lastname|address/lastname|nothing;
-                                 name string:${tag}.lastname:record" />
-      </div>
-  </div>
+        <label i18n:translate=""
+               for="salutation">
+            Salutation
+        </label>
   
-  <div class="field clearfix"
-       tal:attributes="class python:'field clearfix'+(errors.has_key(tag+'.company') and ' error' or'')">
-
-      <label i18n:translate=""
-             for="company">
-          Company
-      </label>
-
-      <div tal:condition="python:errors.has_key(tag+'.company')"
-           tal:content="python:errors[tag+'.company'] or None">
-          The Error
-      </div>
-
-      <div class="widget">
-          <input id="company" name="company" value="" type="text"
-                 tal:attributes="value data/company|address/company|nothing;
-                                 name string:${tag}.company:record" />
-      </div>
-  </div>
-  
-  <div class="field clearfix"
-       tal:attributes="class python:'field clearfix'+(errors.has_key(tag+'.address1') and ' error' or'')">
-      <label i18n:translate=""
-             for="address1">
-          Address 1
-      </label>
-
-      <span class="fieldRequired"
-            title="Required"
-            i18n:domain="plone"
-            i18n:attributes="title title_required;"
-            i18n:translate="label_required">
-          (Required)
-      </span>
-
-      <div tal:condition="python:errors.has_key(tag+'.address1')"
-           tal:content="python:errors[tag+'.address1'] or None">
-          The Error
-      </div>
-
-      <div class="widget">
-          <input id="address1" name="address1" value="" type="text"
-                 tal:attributes="value data/address1|address/address1|nothing;
-                                 name string:${tag}.address1:record" />
-      </div>
-  </div>
-  
-  <div class="field clearfix"
-       tal:attributes="class python:'field clearfix'+((errors.has_key(tag+'.address2')) and ' error' or'')">
-      <label i18n:translate=""
-             for="address2">
-          Address 2
-      </label>
-
-      <div tal:condition="python:errors.has_key(tag+'.address2')"
-           tal:content="python:errors[tag+'.address2'] or None">
-          The Error
-      </div>
-
-      <div class="widget">
-          <input id="address2" name="address2" value="" type="text"
-                 tal:attributes="value data/address2|address/address2|nothing;
-                                 name string:${tag}.address2:record" />
-      </div>
-  </div>
-  
-  <div class="field clearfix"
-       tal:attributes="class python:'field clearfix'+((errors.has_key(tag+'.zip') or errors.has_key(tag+'.city')) and ' error' or '')">
-      <label i18n:translate=""
-             for="zip">
-          ZIP / City
-      </label>
-
-      <span class="fieldRequired"
-            title="Required"
-            i18n:domain="plone"
-            i18n:attributes="title title_required;"
-            i18n:translate="label_required">
-          (Required)
-      </span>
-
-      <div tal:condition="python:errors.has_key(tag+'.zip')"
-           tal:content="python:errors[tag+'.zip'] or None">
-          The Error
-      </div>
-
-      <div tal:condition="python:errors.has_key(tag+'.city')"
-           tal:content="python:errors[tag+'.city'] or None">
-          The Error
-      </div>
-
-      <div class="widget">
-        <div class="zip_city_wrap">
-          <input class="zip" name="zip" value="" type="text" size="6"
-                 tal:attributes="value data/zip|address/zip|nothing;
-                                 name python:tag and tag+'.zip:record' or 'address.zip:record'" />
-                 
-          <input class="city" name="city" value="" type="text"
-                 tal:attributes="value data/city|address/city|nothing;
-                                 name string:${tag}.city:record" />
+        <div tal:condition="python:errors.has_key(tag+'.salutation')"
+             tal:content="python:errors[tag+'.salutation'] or None">
+            The Error
         </div>
-      </div>
-  </div>
   
-  <div class="field clearfix"
-       tal:attributes="class python:'field clearfix'+(errors.has_key(tag+'.country') and ' error' or'')">
-
-      <label i18n:translate=""
-             for="country">
-          Country
-      </label>
-
-      <span class="fieldRequired"
-            title="Required"
-            i18n:domain="plone"
-            i18n:attributes="title title_required;"
-            i18n:translate="label_required">
-          (Required)
-      </span>
-
-      <div tal:condition="python:errors.has_key(tag+'.country')"
-           tal:content="python:errors[tag+'.country'] or None">
-          The Error
-      </div>
-
-      <div class="widget">
-          <input id="country" name="country" value="" type="text"
-                 tal:attributes="value data/country|address/country|nothing;
-                                 name string:${tag}.country:record" />
-      </div>
-  </div>
-
-  <div class="field clearfix"
-       tal:condition="python: hasattr(view, 'zones') and len(view.zones) > 1"
-       tal:attributes="class python:'field clearfix'+(errors.has_key(tag+'.zone') and ' error' or'')">
-
-      <label i18n:translate=""
-             for="zone"
-             tal:attributes="for string:${tag}.zone:record;">
-          Zone
-      </label>
-
-      <span class="fieldRequired"
-            title="Required"
-            i18n:domain="plone"
-            i18n:attributes="title title_required;"
-            i18n:translate="label_required">
-          (Required)
-      </span>
-
-      <div tal:condition="python:errors.has_key(tag+'.zone')"
-           tal:content="python:errors[tag+'.zone'] or None">
-          The Error
-      </div>
-
-      <div class="widget">
-        <select id="zone" name="zone" size="1"
-                tal:define="current data/zone|address/zone|nothing"
-                tal:attributes="name string:${tag}.zone:record;
-                                id string:${tag}.zone:record;">
-          <option value=""
-                  tal:repeat="zone view/zones" tal:attributes="value zone;
-                                                               selected python:current == zone and 'selected' or ''" tal:content="zone">
+        <div class="widget">
+            <label title="Mr." i18n:attributes="title">
+                <input class="noborder" id="salutation_mr" name="salutation" value="mr" type="radio"
+                       tal:attributes="name string:${tag}.salutation:record;
+                                       checked python:data.get('salutation')=='mr' or address and address.salutation=='mr';" />
+                <span i18n:translate="">Mr.</span>
+            </label>
+            <label title="Mrs. / Ms." i18n:attributes="title">
+                <input class="noborder" id="salutation_mrs" name="salutation" value="mrs" type="radio"
+                       tal:attributes="name string:${tag}.salutation:record;
+                                       checked python:data.get('salutation')=='mrs' or address and address.salutation=='mrs';" />
+                <span i18n:translate="">Mrs. / Ms.</span>
+            </label>
+        </div>
+    </div>
+    
+    <div class="field clearfix"
+         tal:attributes="class python:'field clearfix'+(errors.has_key(tag+'.firstname') and ' error' or'')">
+  
+        <label i18n:translate=""
+               for="firstname">
+            First name
+        </label>
+  
+        <span class="fieldRequired"
+              title="Required"
+              i18n:domain="plone"
+              i18n:attributes="title title_required;"
+              i18n:translate="label_required">
+            (Required)
+        </span>
+  
+        <div tal:condition="python:errors.has_key(tag+'.firstname')"
+             tal:content="python:errors[tag+'.firstname'] or None">
+            The Error
+        </div>
+  
+        <div class="widget">
+            <input id="firstname" name="firstname" value="" type="text"
+                   tal:attributes="value data/firstname|address/firstname|nothing;
+                                   name string:${tag}.firstname:record" />
+        </div>
+    </div>
+    
+    <div class="field clearfix"
+         tal:attributes="class python:'field clearfix'+(errors.has_key(tag+'.lastname') and ' error' or'')">
+  
+        <label i18n:translate=""
+               for="lastname">
+            Last name
+        </label>
+  
+        <span class="fieldRequired"
+              title="Required"
+              i18n:domain="plone"
+              i18n:attributes="title title_required;"
+              i18n:translate="label_required">
+            (Required)
+        </span>
+  
+        <div tal:condition="python:errors.has_key(tag+'.lastname')"
+             tal:content="python:errors[tag+'.lastname'] or None">
+            The Error
+        </div>
+  
+        <div class="widget">
+            <input id="lastname" name="lastname" value="" type="text"
+                   tal:attributes="value data/lastname|address/lastname|nothing;
+                                   name string:${tag}.lastname:record" />
+        </div>
+    </div>
+    
+    <div class="field clearfix"
+         tal:attributes="class python:'field clearfix'+(errors.has_key(tag+'.company') and ' error' or'')">
+  
+        <label i18n:translate=""
+               for="company">
+            Company
+        </label>
+  
+        <div tal:condition="python:errors.has_key(tag+'.company')"
+             tal:content="python:errors[tag+'.company'] or None">
+            The Error
+        </div>
+  
+        <div class="widget">
+            <input id="company" name="company" value="" type="text"
+                   tal:attributes="value data/company|address/company|nothing;
+                                   name string:${tag}.company:record" />
+        </div>
+    </div>
+    
+    <div class="field clearfix"
+         tal:attributes="class python:'field clearfix'+(errors.has_key(tag+'.address1') and ' error' or'')">
+        <label i18n:translate=""
+               for="address1">
+            Address 1
+        </label>
+  
+        <span class="fieldRequired"
+              title="Required"
+              i18n:domain="plone"
+              i18n:attributes="title title_required;"
+              i18n:translate="label_required">
+            (Required)
+        </span>
+  
+        <div tal:condition="python:errors.has_key(tag+'.address1')"
+             tal:content="python:errors[tag+'.address1'] or None">
+            The Error
+        </div>
+  
+        <div class="widget">
+            <input id="address1" name="address1" value="" type="text"
+                   tal:attributes="value data/address1|address/address1|nothing;
+                                   name string:${tag}.address1:record" />
+        </div>
+    </div>
+    
+    <div class="field clearfix"
+         tal:attributes="class python:'field clearfix'+((errors.has_key(tag+'.address2')) and ' error' or'')">
+        <label i18n:translate=""
+               for="address2">
+            Address 2
+        </label>
+  
+        <div tal:condition="python:errors.has_key(tag+'.address2')"
+             tal:content="python:errors[tag+'.address2'] or None">
+            The Error
+        </div>
+  
+        <div class="widget">
+            <input id="address2" name="address2" value="" type="text"
+                   tal:attributes="value data/address2|address/address2|nothing;
+                                   name string:${tag}.address2:record" />
+        </div>
+    </div>
+    
+    <div class="field clearfix"
+         tal:attributes="class python:'field clearfix'+((errors.has_key(tag+'.zip') or errors.has_key(tag+'.city')) and ' error' or '')">
+        <label i18n:translate=""
+               for="zip">
+            ZIP / City
+        </label>
+  
+        <span class="fieldRequired"
+              title="Required"
+              i18n:domain="plone"
+              i18n:attributes="title title_required;"
+              i18n:translate="label_required">
+            (Required)
+        </span>
+  
+        <div tal:condition="python:errors.has_key(tag+'.zip')"
+             tal:content="python:errors[tag+'.zip'] or None">
+            The Error
+        </div>
+  
+        <div tal:condition="python:errors.has_key(tag+'.city')"
+             tal:content="python:errors[tag+'.city'] or None">
+            The Error
+        </div>
+  
+        <div class="widget">
+          <div class="zip_city_wrap">
+            <input class="zip" name="zip" value="" type="text" size="6"
+                   tal:attributes="value data/zip|address/zip|nothing;
+                                   name python:tag and tag+'.zip:record' or 'address.zip:record'" />
+                   
+            <input class="city" name="city" value="" type="text"
+                   tal:attributes="value data/city|address/city|nothing;
+                                   name string:${tag}.city:record" />
+          </div>
+        </div>
+    </div>
+    
+    <div class="field clearfix"
+         tal:attributes="class python:'field clearfix'+(errors.has_key(tag+'.country') and ' error' or'')">
+  
+        <label i18n:translate=""
+               for="country">
+            Country
+        </label>
+  
+        <span class="fieldRequired"
+              title="Required"
+              i18n:domain="plone"
+              i18n:attributes="title title_required;"
+              i18n:translate="label_required">
+            (Required)
+        </span>
+  
+        <div tal:condition="python:errors.has_key(tag+'.country')"
+             tal:content="python:errors[tag+'.country'] or None">
+            The Error
+        </div>
+  
+        <div class="widget">
+            <input id="country" name="country" value="" type="text"
+                   tal:attributes="value data/country|address/country|nothing;
+                                   name string:${tag}.country:record" />
+        </div>
+    </div>
+  
+    <div class="field clearfix"
+         tal:condition="python: hasattr(view, 'zones') and len(view.zones) > 1"
+         tal:attributes="class python:'field clearfix'+(errors.has_key(tag+'.zone') and ' error' or'')">
+  
+        <label i18n:translate=""
+               for="zone"
+               tal:attributes="for string:${tag}.zone:record;">
             Zone
-          </option>
-        </select>
-      </div>
-  </div>
+        </label>
   
-  <input type="hidden" name="zone" value=""
-         tal:condition="python: hasattr(view, 'zones') and len(view.zones) == 1"
-         tal:attributes="value python:view.zones[0];
-                         name string:${tag}.zone:record" />
-
-  <div class="field clearfix"
-       tal:attributes="class python:'field clearfix'+((errors.has_key(tag+'.email')) and ' error' or'')">
-
-      <label i18n:translate=""
-             for="email">
-          Email
-      </label>
-
-      <span class="fieldRequired"
-            title="Required"
-            i18n:domain="plone"
-            i18n:attributes="title title_required;"
-            i18n:translate="label_required">
-          (Required)
-      </span>
-
-      <div tal:condition="python:errors.has_key(tag+'.email')"
-           tal:content="python:errors[tag+'.email'] or None">
-          The Error
-      </div>
-
-      <div class="widget">
-          <input id="email" name="email" value="" type="text"
-                 tal:attributes="value data/email|address/email|nothing;
-                                 name python:tag and tag+'.email:record' or 'address.email:record'" />
-      </div>
-  </div>
+        <span class="fieldRequired"
+              title="Required"
+              i18n:domain="plone"
+              i18n:attributes="title title_required;"
+              i18n:translate="label_required">
+            (Required)
+        </span>
   
-  <div class="field clearfix"
-       tal:attributes="class python:'field clearfix'+(errors.has_key(tag+'.phone') and ' error' or'')">
-
-      <label i18n:translate=""
-             for="phone">
-          Phone
-      </label>
-
-      <span class="fieldRequired"
-            title="Required"
-            i18n:domain="plone"
-            i18n:attributes="title title_required;"
-            i18n:translate="label_required">
-          (Required)
-      </span>
-
-      <div tal:condition="python:errors.has_key(tag+'.phone')"
-           tal:content="python:errors[tag+'.phone'] or None">
-          The Error
-      </div>
-
-      <div class="widget">
-          <input id="phone" name="phone" value="" type="text"
-                 tal:attributes="value data/phone|address/phone|nothing;
-                                 name python:tag and tag+'.phone:record' or 'address.phone:record'" />
-      </div>
+        <div tal:condition="python:errors.has_key(tag+'.zone')"
+             tal:content="python:errors[tag+'.zone'] or None">
+            The Error
+        </div>
+  
+        <div class="widget">
+          <select id="zone" name="zone" size="1"
+                  tal:define="current data/zone|address/zone|nothing"
+                  tal:attributes="name string:${tag}.zone:record;
+                                  id string:${tag}.zone:record;">
+            <option value=""
+                    tal:repeat="zone view/zones" tal:attributes="value zone;
+                                                                 selected python:current == zone and 'selected' or ''" tal:content="zone">
+              Zone
+            </option>
+          </select>
+        </div>
+    </div>
+    
+    <input type="hidden" name="zone" value=""
+           tal:condition="python: hasattr(view, 'zones') and len(view.zones) == 1"
+           tal:attributes="value python:view.zones[0];
+                           name string:${tag}.zone:record" />
+  
+    <div class="field clearfix"
+         tal:attributes="class python:'field clearfix'+((errors.has_key(tag+'.email')) and ' error' or'')">
+  
+        <label i18n:translate=""
+               for="email">
+            Email
+        </label>
+  
+        <span class="fieldRequired"
+              title="Required"
+              i18n:domain="plone"
+              i18n:attributes="title title_required;"
+              i18n:translate="label_required">
+            (Required)
+        </span>
+  
+        <div tal:condition="python:errors.has_key(tag+'.email')"
+             tal:content="python:errors[tag+'.email'] or None">
+            The Error
+        </div>
+  
+        <div class="widget">
+            <input id="email" name="email" value="" type="text"
+                   tal:attributes="value data/email|address/email|nothing;
+                                   name python:tag and tag+'.email:record' or 'address.email:record'" />
+        </div>
+    </div>
+    
+    <div class="field clearfix"
+         tal:attributes="class python:'field clearfix'+(errors.has_key(tag+'.phone') and ' error' or'')">
+  
+        <label i18n:translate=""
+               for="phone">
+            Phone
+        </label>
+  
+        <span class="fieldRequired"
+              title="Required"
+              i18n:domain="plone"
+              i18n:attributes="title title_required;"
+              i18n:translate="label_required">
+            (Required)
+        </span>
+  
+        <div tal:condition="python:errors.has_key(tag+'.phone')"
+             tal:content="python:errors[tag+'.phone'] or None">
+            The Error
+        </div>
+  
+        <div class="widget">
+            <input id="phone" name="phone" value="" type="text"
+                   tal:attributes="value data/phone|address/phone|nothing;
+                                   name python:tag and tag+'.phone:record' or 'address.phone:record'" />
+        </div>
+    </div>
   </div>
-</div>
-</metal:address>
+  </metal:address>
+</html>

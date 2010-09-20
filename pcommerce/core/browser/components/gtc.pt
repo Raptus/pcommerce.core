@@ -1,4 +1,10 @@
-<div id="gtc" i18n:domain="pcommerce">
+<div xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+     xmlns:tal="http://xml.zope.org/namespaces/tal"
+     xmlns:metal="http://xml.zope.org/namespaces/metal"
+     xml:lang="en" lang="en"
+     i18n:domain="pcommerce"
+     id="gtc">
   <div class="field"
        tal:attributes="class python:'field'+(view.errors.has_key('gtc') and ' error' or '')">
     <div tal:condition="python:view.errors.has_key('gtc')"

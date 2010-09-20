@@ -59,18 +59,18 @@
                  tal:condition="view/items">
             <thead>
               <tr>
-                <th class="nosort">&nbsp;</th>
+                <th class="nosort">&#160;</th>
                 <th class="nosort column" i18n:domain="pcommerce"
-                    id="foldercontents-price-column">&nbsp;<tal:title i18n:translate=""
-                    >Price</tal:title>&nbsp;</th>
+                    id="foldercontents-price-column">&#160;<tal:title i18n:translate=""
+                    >Price</tal:title>&#160;</th>
                 <th class="nosort column"
-                    id="foldercontents-modified-column">&nbsp;<tal:modified i18n:translate="listingheader_modified"
-                    >Modified</tal:modified>&nbsp;</th>
+                    id="foldercontents-modified-column">&#160;<tal:modified i18n:translate="listingheader_modified"
+                    >Modified</tal:modified>&#160;;</th>
                 <th class="nosort column"
-                    id="foldercontents-status-column">&nbsp;<tal:state i18n:translate="listingheader_status"
-                    >State</tal:state>&nbsp;</th>
-                <th class="nosort" tal:condition="edit">&nbsp;</th>
-                <th class="nosort" tal:condition="sharing">&nbsp;</th>
+                    id="foldercontents-status-column">&#160;<tal:state i18n:translate="listingheader_status"
+                    >State</tal:state>&#160;</th>
+                <th class="nosort" tal:condition="edit">&#160;</th>
+                <th class="nosort" tal:condition="sharing">&#160;</th>
               </tr>
             </thead>
       
@@ -114,7 +114,7 @@
                             tal:condition="item/state_title"
                             tal:content="item/state_title"
                             tal:attributes="class item/state_class" />
-                      <span tal:condition="not: item/state_title">&nbsp;</span>
+                      <span tal:condition="not: item/state_title">&#160;</span>
                     </td>
                     <td tal:condition="edit">
                       <a href="" tal:attributes="href item/url/edit">

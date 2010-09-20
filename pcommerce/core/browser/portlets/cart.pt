@@ -1,6 +1,11 @@
-<dl class="portlet portletShoppingCart"
+<dl xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    xml:lang="en" lang="en"
     tal:condition="view/size"
-    i18n:domain="pcommerce">
+    i18n:domain="pcommerce"
+    class="portlet portletShoppingCart">
 
     <dt class="portletHeader">
         <span class="portletTopLeft"></span>

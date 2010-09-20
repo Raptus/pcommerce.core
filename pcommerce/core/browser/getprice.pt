@@ -1,1 +1,8 @@
-<tal:price tal:replace="view/price" />
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xml:lang="en" lang="en"
+      tal:omit-tag="">
+  <tal:price tal:replace="view/price"/>
+</html>

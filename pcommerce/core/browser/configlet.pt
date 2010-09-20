@@ -1,8 +1,8 @@
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+<html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-      lang="en"
+      xml:lang="en" lang="en"
       metal:use-macro="here/prefs_main_template/macros/master"
       i18n:domain="pcommerce">
 
@@ -58,7 +58,7 @@
 
                 <div class="widget">
                     <input id="productname" name="productname" value="Subscription" type="text"
-                           tal:attributes="value request/productname|view/values/productname|nothing">
+                           tal:attributes="value request/productname|view/values/productname|nothing"/>
                 </div>
             </div>
             
@@ -82,7 +82,7 @@
 
                 <div class="widget">
                     <input id="gtc" name="gtc" value="" type="text"
-                           tal:attributes="value request/gtc|view/values/gtc|nothing">
+                           tal:attributes="value request/gtc|view/values/gtc|nothing"/>
                 </div>
             </div>
             
@@ -106,7 +106,7 @@
 
                 <div class="widget">
                     <input id="post_checkout" name="post_checkout" value="" type="text"
-                           tal:attributes="value request/post_checkout|view/values/post_checkout|nothing">
+                           tal:attributes="value request/post_checkout|view/values/post_checkout|nothing"/>
                 </div>
             </div>
 

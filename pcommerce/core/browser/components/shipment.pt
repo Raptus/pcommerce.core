@@ -1,4 +1,11 @@
-<div id="shipment" class="component" i18n:domain="pcommerce">
+<div xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+     xmlns:tal="http://xml.zope.org/namespaces/tal"
+     xmlns:metal="http://xml.zope.org/namespaces/metal"
+     xml:lang="en" lang="en"
+     id="shipment"
+     class="component"
+     i18n:domain="pcommerce">
   <h2 i18n:translate="">
      Shipment
   </h2>

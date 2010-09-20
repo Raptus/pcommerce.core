@@ -58,14 +58,14 @@
                  tal:condition="view/items">
             <thead>
               <tr>
-                <th class="nosort">&nbsp;</th>
+                <th class="nosort">&#160;</th>
                 <th class="nosort column" i18n:domain="pcommerce"
-                    id="foldercontents-price-column">&nbsp;<tal:title i18n:translate=""
-                    >Image</tal:title>&nbsp;</th>
+                    id="foldercontents-price-column">&#160;<tal:title i18n:translate=""
+                    >Image</tal:title>&#160;</th>
                 <th class="nosort column"
-                    id="foldercontents-modified-column">&nbsp;<tal:modified i18n:translate="listingheader_modified"
-                    >Modified</tal:modified>&nbsp;</th>
-                <th class="nosort" tal:condition="edit">&nbsp;</th>
+                    id="foldercontents-modified-column">&#160;<tal:modified i18n:translate="listingheader_modified"
+                    >Modified</tal:modified>&#160;</th>
+                <th class="nosort" tal:condition="edit">&#160;</th>
               </tr>
             </thead>
       
