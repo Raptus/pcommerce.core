@@ -1,6 +1,9 @@
 Changelog
 =========
 
+1.0b3 (2010-11-29)
+------------------
+* remove portlets.xml in genericsetup
 
 1.0b2 (2010-11-29)
 ------------------
