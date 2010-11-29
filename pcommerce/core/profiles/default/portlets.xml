@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<portlets>
+    
+    <portlet
+        addview="pcommerce.Cart"
+        title="Shopping cart"
+        description=""
+    />
+
+</portlets>
