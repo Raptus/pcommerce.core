@@ -33,10 +33,11 @@ class BaseComponent(BrowserView):
     def _shipmentgroups(self):
         groups = {}
         products = self.products
+        available_shipmentids = self._shipments()
         for product in products:
             product = product['object']
             shipmentids = product.getShipments()
-            shipmentids = list(shipmentids)
+            shipmentids = [shipmentid for shipmentid in shipmentids if shipmentid in available_shipmentids]
             shipmentids.sort()
             shipmentids = tuple(shipmentids)
             if groups.has_key(shipmentids):
