@@ -74,7 +74,6 @@ class ShoppingCart(Cart):
     def getProducts(self):
         """ returns list of products currently in the cart
         """
-        import logging
         catalog = getToolByName(self.context, 'uid_catalog')
         products = []
         for uid, amount in self.items():

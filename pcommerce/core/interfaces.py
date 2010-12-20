@@ -110,6 +110,10 @@ class IOrderRegistry(Interface):
         """ sends an order
         """
         
+    def process(orderid):
+        """ process an order
+        """
+        
     def cancel(orderid):
         """ cancel an order
         """
@@ -242,14 +246,47 @@ class IPaymentProcessor(Interface):
 class IOrderEvent(Interface):
     """ An event that's fired upon order change.
     """
+    registry = Attribute(u'The order registry the order is stored in')
     order = Attribute(u'The order object')
+    
+class IOrderProcessingSuccessfulEvent(IOrderEvent):
+    """ An event that's fired if processing an order was successful
+    """
+    
+class IOrderProcessingFailedEvent(IOrderEvent):
+    """ An event that's fired if processing an order failed
+    """
     
 class IOrderProcessedEvent(IOrderEvent):
     """ An event fired after a order has been processed
     """
     
-class IOrderProcessingFailedEvent(IOrderEvent):
-    """ An event that's fired if processiong an order failed
+class IOrderCreatedEvent(IOrderEvent):
+    """ An event that's fired if an order was created from a cart
+    """
+    
+class IOrderAboutToBeRecreatedEvent(IOrderEvent):
+    """ An event that's fired if an order is about to be recreated from a cart
+    """
+    
+class IOrderRecreatedEvent(IOrderEvent):
+    """ An event that's fired if an order was re created from a cart
+    """
+    
+class IOrderRecoveredEvent(IOrderEvent):
+    """ An event that's fired if an order was recovered
+    """
+    
+class IOrderSentEvent(IOrderEvent):
+    """ An event that's fired if an order was sent
+    """
+    
+class IOrderFailedEvent(IOrderEvent):
+    """ An event that's fired if an order failed
+    """
+    
+class IOrderCanceledEvent(IOrderEvent):
+    """ An event that's fired if an order was canceled
     """
     
 class IPricing(Interface):
@@ -295,6 +332,13 @@ class ICheckoutView(Interface):
 
 class ISteps(Interface):
     """ Steps provider
+    """
+
+class IRequiredComponents(Interface):
+    """ Required components provider
+        
+        Components which have to be processed in order to
+        make an order definite
     """
     
 class IComponent(IBrowserView):

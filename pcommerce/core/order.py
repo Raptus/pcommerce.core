@@ -6,14 +6,17 @@ from persistent import Persistent
 from persistent.list import PersistentList
 from persistent.mapping import PersistentMapping
 
+from zope.event import notify
 from zope.i18n import translate
 from zope.interface import implements, implementer, Interface
 from zope.component import adapts, adapter, getMultiAdapter, getAdapter, getAdapters
 from zope.annotation.interfaces import IAnnotations
 
 from Products.CMFCore.utils import getToolByName
+from Products.CMFPlone.Portal import PloneSite
 
-from pcommerce.core.config import INITIALIZED, SENT, CANCELED, FAILED
+from pcommerce.core import events
+from pcommerce.core.config import INITIALIZED, SENT, CANCELED, FAILED, PROCESSED
 from pcommerce.core.currency import CurrencyAware
 from pcommerce.core.cart import Cart
 from pcommerce.core import interfaces
@@ -154,7 +157,9 @@ class OrderRegistry(Cart):
     
     def __init__(self, context):
         self.context = context
-        self.portal = getMultiAdapter((self.context, self.context.REQUEST), name=u'plone_portal_state').portal()
+        self.portal = context
+        if not isinstance(context, PloneSite):
+            self.portal = getMultiAdapter((self.context, self.context.REQUEST), name=u'plone_portal_state').portal()
     
     @property
     def _items(self):
@@ -235,7 +240,9 @@ class OrderRegistry(Cart):
                 cart.addVariation([uid for uid, type, name in variations], amount)
             else:
                 cart.add(uid, amount)
-                
+        
+        notify(events.OrderRecoveredEvent(self, order))
+        
     def send(self, orderid, lang=None):
         """ sends an order
         """
@@ -392,9 +399,24 @@ class OrderRegistry(Cart):
                             subject=translate(_('email_customer_title', default='Confirmation Email'), context=request, target_language=lang),
                             charset='utf-8')
         
+        notify(events.OrderSentEvent(self, order))
+        
         order.state = SENT
         if order.orderid == request.SESSION.get(ORDER_SESSION_KEY, 0):
             request.SESSION.set(ORDER_SESSION_KEY, None)
+        
+    def process(self, orderid):
+        """ process an order
+        """
+        if not self.has_key(orderid):
+            return
+        order = self[orderid]
+        
+        notify(events.OrderProcessedEvent(self, order))
+        
+        order.state = PROCESSED
+        if order.orderid == self.context.REQUEST.SESSION.get(ORDER_SESSION_KEY, 0):
+            self.context.REQUEST.SESSION.set(ORDER_SESSION_KEY, None)
         
     def cancel(self, orderid):
         """ cancel an order
@@ -402,6 +424,9 @@ class OrderRegistry(Cart):
         if not self.has_key(orderid):
             return
         order = self[orderid]
+        
+        notify(events.OrderCanceledEvent(self, order))
+        
         order.state = CANCELED
         if order.orderid == self.context.REQUEST.SESSION.get(ORDER_SESSION_KEY, 0):
             self.context.REQUEST.SESSION.set(ORDER_SESSION_KEY, None)
@@ -412,6 +437,9 @@ class OrderRegistry(Cart):
         if not self.has_key(orderid):
             return
         order = self[orderid]
+        
+        notify(events.OrderFailedEvent(self, order))
+        
         order.state = FAILED
         if order.orderid == self.context.REQUEST.SESSION.get(ORDER_SESSION_KEY, 0):
             self.context.REQUEST.SESSION.set(ORDER_SESSION_KEY, None)
@@ -520,7 +548,9 @@ def get_order(context):
     if orderid and orders.has_key(orderid):
         order = orders[orderid]
         if order.state is INITIALIZED:
+            notify(events.OrderAboutToBeRecreatedEvent(orders, order))
             orders.create(order)
+            notify(events.OrderRecreatedEvent(orders, order))
         else:
             order = None
 
@@ -529,5 +559,7 @@ def get_order(context):
         context.REQUEST.SESSION.set(ORDER_SESSION_KEY, orderid)
         order = Order(orderid, None)
         orders.create(order)
+        
+        notify(events.OrderCreatedEvent(orders, order))
     
     return order

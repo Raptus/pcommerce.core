@@ -57,6 +57,7 @@
   <adapter factory=".registry.Shipment" />
   
   <adapter factory=".steps.steps" />
+  <adapter factory=".required.components" />
 
   <adapter factory=".processor.PaymentProcessor" />
 

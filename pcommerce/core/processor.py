@@ -4,7 +4,7 @@ from zope.event import notify
 
 from pcommerce.core import interfaces
 from pcommerce.core.config import FAILED, PROCESSED, SENT
-from pcommerce.core.events import OrderProcessedEvent, OrderProcessingFailedEvent
+from pcommerce.core.events import OrderProcessingSuccessfulEvent, OrderProcessingFailedEvent
 
 class PaymentProcessor(object):
     """"""
@@ -21,15 +21,15 @@ class PaymentProcessor(object):
         if not order or not order.paymentid == paymentid:
             return 'no matching order found'
         if order.state is not PROCESSED:
-            if order.state < SENT:
-                registry.send(orderid, lang)
             method = getAdapter(self.context, name=paymentid, interface=interfaces.IPaymentMethod)
             if method.verifyPayment(order):
-                order.state = PROCESSED
-                notify(OrderProcessedEvent(order))
+                if order.state < SENT:
+                    registry.send(orderid, lang)
+                registry.process(orderid)
+                notify(OrderProcessingSuccessfulEvent(registry, order))
                 return 'payment successfully processed'
             else:
-                order.state = FAILED
-                notify(OrderProcessingFailedEvent(order))
+                registry.fail(orderid)
+                notify(OrderProcessingFailedEvent(registry, order))
                 return 'processing payment failed'
         return 'payment already processed'
