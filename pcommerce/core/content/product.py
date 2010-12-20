@@ -64,12 +64,11 @@ ProductSchema = ATDocumentSchema.copy() + Schema((
         name='shipments',
         required = True,
         multiValued = True,
-        widget = MultiSelectionWidget(label = _p(u'label_shipments_methods', default=u'Shipments methods'),
-                                      description = _p(u'description_shipments_methods', default=u'Shipments methods for this product'),
+        widget = MultiSelectionWidget(label = _(u'label_shipment_methods', default=u'Shipment methods'),
+                                      description = _(u'description_shipment_methods', default=u'Shipment methods for this product'),
                                       format = 'checkbox',
                                      ),
         vocabulary_factory = u"pcommerce.core.vocabulary.shipments"
-    
     ),
 
     ImageField(

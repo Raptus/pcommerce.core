@@ -1,10 +1,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: pcommerce.core\n"
-"POT-Creation-Date: 2010-03-15 11:25+0000\n"
+"POT-Creation-Date: 2010-12-15 08:16+0000\n"
 "PO-Revision-Date: 2007-11-01 10:18+0100\n"
 "Last-Translator: Simon Kaeser <skaeser@raptus.com>\n"
 "Language-Team: Deutsch <skaeser@raptus.com>\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -49,18 +50,17 @@ msgstr "Preisaufschlag"
 msgid "Additional prices"
 msgstr "Zusätzliche Preise"
 
-#. Default: "Address"
-#: browser/components/overview.pt:9
+#: steps.py:10
 msgid "Address"
 msgstr "Adresse"
 
 #. Default: "Address 1"
-#: browser/address.pt:109
+#: browser/address.pt:139
 msgid "Address 1"
 msgstr "Adresse 1"
 
 #. Default: "Address 2"
-#: browser/address.pt:136
+#: browser/address.pt:166
 msgid "Address 2"
 msgstr "Adresse 2"
 
@@ -69,7 +69,12 @@ msgstr "Adresse 2"
 msgid "Amount"
 msgstr "Anzahl"
 
-#: browser/checkout.py:253
+#. Default: "Billing address"
+#: browser/components/address.pt:12
+msgid "Billing address"
+msgstr "Rechnungsadresse"
+
+#: browser/checkout.py:255
 msgid "Cancel checkout"
 msgstr "Bestellung abbrechen"
 
@@ -79,28 +84,23 @@ msgid "Check out"
 msgstr "zur Kasse gehen"
 
 #. Default: "Company"
-#: browser/address.pt:82
+#: browser/address.pt:120
 msgid "Company"
 msgstr "Firma"
 
 #. Default: "Confirmation"
-#: browser/components/confirmation.pt:11
+#: browser/components/confirmation.pt:17
 msgid "Confirmation"
 msgstr "Bestätigung"
 
-#: browser/checkout.py:243
+#: browser/checkout.py:245
 msgid "Continue shopping"
 msgstr "Einkauf fortsetzen"
 
 #. Default: "Country"
-#: browser/address.pt:194
+#: browser/address.pt:224
 msgid "Country"
 msgstr "Land"
-
-#. Default: "Billing address"
-#: browser/components/address.pt:5
-msgid "Billing address"
-msgstr "Rechnungsadresse"
 
 #. Default: "Edit cart"
 #: browser/cart.pt:111
@@ -108,9 +108,14 @@ msgid "Edit cart"
 msgstr "Warenkorb bearbeiten"
 
 #. Default: "Email"
-#: browser/address.pt:264
+#: browser/address.pt:294
 msgid "Email"
 msgstr "Email"
+
+#. Default: "First name"
+#: browser/address.pt:64
+msgid "First name"
+msgstr "Vorname"
 
 #. Default: "GTC"
 #: browser/configlet.pt:68
@@ -122,7 +127,7 @@ msgid "Hot product"
 msgstr "Hot Produkt"
 
 #. Default: "I accept the ${link}"
-#: browser/components/gtc.pt:10
+#: browser/components/gtc.pt:16
 msgid "I accept the ${link}"
 msgstr "Ich akzeptiere die ${link}"
 
@@ -136,13 +141,18 @@ msgstr "Bild"
 msgid "Images"
 msgstr "Bilder"
 
+#. Default: "Last name"
+#: browser/address.pt:92
+msgid "Last name"
+msgstr "Nachname"
+
 #. Default: "Mr."
-#: browser/address.pt:36
+#: browser/address.pt:46
 msgid "Mr."
 msgstr "Herr"
 
 #. Default: "Mrs. / Ms."
-#: browser/address.pt:42
+#: browser/address.pt:52
 msgid "Mrs. / Ms."
 msgstr "Frau"
 
@@ -155,7 +165,7 @@ msgstr "Neues Produkt"
 msgid "New products in our shop"
 msgstr "Jetzt aktuell im Shop"
 
-#: browser/checkout.py:246
+#: browser/checkout.py:248
 msgid "Next step"
 msgstr "Nächster Schritt"
 
@@ -164,12 +174,12 @@ msgid "No"
 msgstr "Artikelnummer"
 
 #. Default: "No of articles:"
-#: browser/portlets/cart.pt:13
+#: browser/portlets/cart.pt:18
 msgid "No of articles:"
 msgstr "Anzahl Artikel:"
 
 #. Default: "Overview"
-#: browser/components/overview.pt:3
+#: browser/components/overview.pt:9
 msgid "Overview"
 msgstr "Übersicht"
 
@@ -179,20 +189,20 @@ msgid "PCommerce configuration"
 msgstr "Einstellungen PCommerce"
 
 #. Default: "Payment"
-#: browser/components/confirmation.pt:42
+#: browser/components/confirmation.pt:48
 msgid "Payment"
 msgstr "Zahlungsart"
 
-#: browser/checkout.py:288
+#: browser/checkout.py:313
 msgid "Payment canceled"
 msgstr "Zahlungsvorgang abgebrochen"
 
-#: browser/checkout.py:276
+#: browser/checkout.py:301
 msgid "Payment failed"
 msgstr "Zahlungsvorgang fehlgeschlagen"
 
 #. Default: "Phone"
-#: browser/address.pt:292
+#: browser/address.pt:322
 msgid "Phone"
 msgstr "Telefon"
 
@@ -229,7 +239,7 @@ msgstr "Bitte geben Sie eine Anzahl an"
 msgid "Post checkout"
 msgstr "Nach dem Bestellvorgang"
 
-#: browser/checkout.py:235
+#: browser/checkout.py:237
 msgid "Previous step"
 msgstr "Vorhergehender Schritt"
 
@@ -242,6 +252,10 @@ msgstr "Preis"
 #: browser/cart.pt:39
 msgid "Price total"
 msgstr "Preis total"
+
+#: browser/checkout.py:236
+msgid "Print"
+msgstr "Drucken"
 
 #. Default: "Product"
 #: browser/cart.pt:36
@@ -282,31 +296,31 @@ msgid "Removed item from cart"
 msgstr "Artikel vom Warenkorb entfernt"
 
 #. Default: "Salutation"
-#: browser/address.pt:25
+#: browser/address.pt:35
 msgid "Salutation"
 msgstr "Anrede"
 
 #. Default: "Select the desired payment method"
-#: browser/components/payments.pt:5
+#: browser/components/payments.pt:12
 msgid "Select the desired payment method"
 msgstr "Wählen Sie die gewünschte Zahlungsmethode"
 
 #. Default: "Select the desired shipment method"
-#: browser/components/shipments.pt:6
+#: browser/components/shipments.pt:13
 msgid "Select the desired shipment method"
 msgstr "Wählen Sie die gewünschte Lieferart"
 
 #. Default: "Select the desired shipment method for the following products:"
-#: browser/components/shipments.pt:47
+#: browser/components/shipments.pt:54
 msgid "Select the desired shipment method for the following products:"
 msgstr "Wählen Sie die gewünschte Lieferart für folgende Produkte:"
 
-#: browser/checkout.py:245
+#: browser/checkout.py:247
 msgid "Send order"
 msgstr "Bestellung absenden"
 
 #. Default: "Shipment"
-#: browser/components/confirmation.pt:24
+#: browser/components/confirmation.pt:30
 msgid "Shipment"
 msgstr "Lieferung"
 
@@ -319,6 +333,11 @@ msgstr "Warenkorb"
 msgid "Tax factor"
 msgstr "Steuerfaktor"
 
+#. Default: "Tax included in product price"
+#: browser/configlet.pt:182
+msgid "Tax included in product price"
+msgstr "Steuer im Produktpreis inbegriffen"
+
 #. Default: "Tax name"
 #: browser/configlet.pt:120
 msgid "Tax name"
@@ -329,11 +348,8 @@ msgstr "Steuername"
 msgid "Taxes"
 msgstr "Steuern"
 
-msgid "Tax included in product price"
-msgstr "Steuer im Produktpreis inbegriffen"
-
 #. Default: "Thank you!"
-#: browser/components/confirmation.pt:3
+#: browser/components/confirmation.pt:9
 msgid "Thank you!"
 msgstr "Vielen Dank!"
 
@@ -372,24 +388,33 @@ msgid "Total"
 msgstr "Total"
 
 #. Default: "Total ${currency}:"
-#: browser/portlets/cart.pt:15
+#: browser/portlets/cart.pt:20
 msgid "Total ${currency}:"
 msgstr "Total ${currency}:"
 
 #. Default: "Total incl. ${taxname}"
-#: browser/macros.pt:152
+#: browser/macros.pt:158
 msgid "Total incl. ${taxname}"
 msgstr "Total inkl. ${taxname}:"
 
+#: order.py:333
+msgid "Total incl. ${taxname}"
+msgstr "Total inkl. ${taxname}"
+
 #. Default: "Total incl. charges"
-#: browser/macros.pt:125
+#: browser/macros.pt:131
 msgid "Total incl. charges"
 msgstr "Total inkl. Gebühren"
 
 #. Default: "Total incl. charges and ${taxname}"
-#: browser/macros.pt:181
+#: browser/macros.pt:187
 msgid "Total incl. charges and ${taxname}"
 msgstr "Total inkl. Gebühren und ${taxname}"
+
+#. Default: "Total incl. charges and ${tax}% ${taxname}"
+#: browser/macros.pt:190
+msgid "Total incl. charges and ${tax}% ${taxname}"
+msgstr "Total inkl. Gebühren und ${tax}% ${taxname}"
 
 #: content/variation.py:26
 msgid "Type"
@@ -401,7 +426,7 @@ msgid "Variations"
 msgstr "Variationen"
 
 #. Default: "We successfully received your order. An Email has been sent to you containing all the order details."
-#: browser/components/confirmation.pt:6
+#: browser/components/confirmation.pt:12
 msgid ""
 "We successfully received your order. An Email has been sent to you "
 "containing all the order details."
@@ -409,7 +434,7 @@ msgstr ""
 "Wir haben Ihre Bestellung erfolgreich erhalten. Ein Email mit allen "
 "Informationen zu Ihrer Bestellung wurde an Sie versandt."
 
-#: browser/checkout.py:50
+#: browser/checkout.py:51
 msgid "You have not yet added any products to your cart"
 msgstr "Sie haben noch keine Produkte in Ihrem Warenkorb"
 
@@ -435,12 +460,12 @@ msgid "Your shopping cart is empty"
 msgstr "Ihr Warenkorb ist leer"
 
 #. Default: "ZIP / City"
-#: browser/address.pt:155
+#: browser/address.pt:185
 msgid "ZIP / City"
 msgstr "PLZ / Ort"
 
 #. Default: "Zone"
-#: browser/address.pt:223
+#: browser/address.pt:253
 msgid "Zone"
 msgstr "Zone"
 
@@ -450,12 +475,12 @@ msgid "add"
 msgstr "hinzufügen"
 
 #. Default: "add to cart"
-#: browser/viewlets/buy.pt:17
+#: browser/viewlets/buy.pt:19
 msgid "add to cart"
 msgstr "zum Warenkorb hinzufügen"
 
 #. Default: "Check out"
-#: browser/checkout.pt:12
+#: browser/checkout.pt:15
 msgid "checkout_title"
 msgstr "Kasse"
 
@@ -475,8 +500,21 @@ msgstr ""
 "klicken Sie den Hinzufügen Knopf, oder fügen Sie Inhalte aus einem anderen "
 "Produkt ein."
 
+#. Default: "If multiple selected variations in different categories have unit prices, the greater price will be accounted for in pricing of the selected combination."
+#: content/variation.py:52
+msgid "description_price"
+msgstr ""
+"Wenn mehrere Variationen aus verschiedenen Kategorien einen Einzelpreis "
+"besitzen, wird bei der Preisfindung der Kombination, der grössere Preis "
+"gewählt."
+
+#. Default: "Shipment methods for this product"
+#: content/product.py:68
+msgid "description_shipment_methods"
+msgstr "Versandmöglichkeiten für dieses Produkt"
+
 #. Default: "Dear ${name}\n\nYour order has successfully been registered. Please find a complete\noverview of your order below.\n\nOrder ID: ${orderid}\n\n${cart}\nCurrency: ${currency}\n\n\nAddress:\n${address}\n\nPayment:\n${payment}\n\nShipment:\n${shipments}\n\n\nIf you have any questions concerning your purchase do not hesitate\nto contact us at ${from_email}.\n\nBest regards\n\n${from_name}\n"
-#: order.py:400
+#: order.py:441
 msgid "email_customer_body"
 msgstr ""
 "Sehr geehrte/r ${name}\n"
@@ -509,12 +547,12 @@ msgstr ""
 "${from_name}\n"
 
 #. Default: "Confirmation Email"
-#: order.py:351
+#: order.py:392
 msgid "email_customer_title"
 msgstr "Bestellungsbestätigung"
 
 #. Default: "New order by ${name}\n\nOrderid: ${orderid}\n\n${cart}\nCurrency: ${currency}\n\n\nAddress:\n${address}\n\nPayment:\n${payment}\n\nShipment:\n${shipments}\n\n"
-#: order.py:379
+#: order.py:420
 msgid "email_order_body"
 msgstr ""
 "Neue Bestellung von ${name}\n"
@@ -536,12 +574,12 @@ msgstr ""
 "\n"
 
 #. Default: "New order [${orderid}]"
-#: order.py:343
+#: order.py:383
 msgid "email_order_title"
 msgstr "Neue Bestellung [${orderid}]"
 
 #. Default: "general terms and conditions"
-#: browser/components/gtc.pt:10
+#: browser/components/gtc.pt:16
 msgid "general terms and conditions"
 msgstr "Allgemeinen Geschäftsbedingungen"
 
@@ -553,7 +591,7 @@ msgstr ""
 "Produktes ${product}."
 
 #. Default: "You are currently looking at a variation of the product ${product}."
-#: browser/variation.pt:22
+#: browser/variation.pt:25
 msgid "info_variation"
 msgstr ""
 "Sie befinden sich momentan auf einer Variation des Produktes ${product}."
@@ -565,23 +603,28 @@ msgstr ""
 "Sie befinden sich momentan auf der Preisansicht einer Variation des "
 "Produktes ${product}."
 
+#. Default: "Shipment methods"
+#: content/product.py:67
+msgid "label_shipment_methods"
+msgstr "Versandarten"
+
 #. Default: "log in"
 #: browser/cart.pt:96
 msgid "log_in"
 msgstr "melden Sie sich an"
 
 #. Default: "Check out canceled"
-#: browser/checkout.py:308
+#: browser/checkout.py:333
 msgid "message_checkout_canceled"
 msgstr "Bestellung abgebrochen"
 
 #. Default: "Check out failed"
-#: browser/checkout.py:319
+#: browser/checkout.py:344
 msgid "message_checkout_failed"
 msgstr "Bestellung fehlgeschlagen"
 
 #. Default: "${offer} instead of ${price}"
-#: browser/macros.pt:5
+#: browser/macros.pt:11
 msgid "price_offer"
 msgstr "${offer} statt ${price}"
 
@@ -594,24 +637,3 @@ msgstr "Registrationsformular"
 #: browser/configlet.pt:144
 msgid "remove"
 msgstr "löschen"
-
-msgid "Total incl. charges and ${tax}% ${taxname}"
-msgstr "Total inkl. Gebühren und ${tax}% ${taxname}"
-
-msgid "Print"
-msgstr "Drucken"
-
-msgid "First name"
-msgstr "Vorname"
-
-msgid "Last name"
-msgstr "Nachname"
-
-msgid "description_shipments_methods"
-msgstr "Versandmöglichkeiten für dieses Produkt"
-
-msgid 'shipments'
-msgstr 'Versandarten'
-
-msgid "description_price"
-msgstr "Wenn mehrere Variationen aus verschiedenen Kategorien einen Einzelpreis besitzen, wird bei der Preisfindung, der Kombination, der grössere Preis gewählt."
