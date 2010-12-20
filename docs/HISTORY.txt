@@ -1,6 +1,16 @@
 Changelog
 =========
 
+1.0b4 (2010-12-20)
+------------------
+
+* bugfix in BaseComponent (only show available shipment methods by using the ShipmentRegistry)
+* added process method to the order registry
+* added new adapter which defines the components which have to be 
+  processed in order to make an order definite
+* added new zope3 events
+* cleaned up translations
+
 1.0b3 (2010-11-29)
 ------------------
 * remove assignment in portlets.xml
