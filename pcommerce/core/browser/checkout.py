@@ -208,12 +208,14 @@ class Checkout(BrowserView):
                 selected = True
             
             _class = 'step'
-            if i is 0:
+            if i == 0:
                 _class+=' first'
-            elif i is len(self.steps):
+            elif i == (len(self.steps)-1):
                 _class+=' last'
             if selected:
                 _class+=' select'
+            if i < self.stepid:
+                _class+=' passed'
             if i in self.order.processed_steps:
                 _class+=' processed'
             href = None
