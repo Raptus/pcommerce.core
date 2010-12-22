@@ -1,88 +1,89 @@
-<div xmlns="http://www.w3.org/1999/xhtml"
-     xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-     xmlns:tal="http://xml.zope.org/namespaces/tal"
-     xmlns:metal="http://xml.zope.org/namespaces/metal"
-     xml:lang="en" lang="en"
-     id="shipments"
-     class="component"
-     i18n:domain="pcommerce">
-  <h2 i18n:translate="">
-     Shipment
-  </h2>
-  <tal:single condition="not:view/multiple">
-    <p class="description" i18n:translate="">
-      Select the desired shipment method 
-    </p>
-    <tal:groups tal:repeat="group view/shipmentgroups">
-    <div class="field"
-         tal:condition="python:len(group['shipments']) > 1"
-         tal:attributes="class python:view.errors.has_key(group['shipmentids']) and 'field error' or 'field'">
-      <div tal:condition="python:view.errors.has_key(group['shipmentids'])"
-           tal:content="python: view.errors[group['shipmentids']]">
-        The Error
-      </div>
-      <tal:products tal:repeat="product group/products">
-      <input type="hidden" name="shipment_id_0.products:tuple:record" value=""
-             tal:attributes="value product/UID;
-                             name string:shipment_id_${repeat/group/number}.products:record:tuple" />
-      </tal:products>
-      <ul class="selection visualNoMarker">
-        <tal:shipment repeat="shipment group/shipments">
-        <li tal:define="even repeat/shipment/even;"
-            tal:attributes="class python:even and 'even' or 'odd'">
-          <label class="clearfix" tal:attributes="title shipment/description">
-            <input class="noborder" type="radio" name="shipment_id_0.shipmentid:record" value=""
-                   tal:attributes="value shipment/id;
-                                   name string:shipment_id_${repeat/group/number}.shipmentid:record;
-                                   checked shipment/selected;" />
-            <img src="" tal:condition="shipment/logo" tal:attributes="src shipment/logo" />
-            <strong tal:content="shipment/title">Title</strong>
-            <span tal:content="shipment/description">Description</span>
-          </label>
-        </li>
-        </tal:shipment>
-      </ul>
-    </div>
-    </tal:groups>
-  </tal:single>
-  
-  <tal:multiple condition="view/multiple">
-    <tal:groups tal:repeat="group view/shipmentgroups">
-    <div class="field"
-         tal:condition="python:len(group['shipments']) > 1"
-         tal:attributes="class python:view.errors.has_key(group['shipmentids']) and 'field error' or 'field'">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xml:lang="en" lang="en"
+      i18n:domain="pcommerce"
+      tal:omit-tag="">
+  <div id="shipments" class="component">
+    <h2 i18n:translate="">
+       Shipment
+    </h2>
+    <tal:single condition="not:view/multiple">
       <p class="description" i18n:translate="">
-        Select the desired shipment method for the following products:
+        Select the desired shipment method 
       </p>
-      <ul class="products">
-        <li tal:repeat="product group/products">
-          <tal:product tal:replace="product/Title"/>
-          <input type="hidden" name="shipment_id_0.products:tuple:record" value=""
-                 tal:attributes="value product/UID;
-                                 name string:shipment_id_${repeat/group/number}.products:record:tuple" />
-        </li>
-      </ul>
-      <div tal:condition="python:view.errors.has_key(group['shipmentids'])"
-           tal:content="python: view.errors[group['shipmentids']]">
-        The Error
+      <tal:groups tal:repeat="group view/shipmentgroups">
+      <div class="field"
+           tal:condition="python:len(group['shipments']) > 1"
+           tal:attributes="class python:view.errors.has_key(group['shipmentids']) and 'field error' or 'field'">
+        <div tal:condition="python:view.errors.has_key(group['shipmentids'])"
+             tal:content="python: view.errors[group['shipmentids']]">
+          The Error
+        </div>
+        <tal:products tal:repeat="product group/products">
+        <input type="hidden" name="shipment_id_0.products:tuple:record" value=""
+               tal:attributes="value product/UID;
+                               name string:shipment_id_${repeat/group/number}.products:record:tuple" />
+        </tal:products>
+        <ul class="selection visualNoMarker">
+          <tal:shipment repeat="shipment group/shipments">
+          <li tal:define="even repeat/shipment/even;"
+              tal:attributes="class python:even and 'even' or 'odd'">
+            <label class="clearfix" tal:attributes="title shipment/description">
+              <input class="noborder" type="radio" name="shipment_id_0.shipmentid:record" value=""
+                     tal:attributes="value shipment/id;
+                                     name string:shipment_id_${repeat/group/number}.shipmentid:record;
+                                     checked shipment/selected;" />
+              <img src="" tal:condition="shipment/logo" tal:attributes="src shipment/logo" />
+              <strong tal:content="shipment/title">Title</strong>
+              <span tal:content="shipment/description">Description</span>
+            </label>
+          </li>
+          </tal:shipment>
+        </ul>
       </div>
-      <ul class="selection visualNoMarker">
-        <tal:shipment repeat="shipment group/shipments">
-        <li tal:define="even repeat/shipment/even;"
-            tal:attributes="class python:even and 'even' or 'odd'">
-          <label class="clearfix" tal:attributes="title shipment/description">
-            <input class="noborder" type="radio" name="shipment_id_0.shipmentid:record" value=""
-                   tal:attributes="value shipment/id;
-                                   name string:shipment_id_${repeat/group/number}.shipmentid:record;
-                                   checked shipment/selected;" />
-            <img src="" tal:condition="shipment/logo" tal:attributes="src shipment/logo" />
-            <strong tal:content="shipment/title">Title</strong>
-            <span tal:content="shipment/description">Description</span>
-          </label>
-        </li>
-        </tal:shipment>
-      </ul>
-    </div>
-    </tal:groups>
-  </tal:multiple>
-</div>
+      </tal:groups>
+    </tal:single>
+    
+    <tal:multiple condition="view/multiple">
+      <tal:groups tal:repeat="group view/shipmentgroups">
+      <div class="field"
+           tal:condition="python:len(group['shipments']) > 1"
+           tal:attributes="class python:view.errors.has_key(group['shipmentids']) and 'field error' or 'field'">
+        <p class="description" i18n:translate="">
+          Select the desired shipment method for the following products:
+        </p>
+        <ul class="products">
+          <li tal:repeat="product group/products">
+            <tal:product tal:replace="product/Title"/>
+            <input type="hidden" name="shipment_id_0.products:tuple:record" value=""
+                   tal:attributes="value product/UID;
+                                   name string:shipment_id_${repeat/group/number}.products:record:tuple" />
+          </li>
+        </ul>
+        <div tal:condition="python:view.errors.has_key(group['shipmentids'])"
+             tal:content="python: view.errors[group['shipmentids']]">
+          The Error
+        </div>
+        <ul class="selection visualNoMarker">
+          <tal:shipment repeat="shipment group/shipments">
+          <li tal:define="even repeat/shipment/even;"
+              tal:attributes="class python:even and 'even' or 'odd'">
+            <label class="clearfix" tal:attributes="title shipment/description">
+              <input class="noborder" type="radio" name="shipment_id_0.shipmentid:record" value=""
+                     tal:attributes="value shipment/id;
+                                     name string:shipment_id_${repeat/group/number}.shipmentid:record;
+                                     checked shipment/selected;" />
+              <img src="" tal:condition="shipment/logo" tal:attributes="src shipment/logo" />
+              <strong tal:content="shipment/title">Title</strong>
+              <span tal:content="shipment/description">Description</span>
+            </label>
+          </li>
+          </tal:shipment>
+        </ul>
+      </div>
+      </tal:groups>
+    </tal:multiple>
+  </div>
+</html>

@@ -1,16 +1,17 @@
-<div xmlns="http://www.w3.org/1999/xhtml"
-     xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-     xmlns:tal="http://xml.zope.org/namespaces/tal"
-     xmlns:metal="http://xml.zope.org/namespaces/metal"
-     xml:lang="en" lang="en"
-     id="payment"
-     class="component"
-     i18n:domain="pcommerce">
-  <h2 i18n:translate="">
-    Payment
-  </h2>
-  <div class="logo" tal:condition="view/payment/logo">
-    <img src="" tal:attributes="src view/payment/logo" />
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xml:lang="en" lang="en"
+      i18n:domain="pcommerce"
+      tal:omit-tag="">
+  <div id="payment" class="component">
+    <h2 i18n:translate="">
+      Payment
+    </h2>
+    <div class="logo" tal:condition="view/payment/logo">
+      <img src="" tal:attributes="src view/payment/logo" />
+    </div>
+    <tal:shipment replace="structure view/paymentview"/>
   </div>
-  <tal:shipment replace="structure view/paymentview"/>
-</div>
+</html>

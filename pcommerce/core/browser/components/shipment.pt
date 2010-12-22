@@ -1,25 +1,26 @@
-<div xmlns="http://www.w3.org/1999/xhtml"
-     xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-     xmlns:tal="http://xml.zope.org/namespaces/tal"
-     xmlns:metal="http://xml.zope.org/namespaces/metal"
-     xml:lang="en" lang="en"
-     id="shipment"
-     class="component"
-     i18n:domain="pcommerce">
-  <h2 i18n:translate="">
-     Shipment
-  </h2>
-  <tal:shipments tal:repeat="shipment view/shipments">
-  <div class="shipment" tal:condition="shipment/renders"
-                        tal:omit-tag="not:view/multiple">
-    <h3 tal:content="shipment/title"
-            tal:condition="view/multiple">
-      Title
-    </h3>
-    <div class="logo" tal:condition="shipment/logo">
-      <img src="" tal:attributes="src shipment/logo" />
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xml:lang="en" lang="en"
+      i18n:domain="pcommerce"
+      tal:omit-tag="">
+  <div id="shipment" class="component">
+    <h2 i18n:translate="">
+       Shipment
+    </h2>
+    <tal:shipments tal:repeat="shipment view/shipments">
+    <div class="shipment" tal:condition="shipment/renders"
+                          tal:omit-tag="not:view/multiple">
+      <h3 tal:content="shipment/title"
+              tal:condition="view/multiple">
+        Title
+      </h3>
+      <div class="logo" tal:condition="shipment/logo">
+        <img src="" tal:attributes="src shipment/logo" />
+      </div>
+      <tal:shipment replace="structure shipment/view" />
     </div>
-    <tal:shipment replace="structure shipment/view" />
+    </tal:shipments>
   </div>
-  </tal:shipments>
-</div>
+</html>

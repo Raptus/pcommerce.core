@@ -1,37 +1,38 @@
-<div xmlns="http://www.w3.org/1999/xhtml"
-     xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-     xmlns:tal="http://xml.zope.org/namespaces/tal"
-     xmlns:metal="http://xml.zope.org/namespaces/metal"
-     xml:lang="en" lang="en"
-     id="payments"
-     class="component"
-     i18n:domain="pcommerce">
-  <h2 i18n:translate="">
-    Payment
-  </h2>
-  <p class="description" i18n:translate="">
-    Select the desired payment method 
-  </p>
-  <div class="field"
-       tal:attributes="class python:view.error and 'field error' or 'field'">
-    <div tal:condition="view/error"
-         tal:content="view/error">
-      The Error
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xml:lang="en" lang="en"
+      i18n:domain="pcommerce"
+      tal:omit-tag="">
+  <div id="payments" class="component">
+    <h2 i18n:translate="">
+      Payment
+    </h2>
+    <p class="description" i18n:translate="">
+      Select the desired payment method 
+    </p>
+    <div class="field"
+         tal:attributes="class python:view.error and 'field error' or 'field'">
+      <div tal:condition="view/error"
+           tal:content="view/error">
+        The Error
+      </div>
+      <ul class="selection visualNoMarker">
+        <tal:payment repeat="payment view/payments">
+        <li tal:define="even repeat/payment/even;"
+            tal:attributes="class python:even and 'even' or 'odd'">
+          <label class="clearfix" tal:attributes="title payment/description">
+            <input class="noborder" type="radio" name="payment_id" value=""
+                   tal:attributes="value payment/id;
+                                   checked payment/selected;" />
+            <img src="" tal:condition="payment/logo" tal:attributes="src payment/logo" />
+            <strong tal:content="payment/title">Title</strong>
+            <span tal:content="payment/description">Description</span>
+          </label>
+        </li>
+        </tal:payment>
+      </ul>
     </div>
-    <ul class="selection visualNoMarker">
-      <tal:payment repeat="payment view/payments">
-      <li tal:define="even repeat/payment/even;"
-          tal:attributes="class python:even and 'even' or 'odd'">
-        <label class="clearfix" tal:attributes="title payment/description">
-          <input class="noborder" type="radio" name="payment_id" value=""
-                 tal:attributes="value payment/id;
-                                 checked payment/selected;" />
-          <img src="" tal:condition="payment/logo" tal:attributes="src payment/logo" />
-          <strong tal:content="payment/title">Title</strong>
-          <span tal:content="payment/description">Description</span>
-        </label>
-      </li>
-      </tal:payment>
-    </ul>
   </div>
-</div>
+</html>

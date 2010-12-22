@@ -1,9 +1,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
-        xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-        xmlns:tal="http://xml.zope.org/namespaces/tal"
-        xmlns:metal="http://xml.zope.org/namespaces/metal"
-        xml:lang="en" lang="en"
-        tal:omit-tag="">
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xml:lang="en" lang="en"
+      tal:omit-tag="">
   <span class="priceInfo" i18n:domain="pcommerce" metal:define-macro="priceinfo">
     <tal:offer condition="price/offer" i18n:translate="price_offer">
       <span i18n:name="offer" tal:replace="price/price">CHF 150.00</span>

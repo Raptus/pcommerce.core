@@ -1,16 +1,17 @@
-<div xmlns="http://www.w3.org/1999/xhtml"
-     xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-     xmlns:tal="http://xml.zope.org/namespaces/tal"
-     xmlns:metal="http://xml.zope.org/namespaces/metal"
-     xml:lang="en" lang="en"
-     id="address"
-     class="component clearfix"
-     i18n:domain="pcommerce" 
-     tal:define="address view/address;
-                 errors view/errors;
-                 tag string:customer;">
-  <h2 i18n:translate="">
-    Billing address
-  </h2>
-  <metal:address use-macro="context/@@pcommerce_address/addressForm" />
-</div>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xml:lang="en" lang="en"
+      i18n:domain="pcommerce"
+      tal:omit-tag="">
+  <div id="address" class="component clearfix"
+       tal:define="address view/address;
+                   errors view/errors;
+                   tag string:customer;">
+    <h2 i18n:translate="">
+      Billing address
+    </h2>
+    <metal:address use-macro="context/@@pcommerce_address/addressForm" />
+  </div>
+</html>
