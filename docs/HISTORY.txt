@@ -1,6 +1,11 @@
 Changelog
 =========
 
+1.0b6 (2011-01-5)
+------------------
+
+* re-add PTS utility for plone 3 compatibility
+
 1.0b5 (2010-12-22)
 ------------------
 
