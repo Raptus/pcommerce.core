@@ -32,7 +32,7 @@
   <cmf:registerDirectory name="pcommerce"/>
   
   <utility zcml:condition="not-have plone-4"
-           component=".pcommercedomain"
+           component=".plone3.pcommercedomain"
            name="pcommerce" />
 
   <utility component=".vocabulary.shipments"

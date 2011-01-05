@@ -10,9 +10,6 @@ from Products.CMFCore.utils import getToolByName
 from zope.i18nmessageid import MessageFactory
 PCommerceMessageFactory = MessageFactory('pcommerce')
 
-from Products.PlacelessTranslationService.utility import PTSTranslationDomain
-pcommercedomain = PTSTranslationDomain('pcommerce')
-
 def initialize(context):
 
     from content import product, variation, price
