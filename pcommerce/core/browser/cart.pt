@@ -10,7 +10,8 @@
 
 <metal:main fill-slot="main">
     <tal:main-macro metal:define-macro="main"
-                    i18n:domain="pcommerce">
+                    i18n:domain="pcommerce"
+      tal:define="isAnon context/@@plone_portal_state/anonymous;">
                       
       <h1 class="documentFirstHeading" i18n:translate="">
         Your shopping cart
