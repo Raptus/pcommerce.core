@@ -107,7 +107,11 @@
           have an account or head over to the
           <a href=""
              i18n:name="registration_form"
-             tal:attributes="href string:${portal_url}/join_form"
+             tal:define="
+              old_plone template_id | nothing;
+              reg_link python: old_plone and 'join_form' or '@@register';
+              "
+             tal:attributes="href string:${portal_url}/${reg_link}"
              i18n:translate="registration_form">
               registration form</a>
           if you don't.
