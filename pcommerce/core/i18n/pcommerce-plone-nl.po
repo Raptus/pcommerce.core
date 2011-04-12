@@ -1,0 +1,52 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2010-12-15 08:16+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: Kees Hink <hink@gw20e.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: nl\n"
+"Language-Name: Nederlands\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: plone\n"
+
+msgid "A price"
+msgstr "Een prijs"
+
+msgid "A product"
+msgstr "Een artikel"
+
+msgid "A variation of a product"
+msgstr "Een variant van een artikel"
+
+msgid "Images"
+msgstr "Afbeeldingen"
+
+msgid "PCommerce configuration"
+msgstr "PCommerce-instellingen"
+
+msgid "Price"
+msgstr "Prijs"
+
+msgid "Prices"
+msgstr "Prijzen"
+
+msgid "Product"
+msgstr "Artikel"
+
+msgid "Shop"
+msgstr "Winkel"
+
+msgid "ShopFolder"
+msgstr "Winkel-Map"
+
+msgid "Variation"
+msgstr "Variant"
+
+msgid "Variations"
+msgstr "Varianten"
+
