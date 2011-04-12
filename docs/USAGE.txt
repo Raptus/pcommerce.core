@@ -1,0 +1,50 @@
+Usage
+=====
+
+Getting started
+---------------
+
+* Install pcommerce.shipment.X and pcommerce.payment.Y
+
+* Via the control panel, go to PCommerce settings and modify:
+
+  - Set taxes
+
+  - Set "Terms and conditions"-page (required)
+
+  - Set "Thank you"-page (optional, see below)
+
+* Add a folder, name it "My Webshop" (or something like that)
+
+* Add a product, give it a price
+
+* Set the folder's containing view to "ShopFolder"
+
+
+Details
+-------
+
+Thank you-page
+~~~~~~~~~~~~~~
+
+The thank you-page may be left empty, in that case customers will be redirected
+to the root of the site after checkout.
+
+Folder view: "Shop"
+~~~~~~~~~~~~~~~~~~~
+
+The "Shop" folder view shows "hot" and / or "new" products, if present.
+
+Folder view: "ShopFolder"
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The "ShopFolder" view lists all products in the folder. Probably, this is what
+you want for a simple shop.
+
+Additional price
+~~~~~~~~~~~~~~~~
+
+An additional price can be added to a product. you can specify a period where it
+is valid (Plone's dates). If the additional price X is lower than the default
+price Y, it will display as "$ X (instead of $ Y)".
+
