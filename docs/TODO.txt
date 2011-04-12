@@ -1,0 +1,11 @@
+To do
+=====
+
+* order overview (incl. order status)
+
+* integrate order form with site membership, or don't require mebership?
+  (easier for customers, lots of duplicate data have to be filled in now)
+
+* filter on product properties to narrow down products (ajax?)
+
+
