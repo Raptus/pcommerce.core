@@ -144,6 +144,13 @@
         permission="zope2.View"
     />
 
+    <browser:page
+        for="Products.CMFCore.interfaces.ISiteRoot"
+        name="pcommerce_manage_orders"
+        class=".orders.ManageOrders"
+        permission="pcommerce.ManageOrders"
+    />
+
     <browser:resource
         name="product_icon.gif"
         image="images/product_icon.gif"

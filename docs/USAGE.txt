@@ -21,8 +21,8 @@ Getting started
 * Set the folder's containing view to "ShopFolder"
 
 
-Details
--------
+Detailed setup
+--------------
 
 Thank you-page
 ~~~~~~~~~~~~~~
@@ -48,3 +48,11 @@ An additional price can be added to a product. you can specify a period where it
 is valid (Plone's dates). If the additional price X is lower than the default
 price Y, it will display as "$ X (instead of $ Y)".
 
+Order management
+----------------
+
+There's a management screen where you can see all orders and their statuses.
+The link to the Order Management is available under the user actions, or you
+can type `@@pcommerce_manage_orders` directly.
+
+The view is protected by the "PCommerce: Manage Orders" permissions.

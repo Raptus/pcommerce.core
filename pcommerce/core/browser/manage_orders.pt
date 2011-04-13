@@ -1,0 +1,35 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en" lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+<body>
+
+<metal:main fill-slot="main">
+  <h1 class="documentFirstHeading"
+      i18n:translate="">Manage orders</h1>
+  <table class="listing">
+    <thead>
+      <tr>
+        <th tal:repeat="column_name view/column_names"
+            tal:content="column_name" />
+      </tr>
+    </thead>
+    <tbody>
+      <tal:loopOrders tal:repeat="order view/orders">
+        <tr tal:define="odd repeat/order/odd"
+            tal:attributes="class python:odd and 'odd' or 'even'">
+          <td tal:repeat="value order/data">
+            <span tal:replace="value" />
+          </td>
+        </tr>
+      </tal:loopOrders>
+    </tbody>
+  <table>
+</metal:main>
+
+</body>
+</html>

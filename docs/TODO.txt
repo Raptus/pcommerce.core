@@ -1,11 +1,35 @@
 To do
 =====
 
-* order overview (incl. order status)
 
-* integrate order form with site membership, or don't require mebership?
-  (easier for customers, lots of duplicate data have to be filled in now)
+Customers
+---------
 
-* filter on product properties to narrow down products (ajax?)
+Membership integration
+~~~~~~~~~~~~~~~~~~~~~~
+
+Integrate order form with site membership, or don't require membership?
+
+The payment process should be easier for customers, now lots of duplicate 
+data have to be filled in.
+
+Product filtering
+~~~~~~~~~~~~~~~~~
+
+Filter on product properties to narrow down products (ajax?)
 
 
+Vendor
+------
+
+Order management
+~~~~~~~~~~~~~~~~
+
+* click through to view a single order
+* batching
+
+
+General
+-------
+
+* translations: replace bare strings with labels and defaults
