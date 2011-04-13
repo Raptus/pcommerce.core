@@ -1,6 +1,12 @@
 Changelog
 =========
 
+1.0b7 (unreleased)
+------------------
+
+* Added order overview (`@@manage-orders`)
+  [khink]
+
 1.0b6 (2011-01-5)
 ------------------
 

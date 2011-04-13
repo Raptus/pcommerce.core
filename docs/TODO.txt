@@ -25,11 +25,21 @@ Vendor
 Order management
 ~~~~~~~~~~~~~~~~
 
-* click through to view a single order
 * batching
+
+* filtering (on status, for example)
+
+* Integrate processing here? The current way is rather flimsy: vendor clicks a
+  link from an email which takes him to the processOrder page, which redirects
+  to a blank page displaying only "order processed".
+
+  - First step: processing should redirect to `@@manage-orders`, with a status
+    message.
 
 
 General
 -------
 
-* translations: replace bare strings with labels and defaults
+* Layout: currently has own CSS looking like Plone 3. Try styling by adding
+  only classes, so we use Plone's own styling (should work in both 3 and 4). 
+* Translations: replace bare strings with labels and defaults

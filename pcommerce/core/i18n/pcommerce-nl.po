@@ -559,3 +559,14 @@ msgstr "aanmeldformulier"
 msgid "remove"
 msgstr "verwijder"
 
+msgid "title_manage_orders"
+msgstr "Bestellingen beheren"
+
+msgid "label_failed"
+msgstr "Mislukt"
+
+msgid "title_manage_orders"
+msgstr "Bestellingen beheren"
+
+msgid "Manage orders"
+msgstr "Bestellingen beheren"

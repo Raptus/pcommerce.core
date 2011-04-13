@@ -5,30 +5,53 @@
       xmlns="http://www.w3.org/1999/xhtml"
       xml:lang="en" lang="en"
       metal:use-macro="here/main_template/macros/master"
-      i18n:domain="plone">
+      i18n:domain="pcommerce">
 <body>
 
-<metal:main fill-slot="main">
+<metal:main fill-slot="main"
+    tal:define="orders view/orders">
   <h1 class="documentFirstHeading"
-      i18n:translate="">Manage orders</h1>
-  <table class="listing">
-    <thead>
-      <tr>
-        <th tal:repeat="column_name view/column_names"
-            tal:content="column_name" />
-      </tr>
-    </thead>
-    <tbody>
-      <tal:loopOrders tal:repeat="order view/orders">
-        <tr tal:define="odd repeat/order/odd"
-            tal:attributes="class python:odd and 'odd' or 'even'">
-          <td tal:repeat="value order/data">
-            <span tal:replace="value" />
-          </td>
+      i18n:translate="title_manage_orders">Manage orders</h1>
+
+  <tal:noOrders tal:condition="not:orders">
+    <p i18n:translate="description_no_orders">No orders were found.</p>
+  </tal:noOrders>
+
+  <tal:haveOrders tal:condition="orders">
+    <table class="listing">
+      <thead>
+        <tr>
+          <th tal:repeat="column_name python: 
+                [field['name'] for field in orders[0]]"
+              tal:content="column_name" />
         </tr>
-      </tal:loopOrders>
-    </tbody>
-  <table>
+      </thead>
+      <tbody>
+        <tal:loopOrders tal:repeat="order orders">
+          <tr tal:define="odd repeat/order/odd"
+              tal:attributes="class python:odd and 'odd' or 'even'">
+            <tal:loopFields tal:repeat="field order">
+              <tal:ifFieldIsId tal:condition="python: 
+                  field['id'] == 'orderid'"> 
+                <th> 
+                  <a tal:attributes="
+                      href string:order-details?order_id=${field/value}">
+                    <span tal:replace="field/value" />
+                  </a>
+                </th>
+              </tal:ifFieldIsId>
+              <tal:fieldIsNotId 
+                  tal:condition="python: field['id'] != 'orderid'">
+                <td> 
+                  <span tal:replace="field/value" />
+                </td>
+              </tal:fieldIsNotId>
+            </tal:loopFields>
+          </tr>
+        </tal:loopOrders>
+      </tbody>
+    <table>
+  </tal:haveOrders>
 </metal:main>
 
 </body>

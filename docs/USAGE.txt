@@ -53,6 +53,6 @@ Order management
 
 There's a management screen where you can see all orders and their statuses.
 The link to the Order Management is available under the user actions, or you
-can type `@@pcommerce_manage_orders` directly.
+can type `@@manage-orders` directly.
 
 The view is protected by the "PCommerce: Manage Orders" permissions.

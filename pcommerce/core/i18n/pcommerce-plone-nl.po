@@ -49,4 +49,3 @@ msgstr "Variant"
 
 msgid "Variations"
 msgstr "Varianten"
-

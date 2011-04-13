@@ -146,8 +146,15 @@
 
     <browser:page
         for="Products.CMFCore.interfaces.ISiteRoot"
-        name="pcommerce_manage_orders"
+        name="manage-orders"
         class=".orders.ManageOrders"
+        permission="pcommerce.ManageOrders"
+    />
+
+    <browser:page
+        for="Products.CMFCore.interfaces.ISiteRoot"
+        name="order-details"
+        class=".orders.OrderDetails"
         permission="pcommerce.ManageOrders"
     />
 

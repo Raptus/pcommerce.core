@@ -1,0 +1,46 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en" lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="pcommerce">
+<body>
+
+<metal:main fill-slot="main"
+    tal:define="
+      order_id view/order_id;
+      order view/order;
+      ">
+
+  <h1 class="documentFirstHeading"
+      i18n:translate="title_order_details">Order details</h1>
+
+  <tal:noOrderId tal:condition="not: order_id | nothing">
+    <p class="documentDescription"
+        i18n:translate="title_no_order_id_supplied">Which one?</p>
+    <p i18n:translate="text_no_order_id_supplied">Please supply an order id.
+    </p>
+  </tal:noOrderId>
+
+  <tal:noOrder tal:condition="not: order | nothing">
+    <p class="documentDescription"
+        i18n:translate="title_order_not_found">The order could not be found.</p>
+    <p i18n:translate="text_order_not_found">Please check the order id.
+    </p>
+  </tal:noOrder>
+
+  <tal:haveOrder tal:condition="order | nothing">
+    <dl>
+      <tal:loopItems tal:repeat="row order">
+        <dt tal:content="row/name" />
+        <dd tal:content="row/value" />
+      </tal:loopItems>
+    <dl>
+  </tal:haveOrder>
+
+</metal:main>
+
+</body>
+</html>
