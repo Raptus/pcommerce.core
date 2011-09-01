@@ -1,9 +1,11 @@
 Changelog
 =========
 
-1.0b7 (unreleased)
+1.0b7 (2011-09-01)
 ------------------
 
+* Added dutch translations 
+  (thanks to Kees Hink and Albert Peschar)
 * Added order overview (`@@manage-orders`)
   [khink]
 
