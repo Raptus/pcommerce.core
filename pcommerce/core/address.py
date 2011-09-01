@@ -57,7 +57,7 @@ class Address(Persistent):
         self.phone = phone
     
     def mailInfo(self, request, lang=None, customer=False):
-        address = [(self.salutation and translate(_((self.salutation == 'mr' and 'Mr.' or 'Mrs. / Ms.')), context=request, target_language=lang) +' ' or '') + self.firstname +' '+ self.lastname,
+        address = [(self.salutation and translate((self.salutation == 'mr' and _('Mr.') or _('Mrs. / Ms.')), context=request, target_language=lang) +' ' or '') + self.firstname +' '+ self.lastname,
                    self.company, 
                    self.address1, 
                    self.address2, 
