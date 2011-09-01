@@ -36,7 +36,7 @@
                 <th> 
                   <a tal:attributes="
                       href string:order-details?order_id=${field/value}">
-                    <span tal:replace="field/value" />
+                    <span tal:replace="structure field/value" />
                   </a>
                 </th>
               </tal:ifFieldIsId>

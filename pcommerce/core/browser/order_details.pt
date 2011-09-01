@@ -35,7 +35,7 @@
     <dl>
       <tal:loopItems tal:repeat="row order">
         <dt tal:content="row/name" />
-        <dd tal:content="row/value" />
+        <dd tal:content="structure row/value" />
       </tal:loopItems>
     <dl>
   </tal:haveOrder>

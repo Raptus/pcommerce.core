@@ -1,5 +1,7 @@
 from DateTime import DateTime
 
+from zope.i18n import translate
+
 from Products.CMFCore.utils import getToolByName
 from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
@@ -44,7 +46,7 @@ class ManageOrders(BrowserView):
         """
         fields = [
             {   'field_id': 'orderid', 
-                'field_name': _("label_order_id", default="Order id"),
+                'field_name': _("label_order_id", default="Order id")
                 },
             {   'field_id': 'userid', 
                 'field_name': _("label_user_id", default="User id"),
@@ -63,18 +65,51 @@ class ManageOrders(BrowserView):
                 },
             {   'field_id': 'zone', 
                 'field_name': _("label_zone", default="Zone"),
+                'field_converter': self._zone_converter,
                 },
             {   'field_id': 'address', 
                 'field_name': _("label_address", default="Address"),
+                'field_converter': self._address_converter,
                 },
             {   'field_id': 'products', 
                 'field_name': _("label_products", default="Products"),
+                'field_converter': self._products_converter,
                 },
             {   'field_id': 'shipmentids', 
                 'field_name': _("label_shipmentids", default="Shipment id's"),
+                'field_converter': self._shipmentids_converter,
                 },
             ]
         return fields
+
+    def _zone_converter(self, value):
+        return '<strong>%s</strong> (%s%% %s)' % (value[0], value[1][0], value[1][1])
+
+    def _address_converter(self, value):
+        return '<pre>%s</pre>' % value.mailInfo(self.request)
+
+    def _products_converter(self, value):
+        rows = []
+        for product in value:
+            cells = [str(i) for i in product[1:5]]
+            cells.append(str(product[3]*product[4]))
+            rows.append('</td><td>'.join(cells))
+        return '''
+<table class="listing">
+    <thead>
+        <tr><th>%s</th></tr>
+    </thead>
+    <tbody>
+        <tr><td>%s</td></tr>
+    </tbody>
+</table>''' % ('</th><th>'.join((translate(_(u'No'), context=self.request),
+                                  translate(_(u'Product'), context=self.request),
+                                  translate(_(u'Amount'), context=self.request),
+                                  translate(_(u'Price'), context=self.request),
+                                  translate(_(u'Price total'), context=self.request))), '</td></tr><tr><td>'.join(rows))
+
+    def _shipmentids_converter(self, value):
+        return '<ul><li>%s</li></ul>' % '</li><li>'.join(value.keys())
 
     def _order_management_columns(self):
         """Fields for order management table. """
@@ -124,6 +159,11 @@ class ManageOrders(BrowserView):
             field_id = field['field_id']
             field_data['id'] = field_id
             value = getattr(r_order, field_id)
+            if field.has_key('field_converter'):
+                try:
+                    value = field['field_converter'](value)
+                except:
+                    pass
             field_data['value'] = self._massageData(field_id, value)
             field_data['name'] = field['field_name']
             order_data.append(field_data)
