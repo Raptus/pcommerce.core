@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2011-09-01 07:17+0000\n"
+"POT-Creation-Date: 2011-09-05 06:18+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -173,7 +173,7 @@ msgstr ""
 msgid "Next step"
 msgstr ""
 
-#: ./content/product.py:35
+#: ./browser/orders.py:105
 msgid "No"
 msgstr ""
 
@@ -539,62 +539,62 @@ msgid "info_variation_prices"
 msgstr ""
 
 #. Default: "Address"
-#: ./browser/orders.py:68
+#: ./browser/orders.py:71
 msgid "label_address"
 msgstr ""
 
 #. Default: "Cancelled"
-#: ./browser/orders.py:34
+#: ./browser/orders.py:36
 msgid "label_cancelled"
 msgstr ""
 
 #. Default: "Currency"
-#: ./browser/orders.py:56
+#: ./browser/orders.py:58
 msgid "label_currency"
 msgstr ""
 
 #. Default: "Date"
-#: ./browser/orders.py:53
+#: ./browser/orders.py:55
 msgid "label_date"
 msgstr ""
 
 #. Default: "Failed"
-#: ./browser/orders.py:33
+#: ./browser/orders.py:35
 msgid "label_failed"
 msgstr ""
 
 #. Default: "Initialized"
-#: ./browser/orders.py:30
+#: ./browser/orders.py:32
 msgid "label_initialized"
 msgstr ""
 
 #. Default: "Order id"
-#: ./browser/orders.py:47
+#: ./browser/orders.py:49
 msgid "label_order_id"
 msgstr ""
 
 #. Default: "Order status"
-#: ./browser/orders.py:62
+#: ./browser/orders.py:64
 msgid "label_order_state"
 msgstr ""
 
 #. Default: "Price total"
-#: ./browser/orders.py:59
+#: ./browser/orders.py:61
 msgid "label_price_total"
 msgstr ""
 
 #. Default: "Processed"
-#: ./browser/orders.py:32
+#: ./browser/orders.py:34
 msgid "label_processed"
 msgstr ""
 
 #. Default: "Products"
-#: ./browser/orders.py:71
+#: ./browser/orders.py:75
 msgid "label_products"
 msgstr ""
 
 #. Default: "Sent"
-#: ./browser/orders.py:31
+#: ./browser/orders.py:33
 msgid "label_sent"
 msgstr ""
 
@@ -604,17 +604,17 @@ msgid "label_shipment_methods"
 msgstr ""
 
 #. Default: "Shipment id's"
-#: ./browser/orders.py:74
+#: ./browser/orders.py:79
 msgid "label_shipmentids"
 msgstr ""
 
 #. Default: "User id"
-#: ./browser/orders.py:50
+#: ./browser/orders.py:52
 msgid "label_user_id"
 msgstr ""
 
 #. Default: "Zone"
-#: ./browser/orders.py:65
+#: ./browser/orders.py:67
 msgid "label_zone"
 msgstr ""
 

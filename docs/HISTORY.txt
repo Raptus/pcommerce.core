@@ -1,6 +1,11 @@
 Changelog
 =========
 
+1.0b8 (Unreleased)
+------------------
+
+* Added spanish translations (Thanks to Manuel Gualda Caballero)
+
 1.0b7 (2011-09-01)
 ------------------
 

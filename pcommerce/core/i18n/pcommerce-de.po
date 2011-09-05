@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: pcommerce.core\n"
-"POT-Creation-Date: 2011-09-01 07:17+0000\n"
+"POT-Creation-Date: 2011-09-05 06:18+0000\n"
 "PO-Revision-Date: 2007-11-01 10:18+0100\n"
 "Last-Translator: Simon Kaeser <skaeser@raptus.com>\n"
 "Language-Team: Deutsch <skaeser@raptus.com>\n"
@@ -174,7 +174,7 @@ msgstr "Jetzt aktuell im Shop"
 msgid "Next step"
 msgstr "Nächster Schritt"
 
-#: content/product.py:35
+#: browser/orders.py:105
 msgid "No"
 msgstr "Artikelnummer"
 
@@ -491,12 +491,8 @@ msgstr "Kasse"
 
 #. Default: "List of all orders and their statuses"
 #: profiles/default/actions.xml
-#, fuzzy
 msgid "description_manage_orders"
-msgstr ""
-"Dieses Produkt hat keine weiteren Bilder. Um ein Bild hinzuzufügen, klicken "
-"Sie den Hinzufügen Knopf, oder fügen Sie Inhalte aus einem anderen Produkt "
-"ein."
+msgstr "Zeigt alle Bestellungen und deren Status"
 
 #. Default: "This product has no Images. To add a Image, press the add button, or paste content from another location."
 #: browser/images.pt:40
@@ -508,12 +504,8 @@ msgstr ""
 
 #. Default: "No orders were found."
 #: browser/manage_orders.pt:17
-#, fuzzy
 msgid "description_no_orders"
-msgstr ""
-"Dieses Produkt hat keine zusätzlichen Preise. Um einen Preis hinzuzufügen, "
-"klicken Sie den Hinzufügen Knopf, oder fügen Sie Inhalte aus einem anderen "
-"Produkt ein."
+msgstr "Es wurden keine Bestellungen gefunden."
 
 #. Default: "This product has no additional prices. To add a price, press the add button, or paste content from another location."
 #: browser/prices.pt:41
@@ -627,62 +619,62 @@ msgstr ""
 "Produktes ${product}."
 
 #. Default: "Address"
-#: browser/orders.py:68
+#: browser/orders.py:71
 msgid "label_address"
 msgstr "Adresse"
 
 #. Default: "Cancelled"
-#: browser/orders.py:34
+#: browser/orders.py:36
 msgid "label_cancelled"
 msgstr "Abgebrochen"
 
 #. Default: "Currency"
-#: browser/orders.py:56
+#: browser/orders.py:58
 msgid "label_currency"
 msgstr "Währung"
 
 #. Default: "Date"
-#: browser/orders.py:53
+#: browser/orders.py:55
 msgid "label_date"
 msgstr "Datum"
 
 #. Default: "Failed"
-#: browser/orders.py:33
+#: browser/orders.py:35
 msgid "label_failed"
 msgstr "Fehlgeschlagen"
 
 #. Default: "Initialized"
-#: browser/orders.py:30
+#: browser/orders.py:32
 msgid "label_initialized"
 msgstr "Ausgelöst"
 
 #. Default: "Order id"
-#: browser/orders.py:47
+#: browser/orders.py:49
 msgid "label_order_id"
 msgstr "Bestellnummer"
 
 #. Default: "Order status"
-#: browser/orders.py:62
+#: browser/orders.py:64
 msgid "label_order_state"
 msgstr "Bestellstatus"
 
 #. Default: "Price total"
-#: browser/orders.py:59
+#: browser/orders.py:61
 msgid "label_price_total"
 msgstr "Preis total"
 
 #. Default: "Processed"
-#: browser/orders.py:32
+#: browser/orders.py:34
 msgid "label_processed"
 msgstr "Verarbeitet"
 
 #. Default: "Products"
-#: browser/orders.py:71
+#: browser/orders.py:75
 msgid "label_products"
 msgstr "Produkte"
 
 #. Default: "Sent"
-#: browser/orders.py:31
+#: browser/orders.py:33
 msgid "label_sent"
 msgstr "Gesendet"
 
@@ -692,17 +684,17 @@ msgid "label_shipment_methods"
 msgstr "Versandarten"
 
 #. Default: "Shipment id's"
-#: browser/orders.py:74
+#: browser/orders.py:79
 msgid "label_shipmentids"
 msgstr "Versandarten"
 
 #. Default: "User id"
-#: browser/orders.py:50
+#: browser/orders.py:52
 msgid "label_user_id"
 msgstr "Benutzername"
 
 #. Default: "Zone"
-#: browser/orders.py:65
+#: browser/orders.py:67
 msgid "label_zone"
 msgstr "Zone"
 
