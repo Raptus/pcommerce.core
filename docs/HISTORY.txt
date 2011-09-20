@@ -4,6 +4,7 @@ Changelog
 1.0b8 (Unreleased)
 ------------------
 
+* Added default_view property to Product and Variation type to prevent breaking of plone's new folder_full_view
 * Added spanish translations (Thanks to Manuel Gualda Caballero)
 
 1.0b7 (2011-09-01)
