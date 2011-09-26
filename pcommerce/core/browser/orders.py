@@ -6,6 +6,7 @@ from Products.CMFCore.utils import getToolByName
 from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
+from pcommerce.core.currency import CurrencyAware
 from pcommerce.core import PCommerceMessageFactory as _
 from pcommerce.core.interfaces import IOrderRegistry
 
@@ -57,8 +58,9 @@ class ManageOrders(BrowserView):
             {   'field_id': 'currency', 
                 'field_name': _("label_currency", default="Currency"),
                 },
-            {   'field_id': 'price', 
+            {   'field_id': 'totalincl', 
                 'field_name': _("label_price_total", default="Price total"),
+                'field_converter': self._totalincl_converter,
                 },
             {   'field_id': 'state', 
                 'field_name': _("label_order_state", default="Order status"),
@@ -82,13 +84,16 @@ class ManageOrders(BrowserView):
             ]
         return fields
 
-    def _zone_converter(self, value):
+    def _zone_converter(self, value, order):
         return '<strong>%s</strong> (%s%% %s)' % (value[0], value[1][0], value[1][1])
 
-    def _address_converter(self, value):
+    def _totalincl_converter(self, value, order):
+        return CurrencyAware(value).toString()
+
+    def _address_converter(self, value, order):
         return '<pre>%s</pre>' % value.mailInfo(self.request)
 
-    def _products_converter(self, value):
+    def _products_converter(self, value, order):
         rows = []
         for product in value:
             cells = [str(i) for i in product[1:5]]
@@ -108,7 +113,7 @@ class ManageOrders(BrowserView):
                                   translate(_(u'Price'), context=self.request),
                                   translate(_(u'Price total'), context=self.request))), '</td></tr><tr><td>'.join(rows))
 
-    def _shipmentids_converter(self, value):
+    def _shipmentids_converter(self, value, order):
         return '<ul><li>%s</li></ul>' % '</li><li>'.join(value.keys())
 
     def _order_management_columns(self):
@@ -118,7 +123,7 @@ class ManageOrders(BrowserView):
             'userid',
             'date',
             'currency',
-            'price',
+            'totalincl',
             'state',
             ]
         columns = [ column for column in self._order_fields() if \
@@ -161,7 +166,7 @@ class ManageOrders(BrowserView):
             value = getattr(r_order, field_id)
             if field.has_key('field_converter'):
                 try:
-                    value = field['field_converter'](value)
+                    value = field['field_converter'](value, r_order)
                 except:
                     pass
             field_data['value'] = self._massageData(field_id, value)

@@ -12,12 +12,17 @@
   float:left;
   width:60%;
   font-weight:normal;
+  background-color:transparent;
+  padding-top:0;
+  padding-bottom:0;
+  line-height:2em;
 }
 
 .portletShoppingCart .portletItem dd {
   padding:0;
   margin:0;
   font-weight:bold;
+  line-height:2em;
 }
 
 .portletShoppingCart .portletFooter {
@@ -123,7 +128,8 @@
   right:0;
   padding-right:8px;
   background-image:url("arrowRight.gif");
-  background-position:right center; 
+  background-position:right center;
+  background-repeat:no-repeat;
 }
 
 #checkout .formControls .previous {
@@ -131,12 +137,14 @@
   left:0;
   padding-left:8px;
   background-image:url("arrowLeft.gif");
-  background-position:left center; 
+  background-position:left center;
+  background-repeat:no-repeat;
 }
 
 #checkout .formControls .checkout {
   padding-right:12px;
   background-image:url("arrowRightmost.gif");
+  background-repeat:no-repeat;
 }
 
 #checkout .field {

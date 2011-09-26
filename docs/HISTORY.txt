@@ -1,9 +1,10 @@
 Changelog
 =========
 
-1.0b8 (Unreleased)
+1.0b8 (2011-09-26)
 ------------------
 
+* Improved order overview (adjusted total prive to include all taxes and charges)
 * Added default_view property to Product and Variation type to prevent breaking of plone's new folder_full_view
 * Added spanish translations (Thanks to Manuel Gualda Caballero)
 

@@ -114,20 +114,20 @@ class Order(Persistent):
     def pretaxcharge(self):
         charge = 0
         for data in self.shipmentdata.values():
-            charge += data.pretaxcharge
-        charge += self.paymentdata.pretaxcharge
+            charge += getattr(data, 'pretaxcharge', 0)
+        charge += getattr(self.paymentdata, 'pretaxcharge', 0)
         for data in self.pretaxcharges:
-            charge += data.price
+            charge += getattr(data, 'price', 0)
         return charge
     
     @property
     def posttaxcharge(self):
         charge = 0
         for data in self.shipmentdata.values():
-            charge += data.posttaxcharge
-        charge += self.paymentdata.posttaxcharge
+            charge += getattr(data, 'posttaxcharge', 0)
+        charge += getattr(self.paymentdata, 'posttaxcharge', 0)
         for data in self.posttaxcharges:
-            charge += data.price
+            charge += getattr(data, 'price', 0)
         return charge
     
     @property
