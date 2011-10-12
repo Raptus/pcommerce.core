@@ -3,39 +3,43 @@
     xmlns:browser="http://namespaces.zope.org/browser"
     xmlns:plone="http://namespaces.plone.org/plone"
     i18n_domain="pcommerce">
-  
+
+    <include package="Products.CMFCore" file="permissions.zcml"
+             xmlns:zcml="http://namespaces.zope.org/zcml"
+             zcml:condition="have plone-41" />
+
     <include package=".components" />
     <include package=".portlets" />
     <include package=".viewlets" />
-      
+
     <browser:page
         for="*"
         name="ShopFolder"
         class=".folder.ShopFolderListing"
         permission="zope2.View"
     />
-      
+
     <browser:page
         for="*"
         name="Shop"
         class=".folder.ShopHome"
         permission="zope2.View"
     />
-      
+
     <browser:page
         for="..interfaces.IProduct"
         name="getprice"
         class=".getprice.GetPrcie"
         permission="zope2.View"
     />
-      
+
     <browser:page
         for="..interfaces.IProduct"
         name="view"
         class=".product.Product"
         permission="zope2.View"
     />
-    
+
     <browser:page
         for="..interfaces.IProduct"
         class=".variations.Variations"
@@ -43,7 +47,7 @@
         template="variations.pt"
         permission="cmf.ListFolderContents"
     />
-    
+
     <browser:page
         for="..interfaces.IProduct"
         class=".images.Images"
@@ -51,7 +55,7 @@
         template="images.pt"
         permission="cmf.ListFolderContents"
     />
-    
+
     <browser:page
         for="..interfaces.IProduct"
         class=".prices.Prices"
@@ -59,14 +63,14 @@
         template="prices.pt"
         permission="cmf.ListFolderContents"
     />
-      
+
     <browser:page
         for="..interfaces.IVariation"
         name="view"
         class=".variation.Variation"
         permission="zope2.View"
     />
-    
+
     <browser:page
         for="..interfaces.IVariation"
         name="prices"
@@ -172,12 +176,12 @@
         name="price_icon.gif"
         image="images/price_icon.gif"
     />
-    
+
     <browser:resource
         name="as_customer.js"
         file="javascripts/as_customer.js"
     />
-    
+
     <browser:resource
         name="getprice.js"
         file="getprice.js"
