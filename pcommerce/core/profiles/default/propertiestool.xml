@@ -13,5 +13,6 @@
         <property name="no_new_products" type="int" purge="False">2</property>
         <property name="thumb_width_new_products" type="int" purge="False">0</property>
         <property name="thumb_width_detail" type="int" purge="False">0</property>
+        <property name="rounding_cents" type="int" purge="False">5</property>
     </object>
 </object>

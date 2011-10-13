@@ -5,8 +5,8 @@
     xmlns:cmf="http://namespaces.zope.org/cmf"
     xmlns:i18n="http://namespaces.zope.org/i18n"
     xmlns:zcml="http://namespaces.zope.org/zcml"
-    i18n_domain="pcommerce">
-    
+    i18n_domain="plone">
+
   <five:registerPackage package="." initialize=".initialize" />
 
   <include file="permissions.zcml" />
@@ -28,9 +28,12 @@
       handler="pcommerce.core.setuphandlers.migrate05a105a2"
       />
 
+  <!-- translations -->
+  <i18n:registerTranslations directory="locales" />
+
   <!-- File System Directory Views registration -->
   <cmf:registerDirectory name="pcommerce"/>
-  
+
   <utility zcml:condition="not-have plone-4"
            component=".plone3.pcommercedomain"
            name="pcommerce" />
@@ -38,11 +41,11 @@
   <utility component=".vocabulary.shipments"
            provides="zope.schema.interfaces.IVocabularyFactory"
            name="pcommerce.core.vocabulary.shipments" />
-           
+
   <adapter factory=".vocabulary.ShipmentsDefault" name="shipments" />
-           
+
   <adapter factory=".cart.ShoppingCart" />
-  
+
   <adapter factory=".adapters.Pricing" />
   <adapter factory=".adapters.Imaging" />
   <adapter factory=".adapters.Taxes" />
@@ -55,7 +58,7 @@
 
   <adapter factory=".registry.Payment" />
   <adapter factory=".registry.Shipment" />
-  
+
   <adapter factory=".steps.steps" />
   <adapter factory=".required.components" />
 

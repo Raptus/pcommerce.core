@@ -1,6 +1,15 @@
 Changelog
 =========
 
+unreleased
+---------
+* rounding values (by default to 5 cents) is now configurable in the
+ pcommerce_properties (not in the configlet) [huub_bouma]
+* plone4.1 compatability fix (small) [huub_bouma]
+* translations now use locales folder, and is now plone4 compatible
+* removed a pdb statement. [huub_bouma]
+* some PEP8 fixes [huub_bouma]
+
 1.0b8 (2011-09-26)
 ------------------
 
