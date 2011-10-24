@@ -309,7 +309,7 @@ class PaymentFailed(BrowserView):
 
     def __call__(self):
         order = IOrder(self.context)
-        m = max(order.processed_steps)
+        m = len(order.processed_steps) and max(order.processed_steps) or 0
         order.processed_steps = tuple(
                 [n for n in order.processed_steps if n != m])
         statusmessage = IStatusMessage(self.request)
@@ -324,7 +324,7 @@ class PaymentCancel(BrowserView):
 
     def __call__(self):
         order = IOrder(self.context)
-        m = max(order.processed_steps)
+        m = len(order.processed_steps) and max(order.processed_steps) or 0
         order.processed_steps = tuple(
                 [n for n in order.processed_steps if n != m])
         statusmessage = IStatusMessage(self.request)

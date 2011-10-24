@@ -3,6 +3,8 @@ Changelog
 
 unreleased
 ---------
+* fixed bug in payment failed and canceled view where a ValueError was raised if order.processed_steps was empty
+* adjusted CSS for the checkout button of the cart view
 * rounding values (by default to 5 cents) is now configurable in the
  pcommerce_properties (not in the configlet) [huub_bouma]
 * plone4.1 compatability fix (small) [huub_bouma]
@@ -13,7 +15,7 @@ unreleased
 1.0b8 (2011-09-26)
 ------------------
 
-* Improved order overview (adjusted total prive to include all taxes and charges)
+* Improved order overview (adjusted total price to include all taxes and charges)
 * Added default_view property to Product and Variation type to prevent breaking of plone's new folder_full_view
 * Added spanish translations (Thanks to Manuel Gualda Caballero)
 

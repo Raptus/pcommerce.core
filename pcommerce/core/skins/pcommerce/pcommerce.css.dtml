@@ -93,7 +93,8 @@
 #cart .formControls input.context {
   padding:1px 8px 1px 1px;
   background-image:url("arrowRight.gif");
-  background-position:right center; 
+  background-position:right center;
+  background-repeat:no-repeat;
 }
 
 
