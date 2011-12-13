@@ -8,7 +8,7 @@ Changelog
 * fixed bug in payment failed and canceled view where a ValueError was raised if order.processed_steps was empty
 * adjusted CSS for the checkout button of the cart view
 * rounding values (by default to 5 cents) is now configurable in the
- pcommerce_properties (not in the configlet) [huub_bouma]
+  pcommerce_properties (not in the configlet) [huub_bouma]
 * plone4.1 compatability fix (small) [huub_bouma]
 * translations now use locales folder, and is now plone4 compatible
 * removed a pdb statement. [huub_bouma]
