@@ -40,8 +40,8 @@
       <p class="discreet" i18n:domain="pcommerce"
          tal:condition="not: view/items"
          i18n:translate="description_no_images">
-        This product has no Images. To add a Image, press the
-        add button, or paste content from another location.
+        This product has no images. To add an image press the
+        'add' button or paste content from another location.
       </p>
 
       <form name="folderContentsForm"

@@ -1,8 +1,10 @@
 Changelog
 =========
 
-unreleased
----------
+1.0b9 (2011-12-13)
+------------------
+* updated translations
+* added french translations
 * fixed bug in payment failed and canceled view where a ValueError was raised if order.processed_steps was empty
 * adjusted CSS for the checkout button of the cart view
 * rounding values (by default to 5 cents) is now configurable in the

@@ -2,381 +2,375 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pcommerce.core\n"
 "POT-Creation-Date: 2011-12-13 09:37+0000\n"
-"PO-Revision-Date: 2011-09-05 08:59+0100\n"
-"Last-Translator: Manuel Gualda Caballero <manuel@minombre.es>\n"
-"Language-Team: Spanish <manuel@utopiaverde.org>\n"
-"Language: es\n"
+"PO-Revision-Date: 2007-11-01 10:18+0100\n"
+"Last-Translator: Steve Beyeler <sbeyeler@raptus.com>\n"
+"Language-Team: Français <sbeyeler@raptus.com>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0\n"
-"Language-Code: en\n"
-"Language-Name: English\n"
-"Preferred-Encodings: utf-8 latin1\n"
-"Domain: pcommerce\n"
-"Language-code: es\n"
-"Language-name: Spanish\n"
+"Language-code: fr\n"
+"Language-name: Français\n"
 "Preferred-encodings: utf-8 latin1\n"
-"X-is-fallback-for: es-es es-ar es-bo es-cl es-co es-cr es-do es-ec es-sv es-"
-"gt es-hn es-mx es-ni es-pa es-py es-pe es-pr es-us es-uy es-ve\n"
-"X-Poedit-Language: Spanish\n"
-"X-Poedit-Country: SPAIN\n"
+"Domain: pcommerce\n"
+"X-is-fallback-for: fr-ch fr-fr fr-be\n"
+"X-Poedit-Language: Français\n"
+"X-Poedit-Country: FRANCE\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
 #. Default: "Add image"
 #: browser/images.pt:23
 msgid "Add image"
-msgstr "Añadir imagen"
+msgstr "Ajouter une image"
 
 #. Default: "Add price"
 #: browser/prices.pt:24
 msgid "Add price"
-msgstr "Añadir precio"
+msgstr "Ajouter un prix"
 
 #. Default: "Add variation"
 #: browser/variations.pt:22
 msgid "Add variation"
-msgstr "Añadir variación"
+msgstr "Ajouter une variation"
 
 #: browser/viewlets/processor.py:46
 msgid "Added ${count} items to cart"
-msgstr "Se han añadido ${count} productos al carrito"
+msgstr "${count} articles ajoutés au panier"
 
 #: browser/viewlets/processor.py:48
 msgid "Added item to cart"
-msgstr "Producto añadido al carrito"
+msgstr "Article ajouté au panier"
 
 #: content/variation.py:35
 msgid "Additional price"
-msgstr "Precio adicional"
+msgstr "Supplément de prix"
 
 #. Default: "Additional prices"
 #: browser/prices.pt:27
 msgid "Additional prices"
-msgstr "Precios adicionales"
+msgstr "Prix supplémentaires"
 
 #: steps.py:10
 msgid "Address"
-msgstr "Dirección"
+msgstr "Adresse"
 
 #. Default: "Address 1"
 #: browser/address.pt:139
 msgid "Address 1"
-msgstr "Dirección (1)"
+msgstr "Adresse 1"
 
 #. Default: "Address 2"
 #: browser/address.pt:166
 msgid "Address 2"
-msgstr "Dirección (2)"
+msgstr "Adresse 2"
 
 #. Default: "Amount"
 #: browser/cart.pt:42
 msgid "Amount"
-msgstr "Cantidad"
+msgstr "Nombre"
 
 #. Default: "Billing address"
 #: browser/components/address.pt:12
 msgid "Billing address"
-msgstr "Dirección de facturación"
+msgstr "Adresse de facturation"
 
 #: browser/checkout.py:265
 msgid "Cancel checkout"
-msgstr "Cancelar pedido"
+msgstr "Annuler la commande"
 
 #. Default: "Check out"
 #: browser/cart.pt:34
 msgid "Check out"
-msgstr "Realizar pedido"
+msgstr "Passer à la caisse"
 
 #. Default: "Company"
 #: browser/address.pt:120
 msgid "Company"
-msgstr "Empresa y CIF"
+msgstr "Société"
 
 #. Default: "Confirmation"
 #: browser/components/confirmation.pt:17
 msgid "Confirmation"
-msgstr "Confirmación del pedido"
+msgstr "Confirmation"
 
 #: browser/checkout.py:255
 msgid "Continue shopping"
-msgstr "Continuar comprando"
+msgstr "Continuer les achats"
 
 #. Default: "Country"
 #: browser/address.pt:224
 msgid "Country"
-msgstr "País"
+msgstr "Pays"
 
 #. Default: "Edit cart"
 #: browser/cart.pt:120
 msgid "Edit cart"
-msgstr "Modificar el carrito"
+msgstr "Editer le panier"
 
 #. Default: "Email"
 #: browser/address.pt:294
 msgid "Email"
-msgstr "Correo"
+msgstr "Courriel"
 
 #. Default: "First name"
 #: browser/address.pt:64
 msgid "First name"
-msgstr "Nombre"
+msgstr "Prénom"
 
 #. Default: "GTC"
 #: browser/configlet.pt:68
 msgid "GTC"
-msgstr "CGC"
+msgstr "CGA"
 
 #: content/product.py:59
 msgid "Hot product"
-msgstr "Producto popular"
+msgstr "Produit TOP"
 
 #. Default: "I accept the ${link}"
 #: browser/components/gtc.pt:17
 msgid "I accept the ${link}"
-msgstr "Acepto las ${link}"
+msgstr "J'accèpte les ${link}"
 
 #. Default: "Image"
 #: browser/images.pt:63
 msgid "Image"
-msgstr "Imagen"
+msgstr "Image"
 
 #. Default: "Images"
 #: browser/images.pt:26
 msgid "Images"
-msgstr "Imágenes"
+msgstr "Images"
 
 #. Default: "Last name"
 #: browser/address.pt:92
 msgid "Last name"
-msgstr "Apellidos"
+msgstr "Nom"
 
 #. Default: "Manage orders"
 #: profiles/default/actions.xml
 msgid "Manage orders"
-msgstr "Administrar pedidos"
+msgstr "Gérer les commandes"
 
 #. Default: "Mr."
 #: browser/address.pt:46
 msgid "Mr."
-msgstr "Don"
+msgstr "M."
 
 #. Default: "Mrs. / Ms."
 #: browser/address.pt:52
 msgid "Mrs. / Ms."
-msgstr "Doña"
+msgstr "Mme"
 
 #: content/product.py:51
 msgid "New product"
-msgstr "Nuevo producto"
+msgstr "Nouveau produit"
 
 #. Default: "New products in our shop"
 #: browser/viewlets/new.pt:2
 msgid "New products in our shop"
-msgstr "Nuevos productos"
+msgstr "Actualités dans notre shop"
 
 #: browser/checkout.py:258
 msgid "Next step"
-msgstr "Siguiente paso"
+msgstr "Prochaine étape"
 
 #: browser/orders.py:110
 msgid "No"
-msgstr "Nº"
+msgstr "Numéro d'article"
 
 #. Default: "No of articles:"
 #: browser/portlets/cart.pt:18
 msgid "No of articles:"
-msgstr "Nº de productos:"
+msgstr "Nombre d'articles:"
 
 #. Default: "Overview"
 #: browser/components/overview.pt:9
 msgid "Overview"
-msgstr "Vista general"
+msgstr "Aperçu"
 
 #. Default: "PCommerce configuration"
 #: browser/configlet.pt:13
 msgid "PCommerce configuration"
-msgstr "Configuración de PCommerce"
+msgstr "Paramètres PCommerce"
 
 #. Default: "Payment"
 #: browser/components/confirmation.pt:48
 msgid "Payment"
-msgstr "Pago"
+msgstr "Mode de paiement"
 
 #: browser/checkout.py:331
 msgid "Payment canceled"
-msgstr "Pago cancelado"
+msgstr "Paiement annulé"
 
 #: browser/checkout.py:316
 msgid "Payment failed"
-msgstr "Error en el pago"
+msgstr "Paiement échoué"
 
 #. Default: "Phone"
 #: browser/address.pt:322
 msgid "Phone"
-msgstr "Teléfono"
+msgstr "Téléphone"
 
 #: browser/configlet.py:43
 msgid "Please enter a floating point number (e.g. 7.6)"
-msgstr ""
-"Por favor, introduzca un número con los decimales marcados con punto (ej.: "
-"7.6)"
+msgstr "Veuillez entrer un chiffre décimal (p.ex. 7.6)"
 
 #: browser/configlet.py:39
 msgid "Please provide a tax name"
-msgstr "Por favor, indique un nombre de impuesto"
+msgstr "Veuillez indiquer un titre pour la taxe"
 
 #: browser/configlet.py:37
 msgid "Please provide a zone name"
-msgstr "Por favor, indique un nombre de zona"
+msgstr "Veuillez indiquer un titre pour la zone"
 
 #: browser/components/payments.py:17
 msgid "Please select a payment method."
-msgstr "Por favor, seleccione un método de pago"
+msgstr "Veuillez choisir un mode de paiement"
 
 #: browser/components/shipments.py:25
 msgid "Please select a shipment method."
-msgstr "Por favor, seleccione un método de envío"
+msgstr "Veuillez indiquer un type de livraison"
 
 #: browser/viewlets/processor.py:29
 msgid "Please select a variation"
-msgstr "Por favor, seleccione una variación"
+msgstr "Veuillez choisir une variation"
 
 #: browser/viewlets/processor.py:17
 msgid "Please specify an amount"
-msgstr "Por favor, especifique una cantidad"
+msgstr "Veuillez indiquer un nombre"
 
 #. Default: "Post checkout"
 #: browser/configlet.pt:92
 msgid "Post checkout"
-msgstr "Tras el pedido"
+msgstr "Après la commande"
 
 #: browser/checkout.py:247
 msgid "Previous step"
-msgstr "Paso anterior"
+msgstr "Etape précédente"
 
 #. Default: "Price"
 #: browser/cart.pt:43
 msgid "Price"
-msgstr "Precio"
+msgstr "Prix"
 
 #. Default: "Price total"
 #: browser/cart.pt:44
 msgid "Price total"
-msgstr "Precio total"
+msgstr "Prix total"
 
 #: browser/checkout.py:246
 msgid "Print"
-msgstr "Imprimir"
+msgstr "Imprimer"
 
 #. Default: "Product"
 #: browser/cart.pt:41
 msgid "Product"
-msgstr "Producto"
+msgstr "Produit"
 
 #. Default: "Product highlights"
 #: browser/viewlets/hot.pt:2
 msgid "Product highlights"
-msgstr "Productos destacados"
+msgstr "Produits TOP"
 
 #. Default: "Product variations"
 #: browser/viewlets/variation.pt:2
 msgid "Product variations"
-msgstr "Variaciones del producto"
+msgstr "Variations du produit"
 
 #. Default: "Productname"
 #: browser/configlet.pt:36
 msgid "Productname"
-msgstr "Nombre del producto"
+msgstr "Nom du produit"
 
 #. Default: "Related products"
 #: browser/viewlets/related.pt:2
 msgid "Related products"
-msgstr "Productos relacionados"
+msgstr "Produits apparentés"
 
 #. Default: "Remove"
 #: browser/cart.pt:45
 msgid "Remove"
-msgstr "Eliminar"
+msgstr "Supprimer"
 
 #: browser/viewlets/processor.py:50
 msgid "Removed ${count} items from cart"
-msgstr "Se han eliminado ${count} productos del carrito"
+msgstr "${count} articles supprimés du panier"
 
 #: browser/viewlets/processor.py:52
 msgid "Removed item from cart"
-msgstr "Producto eliminado del carrito"
+msgstr "Article supprimé du panier"
 
 #. Default: "Salutation"
 #: browser/address.pt:35
 msgid "Salutation"
-msgstr "Tratamiento"
+msgstr "Titre"
 
 #. Default: "Select the desired payment method"
 #: browser/components/payments.pt:12
 msgid "Select the desired payment method"
-msgstr "Seleccione el método de pago deseado"
+msgstr "Veuillez choisir le mode de paiement désiré"
 
 #. Default: "Select the desired shipment method"
 #: browser/components/shipments.pt:13
 msgid "Select the desired shipment method"
-msgstr "Seleccione el método de envío deseado"
+msgstr "Veuillez choisir le type de livraison désiré"
 
 #. Default: "Select the desired shipment method for the following products:"
 #: browser/components/shipments.pt:54
 msgid "Select the desired shipment method for the following products:"
-msgstr "Seleccione el método de envío deseado para los siguientes productos:"
+msgstr ""
+"Veuillez choisir le type de livraison désiré pour les produits suivants:"
 
 #: browser/checkout.py:257
 msgid "Send order"
-msgstr "Realizar el pedido"
+msgstr "Envoyer la commande"
 
 #. Default: "Shipment"
 #: browser/components/confirmation.pt:30
 msgid "Shipment"
-msgstr "Envío"
+msgstr "Livraison"
 
 #: browser/portlets/cart.py:23
 msgid "Shopping cart"
-msgstr "Carrito de la compra"
+msgstr "Panier"
 
 #. Default: "Tax factor"
 #: browser/configlet.pt:121
 msgid "Tax factor"
-msgstr "Factor del impuesto"
+msgstr "Facteur taxe"
 
 #. Default: "Tax included in product price"
 #: browser/configlet.pt:182
 msgid "Tax included in product price"
-msgstr "Impuestos incluidos en el precio del producto"
+msgstr "Taxe inclue dans le prix du produit"
 
 #. Default: "Tax name"
 #: browser/configlet.pt:120
 msgid "Tax name"
-msgstr "Nombre del impuesto"
+msgstr "Titre de la taxe"
 
 #. Default: "Taxes"
 #: browser/configlet.pt:114
 msgid "Taxes"
-msgstr "Impuestos"
+msgstr "Taxes"
 
 #. Default: "Thank you!"
 #: browser/components/confirmation.pt:9
 msgid "Thank you!"
-msgstr "¡Gracias!"
+msgstr "Meilleurs remerciements !"
 
 #: browser/components/gtc.py:17
 msgid ""
 "The general terms and conditions have to be accepted to finish your check "
 "out."
 msgstr ""
-"Debe aceptar las condiciones generales de contratación para poder realizar "
-"el pedido."
+"Il est nécéssaire d'accèpter les condition générales d'affaires avant de "
+"compléter terminer la commande."
 
 #. Default: "The name appearing in payment-terminals"
 #: browser/configlet.pt:49
 msgid "The name appearing in payment-terminals"
-msgstr "Nombre que aparecerá en los terminales de pago"
+msgstr "Le nom apparaissant dans les masques de paiement"
 
 #. Default: "The path to the page holding the general terms and conditions to accept before payment"
 #: browser/configlet.pt:73
@@ -384,15 +378,13 @@ msgid ""
 "The path to the page holding the general terms and conditions to accept "
 "before payment"
 msgstr ""
-"Ruta hacia la página que aloja las condiciones generales de contratación que "
-"hay que aceptar antes de poder realizar el pago"
+"Le chemin d'accès à la page contenant les conditions générales d'affaires "
+"qui doivent être acceptées avant le paiement"
 
 #. Default: "The path to the page to be redirected to after checkout"
 #: browser/configlet.pt:97
 msgid "The path to the page to be redirected to after checkout"
-msgstr ""
-"Ruta hacia la página a la que se será redirigido después de realizar el "
-"pedido"
+msgstr "Le chemin d'accès à la page à afficher une fois la commande complétée."
 
 #. Default: "Total"
 #: browser/cart.pt:78
@@ -407,35 +399,35 @@ msgstr "Total ${currency}:"
 #. Default: "Total incl. ${taxname}"
 #: browser/macros.pt:158
 msgid "Total incl. ${taxname}"
-msgstr "Total con ${taxname}:"
+msgstr "Total ${taxname} incl.:"
 
 #: order.py:340
 msgid "Total incl. ${tax}% ${taxname}"
-msgstr "Total con ${tax}% ${taxname}"
+msgstr "Total ${tax}% ${taxname} incl."
 
 #. Default: "Total incl. charges"
 #: browser/macros.pt:131
 msgid "Total incl. charges"
-msgstr "Total con cargos"
+msgstr "Total charges comprises"
 
 #. Default: "Total incl. charges and ${taxname}"
 #: browser/macros.pt:187
 msgid "Total incl. charges and ${taxname}"
-msgstr "Total con ${taxname} y cargos"
+msgstr "Total charges et ${taxname} comprises"
 
 #. Default: "Total incl. charges and ${tax}% ${taxname}"
 #: browser/macros.pt:190
 msgid "Total incl. charges and ${tax}% ${taxname}"
-msgstr "Total con ${tax}% ${taxname} y cargos"
+msgstr "Total charges et ${tax}% ${taxname} comprises"
 
 #: content/variation.py:26
 msgid "Type"
-msgstr "Tipo"
+msgstr "Type"
 
 #. Default: "Variations"
 #: browser/variations.pt:25
 msgid "Variations"
-msgstr "Variaciones"
+msgstr "Variations"
 
 #. Default: "We successfully received your order. An Email has been sent to you containing all the order details."
 #: browser/components/confirmation.pt:12
@@ -443,12 +435,12 @@ msgid ""
 "We successfully received your order. An Email has been sent to you "
 "containing all the order details."
 msgstr ""
-"Hemos recibido su pedido correctamente. Se le ha enviado un correo con los "
-"detalles del mismo."
+"Nous avons reçu votre commande avec succès. Un courriel contenant toutes les "
+"information relatives à votre commande vous a été envoyé."
 
 #: browser/checkout.py:43
 msgid "You have not yet added any products to your cart"
-msgstr "Todavía no ha añadido ningún producto a su carrito"
+msgstr "Vous n'avez pas encore placé de produits dans votre panier"
 
 #. Default: "You have to be registered to check out your order, either ${log_in} if you already have an account or head over to the ${registration_form} if you don't."
 #: browser/cart.pt:108
@@ -457,304 +449,301 @@ msgid ""
 "already have an account or head over to the ${registration_form} if you "
 "don't."
 msgstr ""
-"Debe haber iniciado sesión para poder realizar su pedido: ${log_in} (si ya "
-"tiene una cuenta) o ${registration_form} (si todavía no la tiene)."
+"Il faut être connecté pour pouvoir passer à la caisse; ${log_in} si vous "
+"disposez déjà d'un utilisateur, sinon veuillez remplir le "
+"${registration_form} ."
 
 #. Default: "Your shopping cart"
 #: browser/cart.pt:16
 msgid "Your shopping cart"
-msgstr "Su carrito de la compra"
+msgstr "Votre panier"
 
 #. Default: "Your shopping cart is empty"
 #: browser/cart.pt:20
 msgid "Your shopping cart is empty"
-msgstr "Su carrito de la compra está vacío"
+msgstr "Votre panier est vide"
 
 #. Default: "ZIP / City"
 #: browser/address.pt:185
 msgid "ZIP / City"
-msgstr "CP / Localidad"
+msgstr "Code postal / Localité"
 
 #. Default: "Zone"
 #: browser/address.pt:253
 msgid "Zone"
-msgstr "Zona"
+msgstr "Zone"
 
 #. Default: "add"
 #: browser/configlet.pt:168
 msgid "add"
-msgstr "añadir"
+msgstr "ajouter"
 
 #. Default: "add to cart"
 #: browser/viewlets/buy.pt:19
 msgid "add to cart"
-msgstr "añadir al carrito"
+msgstr "ajouter au panier"
 
 #. Default: "Check out"
 #: browser/checkout.pt:15
 msgid "checkout_title"
-msgstr "Caja"
+msgstr "Caisse"
 
 #. Default: "List of all orders and their statuses"
 #: profiles/default/actions.xml
 msgid "description_manage_orders"
-msgstr "Lista de todos los pedidos y sus estados"
+msgstr "Affiche toutes les commandes ainsi que leur état"
 
 #. Default: "This product has no images. To add an image press the 'add' button or paste content from another location."
 #: browser/images.pt:40
 msgid "description_no_images"
 msgstr ""
-"Este producto no tiene imágenes. Para añadir una imagen, pulse el botón de "
-"añadir o pegue el contenido desde otro lugar."
+"Ce produit ne dispose pas davantage d'images. Pour ajouter une image "
+"veuillez cliquer le bouton ajouter ou ajoutez les éléments depuis un autre "
+"produit."
 
 #. Default: "No orders were found."
 #: browser/manage_orders.pt:17
 msgid "description_no_orders"
-msgstr ""
-"Este producto no tiene precios adicionales. Para añadir un precio, pulse el "
-"botón de añadir o pegue el contenido desde otro lugar."
+msgstr "Aucune commande n'a été trouvé."
 
 #. Default: "This product has no additional prices. To add a price press the 'add' button or paste content from another location."
 #: browser/prices.pt:41
 msgid "description_no_prices"
 msgstr ""
-"Este producto no tiene precios adicionales. Para añadir un precio, pulse el "
-"botón de añadir o pegue el contenido desde otro lugar."
+"Ce produit ne dispose pas de prix supplémentaires. Pour ajouter un prix "
+"veuillez cliquer ajouter ou ajoutez les éléments depuis un autre produit."
 
 #. Default: "If multiple selected variations in different categories have unit prices, the greater price will be accounted for in pricing of the selected combination."
 #: content/variation.py:52
 msgid "description_price"
 msgstr ""
-"If multiple selected variations in different categories have unit prices, "
-"the greater price will be accounted for in pricing of the selected "
-"combination."
+"Si plusieurs variations de différentes catégories disposent d'un prix "
+"unique, le prix combiné des produits correspondra au prix le plus élevé."
 
 #. Default: "Shipment methods for this product"
 #: content/product.py:68
 msgid "description_shipment_methods"
-msgstr "Métodos de envío para este producto"
+msgstr "Types de livraison disponibles pour ce produit"
 
 #. Default: "Dear ${name}\n\nYour order has been successfully registered. Please find a complete\noverview of your order below.\n\nOrder ID: ${orderid}\n\n${cart}\nCurrency: ${currency}\n\n\nAddress:\n${address}\n\nPayment:\n${payment}\n\nShipment:\n${shipments}\n\n\nIf you have any questions concerning your purchase do not hesitate\nto contact us at ${from_email}.\n\nBest regards\n\n${from_name}"
 #: order.py:469
 msgid "email_customer_body"
 msgstr ""
-"Estimado/a ${name}\n"
+"Très cher/chère ${name}\n"
 "\n"
-"Su pedido ha sido correctamente registrado. Vea un resumen del mismo:\n"
+"Votre commande a été enregistrée avec succès. Veuillez trouver l'aperçu\n"
+"complet de votre commande ci-après.\n"
 "\n"
-"ID del pedido: ${orderid}\n"
+"Numéro de commande: ${orderid}\n"
 "\n"
 "${cart}\n"
-"Moneda: ${currency}\n"
+"Monnaie: ${currency}\n"
 "\n"
 "\n"
-"Domicilio:\n"
+"Adresse:\n"
 "${address}\n"
 "\n"
-"Pago:\n"
+"Paiement:\n"
 "${payment}\n"
 "\n"
-"Envío:\n"
+"Livraison:\n"
 "${shipments}\n"
 "\n"
 "\n"
-"Si tiene alguna pregunta sobre su compra, no dude en escribirnos a "
-"${from_email}.\n"
+"Si vous avez des questions concernant votre achat, n'hésitez pas à nous\n"
+"contacter par ${from_email}.\n"
 "\n"
-"Atentamente,\n"
+"Meilleurs remerciements\n"
 "\n"
 "${from_name}"
 
 #. Default: "Confirmation e-mail"
 #: order.py:399
 msgid "email_customer_title"
-msgstr "Confirmación de su pedido"
+msgstr "Confirmation de commande"
 
 #. Default: "New order by ${name}\n\nOrderid: ${orderid}\n\n${cart}\nCurrency: ${currency}\n\n\nAddress:\n${address}\n\nPayment:\n${payment}\n\nShipment:\n${shipments}\n\n"
 #: order.py:448
 msgid "email_order_body"
 msgstr ""
-"Nuevo pedido realizado por ${name}\n"
+"Nouvelle commande par ${name}\n"
 "\n"
-"ID del pedido: ${orderid}\n"
+"Numéro de commande: ${orderid}\n"
 "\n"
 "${cart}\n"
-"Moneda: ${currency}\n"
+"Monnaie: ${currency}\n"
 "\n"
 "\n"
-"Dirección:\n"
+"Adresse:\n"
 "${address}\n"
 "\n"
-"Pago:\n"
+"Paiement:\n"
 "${payment}\n"
 "\n"
-"Envío:\n"
+"Livraison:\n"
 "${shipments}"
 
 #. Default: "New order [${orderid}]"
 #: order.py:390
 msgid "email_order_title"
-msgstr "Nuevo pedido [${orderid}]"
+msgstr "Nouvelle commande [${orderid}]"
 
 #. Default: "general terms and conditions"
 #: browser/components/gtc.pt:17
 msgid "general terms and conditions"
-msgstr "condiciones generales de contratación"
+msgstr "Conditions générales d'affaires"
 
 #. Default: "You are currently looking at the images of a variation of the product ${product}."
 #: browser/images.pt:35
 msgid "info_Image"
-msgstr ""
-"Actualmente está viendo las imágenes de una variación del producto "
-"${product}."
+msgstr "Ceci est l'affichage des images d'une variation du produit ${product}."
 
 #. Default: "You are currently looking at a variation of the product ${product}."
 #: browser/variation.pt:25
 msgid "info_variation"
-msgstr "Actualmente está viendo una variación del producto ${product}."
+msgstr "Ceci est la variation du produit ${product}."
 
 #. Default: "You are currently looking at the prices of a variation of the product ${product}."
 #: browser/prices.pt:36
 msgid "info_variation_prices"
-msgstr ""
-"Actualmente está viendo los precios de una variación del producto ${product}."
+msgstr "Ceci est l'affichage des prix d'une variation du produit ${product}."
 
 #. Default: "Address"
 #: browser/orders.py:73
 msgid "label_address"
-msgstr "Dirección"
+msgstr "Adresse"
 
 #. Default: "Cancelled"
 #: browser/orders.py:37
 msgid "label_cancelled"
-msgstr "Cancelado"
+msgstr "Annulé"
 
 #. Default: "Currency"
 #: browser/orders.py:59
 msgid "label_currency"
-msgstr "Moneda"
+msgstr "Monnaie"
 
 #. Default: "Date"
 #: browser/orders.py:56
 msgid "label_date"
-msgstr "Fecha"
+msgstr "Date"
 
 #. Default: "Failed"
 #: browser/orders.py:36
 msgid "label_failed"
-msgstr "Malogrado"
+msgstr "Echoué"
 
 #. Default: "Initialized"
 #: browser/orders.py:33
 msgid "label_initialized"
-msgstr "Iniciado"
+msgstr "Passée"
 
 #. Default: "Order id"
 #: browser/orders.py:50
 msgid "label_order_id"
-msgstr "ID del pedido"
+msgstr "Numéro de commande"
 
 #. Default: "Order status"
 #: browser/orders.py:66
 msgid "label_order_state"
-msgstr "Estado del pedido"
+msgstr "Etat de la commande"
 
 #. Default: "Price total"
 #: browser/orders.py:62
 msgid "label_price_total"
-msgstr "Precio total"
+msgstr "Prix total"
 
 #. Default: "Processed"
 #: browser/orders.py:35
 msgid "label_processed"
-msgstr "Procesado"
+msgstr "Traitée"
 
 #. Default: "Products"
 #: browser/orders.py:77
 msgid "label_products"
-msgstr "Productos"
+msgstr "Produits"
 
 #. Default: "Sent"
 #: browser/orders.py:34
 msgid "label_sent"
-msgstr "Enviar"
+msgstr "Envoyée"
 
 #. Default: "Shipment methods"
 #: content/product.py:67
 msgid "label_shipment_methods"
-msgstr "Métodos de envío"
+msgstr "Types de livraison"
 
 #. Default: "Shipment id's"
 #: browser/orders.py:81
 msgid "label_shipmentids"
-msgstr "ID de los envíos"
+msgstr "Identifiants des types de livraison"
 
 #. Default: "User id"
 #: browser/orders.py:53
 msgid "label_user_id"
-msgstr "ID del usuario"
+msgstr "Nom d'utilisateur"
 
 #. Default: "Zone"
 #: browser/orders.py:69
 msgid "label_zone"
-msgstr "Zona"
+msgstr "Zone"
 
 #. Default: "log in"
 #: browser/cart.pt:101
 msgid "log_in"
-msgstr "iniciar sesión"
+msgstr "Veuillez vous connecter"
 
 #. Default: "Check out canceled"
 #: browser/checkout.py:359
 msgid "message_checkout_canceled"
-msgstr "Pedido cancelado"
+msgstr "Commande annulée"
 
 #. Default: "Check out failed"
 #: browser/checkout.py:373
 msgid "message_checkout_failed"
-msgstr "Error en el pedido"
+msgstr "Commande échouée"
 
 #. Default: "${offer} instead of ${price}"
 #: browser/macros.pt:11
 msgid "price_offer"
-msgstr "${offer} en lugar de ${price}"
+msgstr "${offer} au lieu de ${price}"
 
 #. Default: "registration form"
 #: browser/cart.pt:108
 msgid "registration_form"
-msgstr "formulario de registro"
+msgstr "formulaire d'enregistrement"
 
 #. Default: "remove"
 #: browser/configlet.pt:144
 msgid "remove"
-msgstr "eliminar"
+msgstr "supprimer"
 
 #. Default: "Please supply an order id."
 #: browser/order_details.pt:23
 msgid "text_no_order_id_supplied"
-msgstr "Por favor, facilite un número (ID) de pedido."
+msgstr "Veuillez indiquer un numéro de commande."
 
 #. Default: "Please check the order id."
 #: browser/order_details.pt:30
 msgid "text_order_not_found"
-msgstr "Por favor, compruebe el número (ID) de pedido."
+msgstr "Veuillez contrôler le numéro de commande."
 
 #. Default: "Manage orders"
 #: browser/manage_orders.pt:13
 msgid "title_manage_orders"
-msgstr "Administrar pedidos"
+msgstr "Gérer les commandes"
 
 #. Default: "Which one?"
 #: browser/order_details.pt:21
 msgid "title_no_order_id_supplied"
-msgstr "¿Cuál?"
+msgstr "Laquelle?"
 
 #. Default: "Order details"
 #: browser/order_details.pt:17
 msgid "title_order_details"
-msgstr "Detalles del pedido"
+msgstr "Informations à propos de la commande"
 
 #. Default: "The order could not be found."
 #: browser/order_details.pt:28
 msgid "title_order_not_found"
-msgstr "El pedido no ha podido ser encontrado."
+msgstr "La commande n'a pas été trouvée."

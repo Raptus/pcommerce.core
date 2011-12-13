@@ -1,0 +1,55 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: pcommerce.core\n"
+"POT-Creation-Date: 2008-04-07 14:15-100\n"
+"PO-Revision-Date: 2007-11-01 10:18+0100\n"
+"Last-Translator: Steve Beyeler <sbeyeler@raptus.com>\n"
+"Language-Team: Français <sbeyeler@raptus.com>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language-code: fr\n"
+"Language-name: Français\n"
+"Preferred-encodings: utf-8 latin1\n"
+"Domain: plone\n"
+"X-is-fallback-for: fr-ch fr-fr fr-be\n"
+"X-Poedit-Language: Français\n"
+"X-Poedit-Country: FRANCE\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+msgid "Price"
+msgstr "Prix"
+
+msgid "A price"
+msgstr "Un prix"
+
+msgid "Product"
+msgstr "Produit"
+
+msgid "A product"
+msgstr "Un produit"
+
+msgid "Variation"
+msgstr "Variation"
+
+msgid "A variation of a product"
+msgstr "Un variation d'un produit"
+
+msgid "Variations"
+msgstr "Variations"
+
+msgid "Prices"
+msgstr "Prix"
+
+msgid "PCommerce configuration"
+msgstr "Paramètres PCommerce"
+
+msgid "Shop"
+msgstr "Shop"
+
+msgid "ShopFolder"
+msgstr "Dossier shop"
+
+msgid "Images"
+msgstr "Images"

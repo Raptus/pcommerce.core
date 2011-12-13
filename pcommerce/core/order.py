@@ -396,7 +396,7 @@ class OrderRegistry(Cart):
         mailhost.secureSend(translate(self.getMessageCustomer(mapping), context=request, target_language=lang),
                             mto='%s <%s>' % (address.firstname +' '+ address.lastname, address.email),
                             mfrom='%s <%s>' % (email_from_name, email_from),
-                            subject=translate(_('email_customer_title', default='Confirmation Email'), context=request, target_language=lang),
+                            subject=translate(_('email_customer_title', default='Confirmation e-mail'), context=request, target_language=lang),
                             charset='utf-8')
 
         notify(events.OrderSentEvent(self, order))
@@ -469,7 +469,7 @@ ${shipments}
         return _('email_customer_body', default=\
 """Dear ${name}
 
-Your order has successfully been registered. Please find a complete
+Your order has been successfully registered. Please find a complete
 overview of your order below.
 
 Order ID: ${orderid}
@@ -493,8 +493,7 @@ to contact us at ${from_email}.
 
 Best regards
 
-${from_name}
-""", mapping=mapping)
+${from_name}""", mapping=mapping)
 
     def _save(self):
         annotations = IAnnotations(self.portal)

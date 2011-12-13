@@ -41,8 +41,8 @@
       <p class="discreet" i18n:domain="pcommerce"
          tal:condition="not: view/items"
          i18n:translate="description_no_prices">
-        This product has no additional prices. To add a price, press the
-        add button, or paste content from another location.
+        This product has no additional prices. To add a price press the
+        'add' button or paste content from another location.
       </p>
 
       <form name="folderContentsForm"
@@ -65,7 +65,7 @@
                     >Price</tal:title>&#160;</th>
                 <th class="nosort column"
                     id="foldercontents-modified-column">&#160;<tal:modified i18n:translate="listingheader_modified"
-                    >Modified</tal:modified>&#160;;</th>
+                    >Modified</tal:modified>&#160;</th>
                 <th class="nosort column"
                     id="foldercontents-status-column">&#160;<tal:state i18n:translate="listingheader_status"
                     >State</tal:state>&#160;</th>

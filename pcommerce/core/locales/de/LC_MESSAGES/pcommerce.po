@@ -1,19 +1,17 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: pcommerce.core\n"
-"POT-Creation-Date: 2011-10-13 13:21+0000\n"
+"POT-Creation-Date: 2011-12-13 09:37+0000\n"
 "PO-Revision-Date: 2007-11-01 10:18+0100\n"
 "Last-Translator: Simon Kaeser <skaeser@raptus.com>\n"
 "Language-Team: Deutsch <skaeser@raptus.com>\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0\n"
-"Language-Code: en\n"
-"Language-Name: English\n"
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: pcommerce\n"
-"Language: de\n"
 "Language-code: de\n"
 "Language-name: Deutsch\n"
 "Preferred-encodings: utf-8 latin1\n"
@@ -23,517 +21,517 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 
 #. Default: "Add image"
-#: ../browser/images.pt:23
+#: browser/images.pt:23
 msgid "Add image"
 msgstr "Bild hinzufügen"
 
 #. Default: "Add price"
-#: ../browser/prices.pt:24
+#: browser/prices.pt:24
 msgid "Add price"
 msgstr "Preis hinzufügen"
 
 #. Default: "Add variation"
-#: ../browser/variations.pt:22
+#: browser/variations.pt:22
 msgid "Add variation"
 msgstr "Variation hinzufügen"
 
-#: ../browser/viewlets/processor.py:46
+#: browser/viewlets/processor.py:46
 msgid "Added ${count} items to cart"
 msgstr "${count} Artikel dem Warenkorb hinzugefügt"
 
-#: ../browser/viewlets/processor.py:48
+#: browser/viewlets/processor.py:48
 msgid "Added item to cart"
 msgstr "Artikel dem Warenkorb hinzugefügt"
 
-#: ../content/variation.py:35
+#: content/variation.py:35
 msgid "Additional price"
 msgstr "Preisaufschlag"
 
 #. Default: "Additional prices"
-#: ../browser/prices.pt:27
+#: browser/prices.pt:27
 msgid "Additional prices"
 msgstr "Zusätzliche Preise"
 
-#: ../steps.py:10
+#: steps.py:10
 msgid "Address"
 msgstr "Adresse"
 
 #. Default: "Address 1"
-#: ../browser/address.pt:139
+#: browser/address.pt:139
 msgid "Address 1"
 msgstr "Adresse 1"
 
 #. Default: "Address 2"
-#: ../browser/address.pt:166
+#: browser/address.pt:166
 msgid "Address 2"
 msgstr "Adresse 2"
 
 #. Default: "Amount"
-#: ../browser/cart.pt:42
-#: ../browser/macros.pt:76
-#: ../browser/orders.py:112
+#: browser/cart.pt:42
 msgid "Amount"
 msgstr "Anzahl"
 
 #. Default: "Billing address"
-#: ../browser/components/address.pt:12
-#: ../browser/components/confirmation.pt:23
-#: ../browser/components/overview.pt:15
+#: browser/components/address.pt:12
 msgid "Billing address"
 msgstr "Rechnungsadresse"
 
-#: ../browser/checkout.py:265
+#: browser/checkout.py:265
 msgid "Cancel checkout"
 msgstr "Bestellung abbrechen"
 
 #. Default: "Check out"
-#: ../browser/cart.pt:34
-#: ../browser/portlets/cart.pt:27
+#: browser/cart.pt:34
 msgid "Check out"
 msgstr "zur Kasse gehen"
 
 #. Default: "Company"
-#: ../browser/address.pt:120
+#: browser/address.pt:120
 msgid "Company"
 msgstr "Firma"
 
 #. Default: "Confirmation"
-#: ../browser/components/confirmation.pt:17
-#: ../steps.py:16
+#: browser/components/confirmation.pt:17
 msgid "Confirmation"
 msgstr "Bestätigung"
 
-#: ../browser/checkout.py:255
+#: browser/checkout.py:255
 msgid "Continue shopping"
 msgstr "Einkauf fortsetzen"
 
 #. Default: "Country"
-#: ../browser/address.pt:224
+#: browser/address.pt:224
 msgid "Country"
 msgstr "Land"
 
 #. Default: "Edit cart"
-#: ../browser/cart.pt:120
+#: browser/cart.pt:120
 msgid "Edit cart"
 msgstr "Warenkorb bearbeiten"
 
 #. Default: "Email"
-#: ../browser/address.pt:294
+#: browser/address.pt:294
 msgid "Email"
 msgstr "Email"
 
 #. Default: "First name"
-#: ../browser/address.pt:64
+#: browser/address.pt:64
 msgid "First name"
 msgstr "Vorname"
 
 #. Default: "GTC"
-#: ../browser/configlet.pt:68
+#: browser/configlet.pt:68
 msgid "GTC"
 msgstr "AGB"
 
-#: ../content/product.py:59
+#: content/product.py:59
 msgid "Hot product"
 msgstr "Hot Produkt"
 
 #. Default: "I accept the ${link}"
-#: ../browser/components/gtc.pt:17
+#: browser/components/gtc.pt:17
 msgid "I accept the ${link}"
 msgstr "Ich akzeptiere die ${link}"
 
 #. Default: "Image"
-#: ../browser/images.pt:63
+#: browser/images.pt:63
 msgid "Image"
 msgstr "Bild"
 
 #. Default: "Images"
-#: ../browser/images.pt:26
+#: browser/images.pt:26
 msgid "Images"
 msgstr "Bilder"
 
 #. Default: "Last name"
-#: ../browser/address.pt:92
+#: browser/address.pt:92
 msgid "Last name"
 msgstr "Nachname"
 
 #. Default: "Manage orders"
-#: ../profiles/default/actions.xml
+#: profiles/default/actions.xml
 msgid "Manage orders"
 msgstr "Bestellungen verwalten"
 
 #. Default: "Mr."
-#: ../address.py:60
-#: ../browser/address.pt:46
+#: browser/address.pt:46
 msgid "Mr."
 msgstr "Herr"
 
 #. Default: "Mrs. / Ms."
-#: ../address.py:60
-#: ../browser/address.pt:52
+#: browser/address.pt:52
 msgid "Mrs. / Ms."
 msgstr "Frau"
 
-#: ../content/product.py:51
+#: content/product.py:51
 msgid "New product"
 msgstr "Neues Produkt"
 
 #. Default: "New products in our shop"
-#: ../browser/viewlets/new.pt:2
+#: browser/viewlets/new.pt:2
 msgid "New products in our shop"
-msgstr "Jetzt aktuell im Shop"
+msgstr "Neue Produkte im Shop"
 
-#: ../browser/checkout.py:258
+#: browser/checkout.py:258
 msgid "Next step"
 msgstr "Nächster Schritt"
 
-#: ../browser/orders.py:110
-#: ../content/product.py:35
+#: browser/orders.py:110
 msgid "No"
 msgstr "Artikelnummer"
 
 #. Default: "No of articles:"
-#: ../browser/portlets/cart.pt:18
+#: browser/portlets/cart.pt:18
 msgid "No of articles:"
 msgstr "Anzahl Artikel:"
 
 #. Default: "Overview"
-#: ../browser/components/overview.pt:9
-#: ../steps.py:15
+#: browser/components/overview.pt:9
 msgid "Overview"
 msgstr "Übersicht"
 
 #. Default: "PCommerce configuration"
-#: ../browser/configlet.pt:13
-#: ../profiles/default/controlpanel.xml
+#: browser/configlet.pt:13
 msgid "PCommerce configuration"
 msgstr "Einstellungen PCommerce"
 
 #. Default: "Payment"
-#: ../browser/components/confirmation.pt:48
-#: ../browser/components/overview.pt:40
-#: ../browser/components/payment.pt:9
+#: browser/components/confirmation.pt:48
 msgid "Payment"
 msgstr "Zahlungsart"
 
-#: ../browser/checkout.py:331
+#: browser/checkout.py:331
 msgid "Payment canceled"
 msgstr "Zahlungsvorgang abgebrochen"
 
-#: ../browser/checkout.py:316
+#: browser/checkout.py:316
 msgid "Payment failed"
 msgstr "Zahlungsvorgang fehlgeschlagen"
 
 #. Default: "Phone"
-#: ../browser/address.pt:322
+#: browser/address.pt:322
 msgid "Phone"
 msgstr "Telefon"
 
-#: ../browser/configlet.py:43
+#: browser/configlet.py:43
 msgid "Please enter a floating point number (e.g. 7.6)"
 msgstr "Bitte geben Sie eine Dezimalzahl ein (z.B. 7.6)"
 
-#: ../browser/configlet.py:39
+#: browser/configlet.py:39
 msgid "Please provide a tax name"
 msgstr "Bitte geben Sie einen Namen für di Steuer ein"
 
-#: ../browser/configlet.py:37
+#: browser/configlet.py:37
 msgid "Please provide a zone name"
 msgstr "Bitte geben Sie einen Zonennamen an"
 
-#: ../browser/components/payments.py:17
+#: browser/components/payments.py:17
 msgid "Please select a payment method."
 msgstr "Bitte wählen Sie eine Zahlungsmethode"
 
-#: ../browser/components/shipments.py:25
+#: browser/components/shipments.py:25
 msgid "Please select a shipment method."
 msgstr "Bitte wählen Sie eine Lieferart"
 
-#: ../browser/viewlets/processor.py:29
+#: browser/viewlets/processor.py:29
 msgid "Please select a variation"
 msgstr "Bitte wählen Sie eine Variation aus"
 
-#: ../browser/viewlets/processor.py:17
+#: browser/viewlets/processor.py:17
 msgid "Please specify an amount"
 msgstr "Bitte geben Sie eine Anzahl an"
 
 #. Default: "Post checkout"
-#: ../browser/configlet.pt:92
+#: browser/configlet.pt:92
 msgid "Post checkout"
 msgstr "Nach dem Bestellvorgang"
 
-#: ../browser/checkout.py:247
+#: browser/checkout.py:247
 msgid "Previous step"
 msgstr "Vorhergehender Schritt"
 
 #. Default: "Price"
-#: ../browser/cart.pt:43
-#: ../browser/macros.pt:77
-#: ../browser/orders.py:113
+#: browser/cart.pt:43
 msgid "Price"
 msgstr "Preis"
 
 #. Default: "Price total"
-#: ../browser/cart.pt:44
-#: ../browser/macros.pt:78
-#: ../browser/orders.py:114
+#: browser/cart.pt:44
 msgid "Price total"
-msgstr "Preis total"
+msgstr "Gesamtpreis"
 
-#: ../browser/checkout.py:246
+#: browser/checkout.py:246
 msgid "Print"
 msgstr "Drucken"
 
 #. Default: "Product"
-#: ../browser/cart.pt:41
-#: ../browser/macros.pt:75
-#: ../browser/orders.py:111
+#: browser/cart.pt:41
 msgid "Product"
 msgstr "Produkt"
 
 #. Default: "Product highlights"
-#: ../browser/viewlets/hot.pt:2
+#: browser/viewlets/hot.pt:2
 msgid "Product highlights"
 msgstr "Produkte-Highlights"
 
 #. Default: "Product variations"
-#: ../browser/viewlets/variation.pt:2
+#: browser/viewlets/variation.pt:2
 msgid "Product variations"
-msgstr "Produkt Variationen"
+msgstr "Produktvariationen"
 
 #. Default: "Productname"
-#: ../browser/configlet.pt:36
+#: browser/configlet.pt:36
 msgid "Productname"
 msgstr "Produktname"
 
 #. Default: "Related products"
-#: ../browser/viewlets/related.pt:2
+#: browser/viewlets/related.pt:2
 msgid "Related products"
 msgstr "Verwandte Produkte"
 
 #. Default: "Remove"
-#: ../browser/cart.pt:45
+#: browser/cart.pt:45
 msgid "Remove"
 msgstr "Entfernen"
 
-#: ../browser/viewlets/processor.py:50
+#: browser/viewlets/processor.py:50
 msgid "Removed ${count} items from cart"
 msgstr "${count} Artikel vom Warenkorb entfernt"
 
-#: ../browser/viewlets/processor.py:52
+#: browser/viewlets/processor.py:52
 msgid "Removed item from cart"
 msgstr "Artikel vom Warenkorb entfernt"
 
 #. Default: "Salutation"
-#: ../browser/address.pt:35
+#: browser/address.pt:35
 msgid "Salutation"
 msgstr "Anrede"
 
 #. Default: "Select the desired payment method"
-#: ../browser/components/payments.pt:12
+#: browser/components/payments.pt:12
 msgid "Select the desired payment method"
 msgstr "Wählen Sie die gewünschte Zahlungsmethode"
 
 #. Default: "Select the desired shipment method"
-#: ../browser/components/shipments.pt:13
+#: browser/components/shipments.pt:13
 msgid "Select the desired shipment method"
 msgstr "Wählen Sie die gewünschte Lieferart"
 
 #. Default: "Select the desired shipment method for the following products:"
-#: ../browser/components/shipments.pt:54
+#: browser/components/shipments.pt:54
 msgid "Select the desired shipment method for the following products:"
 msgstr "Wählen Sie die gewünschte Lieferart für folgende Produkte:"
 
-#: ../browser/checkout.py:257
+#: browser/checkout.py:257
 msgid "Send order"
 msgstr "Bestellung absenden"
 
 #. Default: "Shipment"
-#: ../browser/components/confirmation.pt:30
-#: ../browser/components/overview.pt:22
-#: ../browser/components/shipment.pt:9
+#: browser/components/confirmation.pt:30
 msgid "Shipment"
 msgstr "Lieferung"
 
-#: ../browser/portlets/cart.py:23
+#: browser/portlets/cart.py:23
 msgid "Shopping cart"
 msgstr "Warenkorb"
 
 #. Default: "Tax factor"
-#: ../browser/configlet.pt:121
+#: browser/configlet.pt:121
 msgid "Tax factor"
 msgstr "Steuerfaktor"
 
 #. Default: "Tax included in product price"
-#: ../browser/configlet.pt:182
+#: browser/configlet.pt:182
 msgid "Tax included in product price"
 msgstr "Steuer im Produktpreis inbegriffen"
 
 #. Default: "Tax name"
-#: ../browser/configlet.pt:120
+#: browser/configlet.pt:120
 msgid "Tax name"
 msgstr "Steuername"
 
 #. Default: "Taxes"
-#: ../browser/configlet.pt:114
+#: browser/configlet.pt:114
 msgid "Taxes"
 msgstr "Steuern"
 
 #. Default: "Thank you!"
-#: ../browser/components/confirmation.pt:9
+#: browser/components/confirmation.pt:9
 msgid "Thank you!"
 msgstr "Vielen Dank!"
 
-#: ../browser/components/gtc.py:17
-msgid "The general terms and conditions have to be accepted to finish your check out."
-msgstr "Die Allgemeinen Geschäftsbedingungen müssen akzeptiert werden bevor der Bestellvorgang abgeschlossen werden kann."
+#: browser/components/gtc.py:17
+msgid ""
+"The general terms and conditions have to be accepted to finish your check "
+"out."
+msgstr ""
+"Die Allgemeinen Geschäftsbedingungen müssen akzeptiert werden, bevor der "
+"Bestellvorgang abgeschlossen werden kann."
 
 #. Default: "The name appearing in payment-terminals"
-#: ../browser/configlet.pt:49
+#: browser/configlet.pt:49
 msgid "The name appearing in payment-terminals"
-msgstr "Der Name der in den Zahlungsmasken angezeigt wird"
+msgstr "Der Name, der in den Zahlungsmasken angezeigt wird"
 
 #. Default: "The path to the page holding the general terms and conditions to accept before payment"
-#: ../browser/configlet.pt:73
-msgid "The path to the page holding the general terms and conditions to accept before payment"
-msgstr "Der Pfad zu der Seite welche die Allgemeinen Geschäftsbedingungen enthält, welche vor der Zahlung akzeptiert werden müssen"
+#: browser/configlet.pt:73
+msgid ""
+"The path to the page holding the general terms and conditions to accept "
+"before payment"
+msgstr ""
+"Der Pfad zu jener Seite, welche die Allgemeinen Geschäftsbedingungen "
+"enthält, die vor der Zahlung akzeptiert werden müssen"
 
 #. Default: "The path to the page to be redirected to after checkout"
-#: ../browser/configlet.pt:97
+#: browser/configlet.pt:97
 msgid "The path to the page to be redirected to after checkout"
-msgstr "Der Pfad zu der Seite zu welcher nach Abschluss des Bestellvorgangs weitergeleitet werden soll."
+msgstr ""
+"Der Pfad zu jener Seite, auf welche nach Abschluss des Bestellvorgangs "
+"weitergeleitet werden soll."
 
 #. Default: "Total"
-#: ../browser/cart.pt:78
-#: ../browser/macros.pt:102
-#: ../order.py:303
+#: browser/cart.pt:78
 msgid "Total"
 msgstr "Total"
 
 #. Default: "Total ${currency}:"
-#: ../browser/portlets/cart.pt:20
+#: browser/portlets/cart.pt:20
 msgid "Total ${currency}:"
 msgstr "Total ${currency}:"
 
 #. Default: "Total incl. ${taxname}"
-#: ../browser/macros.pt:158
-#: ../order.py:330
+#: browser/macros.pt:158
 msgid "Total incl. ${taxname}"
 msgstr "Total inkl. ${taxname}:"
 
-#: ../order.py:340
+#: order.py:340
 msgid "Total incl. ${tax}% ${taxname}"
 msgstr "Total inkl. ${tax}% ${taxname}"
 
 #. Default: "Total incl. charges"
-#: ../browser/macros.pt:131
-#: ../order.py:320
+#: browser/macros.pt:131
 msgid "Total incl. charges"
 msgstr "Total inkl. Gebühren"
 
 #. Default: "Total incl. charges and ${taxname}"
-#: ../browser/macros.pt:187
-#: ../order.py:359
+#: browser/macros.pt:187
 msgid "Total incl. charges and ${taxname}"
 msgstr "Total inkl. Gebühren und ${taxname}"
 
 #. Default: "Total incl. charges and ${tax}% ${taxname}"
-#: ../browser/macros.pt:190
-#: ../order.py:362
+#: browser/macros.pt:190
 msgid "Total incl. charges and ${tax}% ${taxname}"
 msgstr "Total inkl. Gebühren und ${tax}% ${taxname}"
 
-#: ../content/variation.py:26
+#: content/variation.py:26
 msgid "Type"
 msgstr "Typ"
 
 #. Default: "Variations"
-#: ../browser/variations.pt:25
+#: browser/variations.pt:25
 msgid "Variations"
 msgstr "Variationen"
 
 #. Default: "We successfully received your order. An Email has been sent to you containing all the order details."
-#: ../browser/components/confirmation.pt:12
-msgid "We successfully received your order. An Email has been sent to you containing all the order details."
-msgstr "Wir haben Ihre Bestellung erfolgreich erhalten. Ein Email mit allen Informationen zu Ihrer Bestellung wurde an Sie versandt."
+#: browser/components/confirmation.pt:12
+msgid ""
+"We successfully received your order. An Email has been sent to you "
+"containing all the order details."
+msgstr ""
+"Wir haben Ihre Bestellung erfolgreich erhalten. Ein Email mit allen "
+"Informationen zu Ihrer Bestellung wurde an Sie versandt."
 
-#: ../browser/checkout.py:43
+#: browser/checkout.py:43
 msgid "You have not yet added any products to your cart"
 msgstr "Sie haben noch keine Produkte in Ihrem Warenkorb"
 
 #. Default: "You have to be registered to check out your order, either ${log_in} if you already have an account or head over to the ${registration_form} if you don't."
-#: ../browser/cart.pt:108
-msgid "You have to be registered to check out your order, either ${log_in} if you already have an account or head over to the ${registration_form} if you don't."
-msgstr "Sie müssen angemeldet sein um zur Kasse zu gehen, ${log_in}, falls Sie bereits einen Benutzer haben, oder füllen Sie das ${registration_form} aus falls nicht."
+#: browser/cart.pt:108
+msgid ""
+"You have to be registered to check out your order, either ${log_in} if you "
+"already have an account or head over to the ${registration_form} if you "
+"don't."
+msgstr ""
+"Sie müssen angemeldet sein, um zur Kasse zu gehen; ${log_in}, falls Sie "
+"bereits einen Benutzer haben oder füllen Sie das ${registration_form} aus "
+"falls nicht."
 
 #. Default: "Your shopping cart"
-#: ../browser/cart.pt:16
-#: ../browser/portlets/cart.pt:12
+#: browser/cart.pt:16
 msgid "Your shopping cart"
 msgstr "Ihr Warenkorb"
 
 #. Default: "Your shopping cart is empty"
-#: ../browser/cart.pt:20
+#: browser/cart.pt:20
 msgid "Your shopping cart is empty"
 msgstr "Ihr Warenkorb ist leer"
 
 #. Default: "ZIP / City"
-#: ../browser/address.pt:185
+#: browser/address.pt:185
 msgid "ZIP / City"
 msgstr "PLZ / Ort"
 
 #. Default: "Zone"
-#: ../browser/address.pt:253
-#: ../browser/configlet.pt:119
+#: browser/address.pt:253
 msgid "Zone"
 msgstr "Zone"
 
 #. Default: "add"
-#: ../browser/configlet.pt:168
+#: browser/configlet.pt:168
 msgid "add"
 msgstr "hinzufügen"
 
 #. Default: "add to cart"
-#: ../browser/viewlets/buy.pt:19
+#: browser/viewlets/buy.pt:19
 msgid "add to cart"
 msgstr "zum Warenkorb hinzufügen"
 
 #. Default: "Check out"
-#: ../browser/checkout.pt:15
+#: browser/checkout.pt:15
 msgid "checkout_title"
 msgstr "Kasse"
 
 #. Default: "List of all orders and their statuses"
-#: ../profiles/default/actions.xml
+#: profiles/default/actions.xml
 msgid "description_manage_orders"
-msgstr "Zeigt alle Bestellungen und deren Status"
+msgstr "Liste aller Bestellungen mit entsprechendem Status"
 
-#. Default: "This product has no Images. To add a Image, press the add button, or paste content from another location."
-#: ../browser/images.pt:40
+#. Default: "This product has no images. To add an image press the 'add' button or paste content from another location."
+#: browser/images.pt:40
 msgid "description_no_images"
-msgstr "Dieses Produkt hat keine weiteren Bilder. Um ein Bild hinzuzufügen, klicken Sie den Hinzufügen Knopf, oder fügen Sie Inhalte aus einem anderen Produkt ein."
+msgstr ""
+"Dieses Produkt hat keine weiteren Bilder. Um ein Bild hinzuzufügen, klicken "
+"Sie den Knopf 'hinzufügen' oder fügen Sie Inhalte aus einem anderen Produkt "
+"ein."
 
 #. Default: "No orders were found."
-#: ../browser/manage_orders.pt:17
+#: browser/manage_orders.pt:17
 msgid "description_no_orders"
 msgstr "Es wurden keine Bestellungen gefunden."
 
-#. Default: "This product has no additional prices. To add a price, press the add button, or paste content from another location."
-#: ../browser/prices.pt:41
+#. Default: "This product has no additional prices. To add a price press the 'add' button or paste content from another location."
+#: browser/prices.pt:41
 msgid "description_no_prices"
-msgstr "Dieses Produkt hat keine zusätzlichen Preise. Um einen Preis hinzuzufügen, klicken Sie den Hinzufügen Knopf, oder fügen Sie Inhalte aus einem anderen Produkt ein."
+msgstr ""
+"Dieses Produkt hat keine zusätzlichen Preise. Um einen Preis hinzuzufügen, "
+"klicken Sie den Knopf 'Hinzufügen' oder fügen Sie Inhalte aus einem anderen "
+"Produkt ein."
 
 #. Default: "If multiple selected variations in different categories have unit prices, the greater price will be accounted for in pricing of the selected combination."
-#: ../content/variation.py:52
+#: content/variation.py:52
 msgid "description_price"
-msgstr "Wenn mehrere Variationen aus verschiedenen Kategorien einen Einzelpreis besitzen, wird bei der Preisfindung der Kombination, der grössere Preis gewählt."
+msgstr ""
+"Wenn mehrere Variationen aus verschiedenen Kategorien einen Einzelpreis "
+"besitzen, wird bei der Preisfindung der Kombination der grössere Preis "
+"gewählt."
 
 #. Default: "Shipment methods for this product"
-#: ../content/product.py:68
+#: content/product.py:68
 msgid "description_shipment_methods"
 msgstr "Versandmöglichkeiten für dieses Produkt"
 
-#. Default: "Dear ${name}\n\nYour order has successfully been registered. Please find a complete\noverview of your order below.\n\nOrder ID: ${orderid}\n\n${cart}\nCurrency: ${currency}\n\n\nAddress:\n${address}\n\nPayment:\n${payment}\n\nShipment:\n${shipments}\n\n\nIf you have any questions concerning your purchase do not hesitate\nto contact us at ${from_email}.\n\nBest regards\n\n${from_name}\n"
-#: ../order.py:469
+#. Default: "Dear ${name}\n\nYour order has been successfully registered. Please find a complete\noverview of your order below.\n\nOrder ID: ${orderid}\n\n${cart}\nCurrency: ${currency}\n\n\nAddress:\n${address}\n\nPayment:\n${payment}\n\nShipment:\n${shipments}\n\n\nIf you have any questions concerning your purchase do not hesitate\nto contact us at ${from_email}.\n\nBest regards\n\n${from_name}"
+#: order.py:469
 msgid "email_customer_body"
 msgstr ""
 "Sehr geehrte/r ${name}\n"
@@ -547,7 +545,7 @@ msgstr ""
 "Währung: ${currency}\n"
 "\n"
 "\n"
-"Addresse:\n"
+"Adresse:\n"
 "${address}\n"
 "\n"
 "Zahlung:\n"
@@ -557,20 +555,21 @@ msgstr ""
 "${shipments}\n"
 "\n"
 "\n"
-"Falls Sie Fragen betreffend Ihrer Bestellung haben, zögern Sie nicht uns unter\n"
+"Falls Sie Fragen betreffend Ihrer Bestellung haben, zögern Sie nicht uns "
+"unter\n"
 "${from_email} zu kontaktieren.\n"
 "\n"
 "Freundliche Grüsse\n"
 "\n"
-"${from_name}\n"
+"${from_name}"
 
-#. Default: "Confirmation Email"
-#: ../order.py:399
+#. Default: "Confirmation e-mail"
+#: order.py:399
 msgid "email_customer_title"
 msgstr "Bestellungsbestätigung"
 
 #. Default: "New order by ${name}\n\nOrderid: ${orderid}\n\n${cart}\nCurrency: ${currency}\n\n\nAddress:\n${address}\n\nPayment:\n${payment}\n\nShipment:\n${shipments}\n\n"
-#: ../order.py:448
+#: order.py:448
 msgid "email_order_body"
 msgstr ""
 "Neue Bestellung von ${name}\n"
@@ -588,171 +587,174 @@ msgstr ""
 "${payment}\n"
 "\n"
 "Lieferung:\n"
-"${shipments}\n"
-"\n"
+"${shipments}"
 
 #. Default: "New order [${orderid}]"
-#: ../order.py:390
+#: order.py:390
 msgid "email_order_title"
 msgstr "Neue Bestellung [${orderid}]"
 
 #. Default: "general terms and conditions"
-#: ../browser/components/gtc.pt:17
+#: browser/components/gtc.pt:17
 msgid "general terms and conditions"
 msgstr "Allgemeinen Geschäftsbedingungen"
 
 #. Default: "You are currently looking at the images of a variation of the product ${product}."
-#: ../browser/images.pt:35
+#: browser/images.pt:35
 msgid "info_Image"
-msgstr "Sie befinden sich momentan auf der Bilderansicht einer Variation des Produktes ${product}."
+msgstr ""
+"Sie befinden sich momentan auf der Bilderansicht einer Variation des "
+"Produkts ${product}."
 
 #. Default: "You are currently looking at a variation of the product ${product}."
-#: ../browser/variation.pt:25
+#: browser/variation.pt:25
 msgid "info_variation"
-msgstr "Sie befinden sich momentan auf einer Variation des Produktes ${product}."
+msgstr ""
+"Sie befinden sich momentan auf einer Variation des Produkts ${product}."
 
 #. Default: "You are currently looking at the prices of a variation of the product ${product}."
-#: ../browser/prices.pt:36
+#: browser/prices.pt:36
 msgid "info_variation_prices"
-msgstr "Sie befinden sich momentan auf der Preisansicht einer Variation des Produktes ${product}."
+msgstr ""
+"Sie befinden sich momentan auf der Preisansicht einer Variation des Produkts "
+"${product}."
 
 #. Default: "Address"
-#: ../browser/orders.py:73
+#: browser/orders.py:73
 msgid "label_address"
 msgstr "Adresse"
 
 #. Default: "Cancelled"
-#: ../browser/orders.py:37
+#: browser/orders.py:37
 msgid "label_cancelled"
 msgstr "Abgebrochen"
 
 #. Default: "Currency"
-#: ../browser/orders.py:59
+#: browser/orders.py:59
 msgid "label_currency"
 msgstr "Währung"
 
 #. Default: "Date"
-#: ../browser/orders.py:56
+#: browser/orders.py:56
 msgid "label_date"
 msgstr "Datum"
 
 #. Default: "Failed"
-#: ../browser/orders.py:36
+#: browser/orders.py:36
 msgid "label_failed"
 msgstr "Fehlgeschlagen"
 
 #. Default: "Initialized"
-#: ../browser/orders.py:33
+#: browser/orders.py:33
 msgid "label_initialized"
 msgstr "Ausgelöst"
 
 #. Default: "Order id"
-#: ../browser/orders.py:50
+#: browser/orders.py:50
 msgid "label_order_id"
 msgstr "Bestellnummer"
 
 #. Default: "Order status"
-#: ../browser/orders.py:66
+#: browser/orders.py:66
 msgid "label_order_state"
 msgstr "Bestellstatus"
 
 #. Default: "Price total"
-#: ../browser/orders.py:62
+#: browser/orders.py:62
 msgid "label_price_total"
-msgstr "Preis total"
+msgstr "Gesamtpreis"
 
 #. Default: "Processed"
-#: ../browser/orders.py:35
+#: browser/orders.py:35
 msgid "label_processed"
 msgstr "Verarbeitet"
 
 #. Default: "Products"
-#: ../browser/orders.py:77
+#: browser/orders.py:77
 msgid "label_products"
 msgstr "Produkte"
 
 #. Default: "Sent"
-#: ../browser/orders.py:34
+#: browser/orders.py:34
 msgid "label_sent"
 msgstr "Gesendet"
 
 #. Default: "Shipment methods"
-#: ../content/product.py:67
+#: content/product.py:67
 msgid "label_shipment_methods"
 msgstr "Versandarten"
 
 #. Default: "Shipment id's"
-#: ../browser/orders.py:81
+#: browser/orders.py:81
 msgid "label_shipmentids"
-msgstr "Versandarten"
+msgstr "Versandarten IDs"
 
 #. Default: "User id"
-#: ../browser/orders.py:53
+#: browser/orders.py:53
 msgid "label_user_id"
 msgstr "Benutzername"
 
 #. Default: "Zone"
-#: ../browser/orders.py:69
+#: browser/orders.py:69
 msgid "label_zone"
 msgstr "Zone"
 
 #. Default: "log in"
-#: ../browser/cart.pt:101
+#: browser/cart.pt:101
 msgid "log_in"
 msgstr "melden Sie sich an"
 
 #. Default: "Check out canceled"
-#: ../browser/checkout.py:359
+#: browser/checkout.py:359
 msgid "message_checkout_canceled"
 msgstr "Bestellung abgebrochen"
 
 #. Default: "Check out failed"
-#: ../browser/checkout.py:373
+#: browser/checkout.py:373
 msgid "message_checkout_failed"
 msgstr "Bestellung fehlgeschlagen"
 
 #. Default: "${offer} instead of ${price}"
-#: ../browser/macros.pt:11
+#: browser/macros.pt:11
 msgid "price_offer"
 msgstr "${offer} statt ${price}"
 
 #. Default: "registration form"
-#: ../browser/cart.pt:108
+#: browser/cart.pt:108
 msgid "registration_form"
-msgstr "Registrationsformular"
+msgstr "Registrierungsformular"
 
 #. Default: "remove"
-#: ../browser/configlet.pt:144
+#: browser/configlet.pt:144
 msgid "remove"
 msgstr "löschen"
 
 #. Default: "Please supply an order id."
-#: ../browser/order_details.pt:23
+#: browser/order_details.pt:23
 msgid "text_no_order_id_supplied"
 msgstr "Bitte geben Sie eine Bestellnummer ein."
 
 #. Default: "Please check the order id."
-#: ../browser/order_details.pt:30
+#: browser/order_details.pt:30
 msgid "text_order_not_found"
 msgstr "Bitte überprüfen Sie die Bestellnummer."
 
 #. Default: "Manage orders"
-#: ../browser/manage_orders.pt:13
+#: browser/manage_orders.pt:13
 msgid "title_manage_orders"
 msgstr "Bestellungen verwalten"
 
 #. Default: "Which one?"
-#: ../browser/order_details.pt:21
+#: browser/order_details.pt:21
 msgid "title_no_order_id_supplied"
 msgstr "Welche?"
 
 #. Default: "Order details"
-#: ../browser/order_details.pt:17
+#: browser/order_details.pt:17
 msgid "title_order_details"
 msgstr "Informationen zur Bestellung"
 
 #. Default: "The order could not be found."
-#: ../browser/order_details.pt:28
+#: browser/order_details.pt:28
 msgid "title_order_not_found"
 msgstr "Die Bestellung konnte nicht gefunden werden."
-
