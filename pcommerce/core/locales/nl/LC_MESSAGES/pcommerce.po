@@ -173,7 +173,7 @@ msgstr "Volgende stap"
 
 #: browser/orders.py:110
 msgid "No"
-msgstr "Nee"
+msgstr "Aantal"
 
 #. Default: "No of articles:"
 #: browser/portlets/cart.pt:18
