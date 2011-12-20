@@ -24,6 +24,7 @@ from pcommerce.core import PCommerceMessageFactory as _
 
 ANNOTATIONS_KEY_ORDERS = 'pcommerce.core.orders'
 ORDER_SESSION_KEY = 'pcommerce.orderid'
+CART_SESSION_KEY = 'pcommerce.core.cart'
 
 class Order(Persistent):
     """"""
@@ -417,6 +418,9 @@ class OrderRegistry(Cart):
         order.state = PROCESSED
         if order.orderid == self.context.REQUEST.SESSION.get(ORDER_SESSION_KEY, 0):
             self.context.REQUEST.SESSION.set(ORDER_SESSION_KEY, None)
+
+        # clear the shopping cart
+        self.context.REQUEST.SESSION.set(CART_SESSION_KEY, None)
 
     def cancel(self, orderid):
         """ cancel an order
