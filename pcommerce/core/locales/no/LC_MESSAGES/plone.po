@@ -1,0 +1,56 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: pcommerce.core\n"
+"POT-Creation-Date: 2011-08-31 15:40+0000\n"
+"PO-Revision-Date: 2011-11-17 13:30+0100\n"
+"Last-Translator: Espen Moe-Nilssen <espen@medialog.no>\n"
+"Language-Team: Espen Moe-Nilssen <post@medialog.no>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: no\n"
+"Language-Name: Norwegian bokmål\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: plone\n"
+"X-Poedit-Language: Norwegian Bokmal\n"
+"X-Poedit-Country: NORWAY\n"
+
+msgid "Price"
+msgstr "Pris"
+
+msgid "A price"
+msgstr "En pris"
+
+msgid "Product"
+msgstr "Produkt"
+
+msgid "A product"
+msgstr "Et produkt"
+
+msgid "Variation"
+msgstr "Variant"
+
+msgid "A variation of a product"
+msgstr "En variant av produktet"
+
+msgid "Variations"
+msgstr "Varianter"
+
+msgid "Prices"
+msgstr "Priser"
+
+msgid "PCommerce configuration"
+msgstr "PCommerce-instillinger"
+
+msgid "Shop"
+msgstr "Butikk"
+
+msgid "ShopFolder"
+msgstr "Butikkfolder"
+
+msgid "Images"
+msgstr "Bilder"
+
+
