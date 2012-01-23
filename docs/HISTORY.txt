@@ -4,6 +4,7 @@ Changelog
 2.0b10 (2012-01-23)
 -------------------
 
+* fixed norwegian translations
 * plone 4.1 compatibility by importing cmfcore permissions
 * added norwegian translations (thanks to Espen Moe-Nilssen)
 
