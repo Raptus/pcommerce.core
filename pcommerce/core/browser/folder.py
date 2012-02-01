@@ -43,7 +43,9 @@ class ShopFolderListing(BrowserView):
     @memoize
     def batch(self):
         catalog = getToolByName(self.context, 'portal_catalog')
-        props = getToolByName(self.context, 'portal_properties').pcommerce_properties
+        portal_properties = getToolByName(self.context, 'portal_properties')
+        use_view_action = portal_properties.site_properties.getProperty('typesUseViewActionInListings', ())
+        props = portal_properties.pcommerce_properties
         columns = int(props.getProperty('columns', 3))
         width = int(props.getProperty('thumb_width', 0))
         width = width and 'image/thumb?width=%s' % width or 'image_thumb'
@@ -53,6 +55,10 @@ class ShopFolderListing(BrowserView):
         start = (self.page-1) * (columns * 5)
         end = start + columns * 5
         for item in results:
+            url = item.getURL()
+            if item.portal_type in use_view_action:
+                url += '/view'
+
             if start <= i < end:
                 object = item.getObject()
                 col = i % columns + 1
@@ -61,6 +67,7 @@ class ShopFolderListing(BrowserView):
                 if object.getImage():
                     image = {'caption': object.getImageCaption(),
                              'thumb': '%s/%s' % (item.getURL(), width)}
+
                 item = {'uid': item.UID,
                         'class': 'col%s' % col,
                         'title': item.Title,
@@ -69,12 +76,12 @@ class ShopFolderListing(BrowserView):
                         'base_price': CurrencyAware(adapter.getBasePrice()),
                         'offer': adapter.getPrice() < adapter.getBasePrice(),
                         'image': image,
-                        'url': item.getURL()}
+                        'url': url}
             else:
                 item = {'uid': item.UID,
                         'title': item.Title,
                         'description': item.Description,
-                        'url': item.getURL()}
+                        'url': url}
             i += 1
             items.append(item)
         return Batch(items, columns * 5, self.page, 5)

@@ -7,6 +7,7 @@ Changelog
 * fixed norwegian translations
 * plone 4.1 compatibility by importing cmfcore permissions
 * added norwegian translations (thanks to Espen Moe-Nilssen)
+* View action is used in the url for products that use AT file and image [kcleong]
 
 1.0b9 (2011-12-13)
 ------------------

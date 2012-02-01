@@ -82,13 +82,14 @@ class ShoppingCart(Cart):
         """ returns list of products currently in the cart
         """
         catalog = getToolByName(self.context, 'uid_catalog')
+        portal_properties = getToolByName(self.context, 'portal_properties')
+        use_view_action = portal_properties.site_properties.getProperty('typesUseViewActionInListings', ())
+
         products = []
         for uid, amount in self.items():
             results = [product.getObject() for product in catalog(
                 object_provides=interfaces.IProduct.__identifier__, UID=uid)]
             if results:
-                price = 0
-                add_price = 0
                 variations = []
                 variations_raw = []
                 product = None
@@ -112,7 +113,11 @@ class ShoppingCart(Cart):
                             product = aq_parent(result)
                     else:
                         product = result
-
+                url = product.absolute_url()
+                if product.portal_type in use_view_action:
+                    product_url = url + '/view'
+                else:
+                    product_url = url
                 price = interfaces.IPricing(product).getPrice(variations_raw)
                 products.append({'title': product.Title(),
                                  'no': product.getNo(),
@@ -123,7 +128,8 @@ class ShoppingCart(Cart):
                                  'price_total_raw': price * amount,
                                  'uid': product.UID(),
                                  'amount': amount,
-                                 'url': product.absolute_url(),
+                                 'url': product_url,
+                                 'image_url': url,
                                  'variations': variations,
                                  'object': product
                                 })

@@ -16,7 +16,9 @@ class HotViewlet(ViewletBase):
         
     def products(self):
         catalog = getToolByName(self.context, 'portal_catalog')
-        props = getToolByName(self.context, 'portal_properties').pcommerce_properties
+        portal_properties = getToolByName(self.context, 'portal_properties')
+        use_view_action = portal_properties.site_properties.getProperty('typesUseViewActionInListings', ())
+        props = portal_properties.pcommerce_properties
         columns = int(props.getProperty('hot_columns', 3))
         no = int(props.getProperty('no_hot_products', 6))
         width = int(props.getProperty('thumb_width_hot_products', 0))
@@ -36,6 +38,9 @@ class HotViewlet(ViewletBase):
             if object.getImage():
                 image = {'caption': object.getImageCaption(),
                          'thumb': '%s/%s' % (item.getURL(), width)}
+            url = item.getURL()
+            if item.portal_type in use_view_action:
+                url += '/view'
             item = {'uid': item.UID,
                     'class': 'col%s' % col,
                     'title': item.Title,
@@ -44,6 +49,6 @@ class HotViewlet(ViewletBase):
                     'base_price': CurrencyAware(adapter.getBasePrice()),
                     'offer': adapter.getPrice() < adapter.getBasePrice(),
                     'image': image,
-                    'url': item.getURL()}
+                    'url': url}
             items.append(item)
         return items

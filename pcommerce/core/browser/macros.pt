@@ -19,7 +19,7 @@
     <a class="productImage" tal:condition="product/object/getImage"
        tal:attributes="href product/url;
                        title product/description">
-      <img src="" tal:attributes="src string:${product/url}/image_icon" />
+      <img src="" tal:attributes="src string:${product/image_url}/image_icon" />
     </a>
     <a href="" tal:attributes="href product/url;
                                title product/description"
