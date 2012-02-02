@@ -24,7 +24,7 @@ class PaymentProcessor(object):
             method = getAdapter(self.context, name=paymentid, interface=interfaces.IPaymentMethod)
             if method.verifyPayment(order):
                 if order.state < SENT:
-                    registry.send(orderid, lang)
+                    registry.send(orderid, lang=None)
                 registry.process(orderid)
                 notify(OrderProcessingSuccessfulEvent(registry, order))
                 return 'payment successfully processed'
