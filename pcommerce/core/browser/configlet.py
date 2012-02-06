@@ -14,7 +14,7 @@ class PCommerceConfiglet(BrowserView):
     """
 
     template = ViewPageTemplateFile('configlet.pt')
-    properties = ('productname','gtc','post_checkout',)
+    properties = ('productname','gtc','post_checkout','email_address',)
     values = {}
 
     def __call__(self):

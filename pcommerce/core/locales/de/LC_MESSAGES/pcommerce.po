@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: pcommerce.core\n"
-"POT-Creation-Date: 2011-12-13 09:37+0000\n"
+"POT-Creation-Date: 2012-02-06 08:30+0000\n"
 "PO-Revision-Date: 2007-11-01 10:18+0100\n"
 "Last-Translator: Simon Kaeser <skaeser@raptus.com>\n"
 "Language-Team: Deutsch <skaeser@raptus.com>\n"
@@ -113,6 +113,11 @@ msgstr "Warenkorb bearbeiten"
 #: browser/address.pt:294
 msgid "Email"
 msgstr "Email"
+
+#. Default: "Email address"
+#: browser/configlet.pt:116
+msgid "Email address"
+msgstr "Emailadresse"
 
 #. Default: "First name"
 #: browser/address.pt:64
@@ -336,22 +341,22 @@ msgid "Shopping cart"
 msgstr "Warenkorb"
 
 #. Default: "Tax factor"
-#: browser/configlet.pt:121
+#: browser/configlet.pt:145
 msgid "Tax factor"
 msgstr "Steuerfaktor"
 
 #. Default: "Tax included in product price"
-#: browser/configlet.pt:182
+#: browser/configlet.pt:206
 msgid "Tax included in product price"
 msgstr "Steuer im Produktpreis inbegriffen"
 
 #. Default: "Tax name"
-#: browser/configlet.pt:120
+#: browser/configlet.pt:144
 msgid "Tax name"
 msgstr "Steuername"
 
 #. Default: "Taxes"
-#: browser/configlet.pt:114
+#: browser/configlet.pt:138
 msgid "Taxes"
 msgstr "Steuern"
 
@@ -359,6 +364,11 @@ msgstr "Steuern"
 #: browser/components/confirmation.pt:9
 msgid "Thank you!"
 msgstr "Vielen Dank!"
+
+#. Default: "The email address receiving and sending pcommerce related emails"
+#: browser/configlet.pt:121
+msgid "The email address receiving and sending pcommerce related emails"
+msgstr "Die Emailadresse welche Emails von PCommerce empfängt und versendet"
 
 #: browser/components/gtc.py:17
 msgid ""
@@ -404,7 +414,7 @@ msgstr "Total ${currency}:"
 msgid "Total incl. ${taxname}"
 msgstr "Total inkl. ${taxname}:"
 
-#: order.py:340
+#: order.py:341
 msgid "Total incl. ${tax}% ${taxname}"
 msgstr "Total inkl. ${tax}% ${taxname}"
 
@@ -477,7 +487,7 @@ msgid "Zone"
 msgstr "Zone"
 
 #. Default: "add"
-#: browser/configlet.pt:168
+#: browser/configlet.pt:192
 msgid "add"
 msgstr "hinzufügen"
 
@@ -531,7 +541,7 @@ msgid "description_shipment_methods"
 msgstr "Versandmöglichkeiten für dieses Produkt"
 
 #. Default: "Dear ${name}\n\nYour order has been successfully registered. Please find a complete\noverview of your order below.\n\nOrder ID: ${orderid}\n\n${cart}\nCurrency: ${currency}\n\n\nAddress:\n${address}\n\nPayment:\n${payment}\n\nShipment:\n${shipments}\n\n\nIf you have any questions concerning your purchase do not hesitate\nto contact us at ${from_email}.\n\nBest regards\n\n${from_name}"
-#: order.py:469
+#: order.py:475
 msgid "email_customer_body"
 msgstr ""
 "Sehr geehrte/r ${name}\n"
@@ -564,12 +574,12 @@ msgstr ""
 "${from_name}"
 
 #. Default: "Confirmation e-mail"
-#: order.py:399
+#: order.py:402
 msgid "email_customer_title"
 msgstr "Bestellungsbestätigung"
 
 #. Default: "New order by ${name}\n\nOrderid: ${orderid}\n\n${cart}\nCurrency: ${currency}\n\n\nAddress:\n${address}\n\nPayment:\n${payment}\n\nShipment:\n${shipments}\n\n"
-#: order.py:448
+#: order.py:454
 msgid "email_order_body"
 msgstr ""
 "Neue Bestellung von ${name}\n"
@@ -590,7 +600,7 @@ msgstr ""
 "${shipments}"
 
 #. Default: "New order [${orderid}]"
-#: order.py:390
+#: order.py:393
 msgid "email_order_title"
 msgstr "Neue Bestellung [${orderid}]"
 
@@ -725,7 +735,7 @@ msgid "registration_form"
 msgstr "Registrierungsformular"
 
 #. Default: "remove"
-#: browser/configlet.pt:144
+#: browser/configlet.pt:168
 msgid "remove"
 msgstr "löschen"
 

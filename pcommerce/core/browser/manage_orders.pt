@@ -21,9 +21,9 @@
     <table class="listing">
       <thead>
         <tr>
-          <th tal:repeat="column_name python: 
-                [field['name'] for field in orders[0]]"
-              tal:content="column_name" />
+          <th tal:repeat="field python: orders[0]"
+              tal:content="field/name"
+              tal:attributes="class python:'nosort' if field['id'] == 'date' else ''" />
         </tr>
       </thead>
       <tbody>
@@ -31,21 +31,13 @@
           <tr tal:define="odd repeat/order/odd"
               tal:attributes="class python:odd and 'odd' or 'even'">
             <tal:loopFields tal:repeat="field order">
-              <tal:ifFieldIsId tal:condition="python: 
-                  field['id'] == 'orderid'"> 
-                <th> 
-                  <a tal:attributes="
-                      href string:order-details?order_id=${field/value}">
-                    <span tal:replace="structure field/value" />
-                  </a>
-                </th>
-              </tal:ifFieldIsId>
-              <tal:fieldIsNotId 
-                  tal:condition="python: field['id'] != 'orderid'">
-                <td> 
-                  <span tal:replace="field/value" />
-                </td>
-              </tal:fieldIsNotId>
+            <td> 
+              <a tal:attributes="
+                  href string:order-details?order_id=${field/value}"
+                 tal:omit-tag="python: not field['id'] == 'orderid'">
+                <span tal:replace="structure field/value" />
+              </a>
+            </td>
             </tal:loopFields>
           </tr>
         </tal:loopOrders>

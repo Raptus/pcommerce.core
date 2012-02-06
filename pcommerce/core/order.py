@@ -372,7 +372,9 @@ class OrderRegistry(Cart):
         # do alignment
         cart = alignment.alignItems(cart)
 
-        email_from = portal_state.portal().getProperty('email_from_address', '')
+        email_from = getToolByName(self.context, 'portal_properties').pcommerce_properties.getProperty('email_address', '')
+        if not email_from:
+            email_from = portal_state.portal().getProperty('email_from_address', '')
         email_from_name = portal_state.portal().getProperty('email_from_name', '')
         mapping = {'orderid': order.orderid,
                    'shipments': '\n\n'.join(shipments),

@@ -109,6 +109,30 @@
                            tal:attributes="value request/post_checkout|view/values/post_checkout|nothing"/>
                 </div>
             </div>
+            
+            <div class="field"
+                 tal:attributes="class python:'field'+(errors.has_key('email') and ' error' or '')">
+
+                <label i18n:translate=""
+                       for="email_address">
+                    Email address
+                </label>
+
+                <div class="formHelp"
+                     i18n:translate="">
+                    The email address receiving and sending pcommerce related emails
+                </div>
+
+                <div tal:condition="python:errors.has_key('email_address')"
+                     tal:content="errors/email_address|nothing">
+                    The Error
+                </div>
+
+                <div class="widget">
+                    <input id="email_address" name="email_address" value="" type="text"
+                           tal:attributes="value request/email_address|view/values/email_address|nothing"/>
+                </div>
+            </div>
 
             <fieldset>
                 <legend i18n:translate="">Taxes</legend>

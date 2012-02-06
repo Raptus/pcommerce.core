@@ -88,7 +88,7 @@ class ManageOrders(BrowserView):
         return '<strong>%s</strong> (%s%% %s)' % (value[0], value[1][0], value[1][1])
 
     def _totalincl_converter(self, value, order):
-        return CurrencyAware(value).toString()
+        return CurrencyAware(value).valueToString()
 
     def _address_converter(self, value, order):
         return '<pre>%s</pre>' % value.mailInfo(self.request)

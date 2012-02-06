@@ -4,6 +4,7 @@
         <property name="productname" type="string" purge="False">PCommerce order</property>
         <property name="gtc" type="string" purge="False"></property>
         <property name="post_checkout" type="string" purge="False"></property>
+        <property name="email_address" type="string" purge="False"></property>
         <property name="columns" type="int" purge="False">3</property>
         <property name="thumb_width" type="int" purge="False">0</property>
         <property name="hot_columns" type="int" purge="False">3</property>
