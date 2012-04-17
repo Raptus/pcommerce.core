@@ -20,7 +20,7 @@ class PaymentProcessor(object):
         order = registry.getOrder(orderid)
         if not order or not order.paymentid == paymentid:
             return 'no matching order found'
-        if order.state is not PROCESSED:
+        if order.state is not PROCESSED and order.state is not FAILED:
             method = getAdapter(self.context, name=paymentid, interface=interfaces.IPaymentMethod)
             if method.verifyPayment(order):
                 if order.state < SENT:

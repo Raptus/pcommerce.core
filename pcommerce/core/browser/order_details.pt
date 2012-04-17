@@ -17,6 +17,13 @@
   <h1 class="documentFirstHeading"
       i18n:translate="title_order_details">Order details</h1>
 
+  <a href=""
+     class="link-parent"
+     tal:attributes="href string:${context/absolute_url}/@@manage-orders"
+     i18n:translate="">
+      Manage orders
+  </a>
+
   <tal:noOrderId tal:condition="not: order_id | nothing">
     <p class="documentDescription"
         i18n:translate="title_no_order_id_supplied">Which one?</p>

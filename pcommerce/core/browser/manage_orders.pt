@@ -9,7 +9,7 @@
 <body>
 
 <metal:main fill-slot="main"
-    tal:define="orders view/orders">
+    tal:define="orders view/batch">
   <h1 class="documentFirstHeading"
       i18n:translate="title_manage_orders">Manage orders</h1>
 
@@ -21,9 +21,16 @@
     <table class="listing">
       <thead>
         <tr>
-          <th tal:repeat="field python: orders[0]"
-              tal:content="field/name"
-              tal:attributes="class python:'nosort' if field['id'] == 'date' else ''" />
+          <th class="nosort"
+              tal:repeat="field view/order_management_columns">
+            <a href=""
+               tal:omit-tag="not: field/sortable"
+               tal:attributes="href string:${view/url}?sort_on=${field/field_id}&pagenumber=1">
+              <span tal:replace="field/field_name" />
+              <span class="discreet" tal:condition="python: field['field_id'] == view.sort_on and not view.reverse">▲</span>
+              <span class="discreet" tal:condition="python: field['field_id'] == view.sort_on and view.reverse">▼</span>
+            </a>
+          </th>
         </tr>
       </thead>
       <tbody>
@@ -43,6 +50,8 @@
         </tal:loopOrders>
       </tbody>
     <table>
+
+    <div tal:replace="structure view/batching" />
   </tal:haveOrders>
 </metal:main>
 

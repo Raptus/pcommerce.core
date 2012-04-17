@@ -25,7 +25,7 @@ Vendor
 Order management
 ~~~~~~~~~~~~~~~~
 
-* batching
+* batching (implemented in 1.0b12)
 
 * filtering (on status, for example)
 
@@ -34,7 +34,7 @@ Order management
   to a blank page displaying only "order processed".
 
   - First step: processing should redirect to `@@manage-orders`, with a status
-    message.
+    message. (implemented in pcommerce.payment.invoice 1.0b5)
 
 
 General
