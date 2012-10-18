@@ -1,6 +1,9 @@
 Changelog
 =========
 
+unreleased
+
+* fix for getprice.js so it works with latest jquery [huub_bouma]
 1.0b12 (2012-04-17)
 -------------------
 
