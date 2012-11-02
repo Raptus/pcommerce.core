@@ -6,7 +6,7 @@ version = '1.0b12'
 setup(name='pcommerce.core',
       version=version,
       description="eCommerce for Plone",
-      long_description=open("README.txt").read() + "\n" +
+      long_description=open("README.rst").read() + "\n" +
                        open(os.path.join("docs", "USAGE.txt")).read() + "\n" +
                        open(os.path.join("docs", "TODO.txt")).read() + "\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read(),
@@ -18,7 +18,7 @@ setup(name='pcommerce.core',
       keywords='plone ecommerce shop',
       author='Raptus AG',
       author_email='dev@raptus.com',
-      url='https://svn.plone.org/svn/collective/pcommerce.core',
+      url='https://github.com/Raptus/pcommerce.core',
       license='GPL',
       packages=find_packages(exclude=['ez_setup']),
       namespace_packages=['pcommerce'],
