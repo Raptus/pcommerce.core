@@ -1,9 +1,13 @@
 Changelog
 =========
 
-unreleased
 
+1.0b13 (2013-01-08)
+-------------------
+
+* Fix manage orders view [Gomez]
 * fix for getprice.js so it works with latest jquery [huub_bouma]
+
 1.0b12 (2012-04-17)
 -------------------
 
