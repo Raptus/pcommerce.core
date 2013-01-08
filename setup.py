@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '1.0b12'
+version = '1.0b13'
 
 setup(name='pcommerce.core',
       version=version,
