@@ -164,7 +164,7 @@ class ManageOrders(BrowserView):
             'totalincl',
             'state',
             ]
-        columns = [ column for column in self._order_fields() if \
+        columns = [ column for column in self.order_fields() if \
             column['field_id'] in field_ids]
         return columns
 
