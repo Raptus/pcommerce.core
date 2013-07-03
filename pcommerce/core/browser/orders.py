@@ -1,10 +1,25 @@
 import os
+import pkg_resources
 
 from DateTime import DateTime
 
 from zope.i18n import translate
 
-from plone.app.content.batching import Batch
+try:
+    pkg_resources.get_distribution('plone.batching')
+    from plone.batching import Batch
+    from plone import batching
+    batching_path = "/".join(batching.__path__)
+    batchingfile = '%s/batchnavigation.pt' % batching_path
+    NEW_BATCHING=True
+except:
+    # Plone <= 4.2
+    from plone.app.content import browser
+    from plone.app.content.batching import Batch
+    batching_path = '/'.join(browser.__path__)
+    batchingfile = '%s/batching.pt' % batching_path
+    NEW_BATCHING=False
+
 from plone.app.content.browser import tableview
 
 from Products.CMFCore.utils import getToolByName
@@ -23,11 +38,11 @@ class ManageOrders(BrowserView):
     """
 
     template = ViewPageTemplateFile('manage_orders.pt')
-    batching = ViewPageTemplateFile(os.path.join(os.path.dirname(tableview.__file__), 'batching.pt'))
+    batching = ViewPageTemplateFile(batchingfile)
 
     def __init__(self, *args, **kwargs):
         super(ManageOrders, self).__init__(*args, **kwargs)
-        self.translation_service = getToolByName(self.context, 
+        self.translation_service = getToolByName(self.context,
             'translation_service')
         self.registry = IOrderRegistry(self.context)
         self.pagesize = 20
@@ -174,8 +189,8 @@ class ManageOrders(BrowserView):
         if field_id == 'date':
             value = DateTime(value)
             value = self.translation_service.ulocalized_time(
-                value, long_format=True, time_only=None, 
-                context=self.context, domain='plonelocales', 
+                value, long_format=True, time_only=None,
+                context=self.context, domain='plonelocales',
                 request=self.request)
         # Convert order status to a translated string
         if field_id == 'state':
@@ -183,10 +198,10 @@ class ManageOrders(BrowserView):
         return value
 
     def _get_order_data(self, order_nr, fields):
-        """Returns data of a single order as as a list of dictionaries, 
+        """Returns data of a single order as as a list of dictionaries,
         suitable for displaying in a page template.
 
-        Copies only the specified fields (which are defined like the 
+        Copies only the specified fields (which are defined like the
         _order_fields list of dicts above.
 
         [   {   'id':   ..., # field id
@@ -232,13 +247,18 @@ class ManageOrders(BrowserView):
         if self.reverse:
             orders.reverse()
         pagesize = self.pagesize
-        b = Batch(orders,
-                  pagesize=pagesize,
-                  pagenumber=self.pagenumber)
+        if NEW_BATCHING:
+            b = Batch(orders,
+                    size=pagesize,
+                    start=self.pagenumber * pagesize)
+        else:
+            b = Batch(orders,
+                    pagesize=pagesize,
+                    pagenumber=self.pagenumber)
         return b
 
 class OrderDetails(ManageOrders):
-    """View order details. 
+    """View order details.
 
     Subclassed from ManageOrders for easy code reuse.
     """

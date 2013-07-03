@@ -1,3 +1,5 @@
+import pkg_resources
+
 from Acquisition import aq_inner, aq_parent
 
 from zope.interface import implements
@@ -8,13 +10,22 @@ from Products.CMFCore.utils import getToolByName
 from Products.ATContentTypes.interface.image import IImageContent
 
 from plone.memoize.instance import memoize
-from plone.app.content import browser
-from plone.app.content.batching import Batch
+try:
+    pkg_resources.get_distribution('plone.batching')
+    from plone.batching import Batch
+    from plone import batching
+    batching_path = "/".join(batching.__path__)
+    batchingfile = '%s/batchnavigation.pt' % batching_path
+except:
+    # Plone <= 4.2
+    from plone.app.content import browser
+    from plone.app.content.batching import Batch
+    batching_path = '/'.join(browser.__path__)
+    batchingfile = '%s/batching.pt' % batching_path
 
 from pcommerce.core.interfaces import IPricing, IShopFolder, IShop, IProduct
 from pcommerce.core.currency import CurrencyAware
 
-batching_path = '/'.join(browser.__path__)
 
 class ShopHome(BrowserView):
     """ shop home view
@@ -32,7 +43,7 @@ class ShopFolderListing(BrowserView):
     implements(IShopFolder)
 
     template = ViewPageTemplateFile('folder.pt')
-    batching = ViewPageTemplateFile('%s/batching.pt' % batching_path)
+    batching = ViewPageTemplateFile(batchingfile)
 
     def __call__(self):
         self.page = int(self.request.get('pagenumber', 1))
