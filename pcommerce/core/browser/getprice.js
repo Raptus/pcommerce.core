@@ -1,27 +1,30 @@
 /*
  * PCommerce GetPrice
  */
-jq('document').ready(function() {
-    
-    jq('.buyViewlet select[name="cartVariation:list"]').each(function(i) {
-        jq(this).find('option').each(function(i) {
-            html = jq(this).html();
-            jq(this).html(html.substring(0, html.lastIndexOf('(')));
-        });
+(function($) {
+
+  function pcommerceLoadPrice(){
+    var variations = [];
+    $('.buyViewlet select[name="cartVariation:list"]').each(function(i) {
+      variations[i] = $(this).attr('value');
     });
-    
-    if (jq('.buyViewlet select[name="cartVariation:list"]').length) {
+    $('.portletInfoBox .priceInfo').load('getprice?v='+variations.join(','));
+  }
+
+  $('document').ready(function() {
+    $('.buyViewlet select[name="cartVariation:list"]').each(function(i) {
+      $(this).find('option').each(function(i) {
+        html = $(this).html();
+        $(this).html(html.substring(0, html.lastIndexOf('(')));
+      });
+    });
+
+    if($('.buyViewlet select[name="cartVariation:list"]').length) {
       pcommerceLoadPrice();
     }
-    jq('.buyViewlet select[name="cartVariation:list"]').change(function(){
-        pcommerceLoadPrice();
+    $('.buyViewlet select[name="cartVariation:list"]').change(function(){
+      pcommerceLoadPrice();
     });
-});
+  });
 
-function pcommerceLoadPrice(){
-    var variations = [];
-    jq('.buyViewlet select[name="cartVariation:list"]').each(function(i) {
-        variations[i] = jq(this).attr('value');
-    });
-    jq('.portletInfoBox .priceInfo').load('getprice?v='+variations.join(','));
-}
+})(jQuery);
