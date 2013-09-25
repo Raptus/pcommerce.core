@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.0b14 (unreleased)
+1.0b14 (2013-09-25)
 -------------------
 
 * Improved viewlets to explicitly get the product view rather
