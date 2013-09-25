@@ -11,9 +11,10 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from pcommerce.core.interfaces import IPricing, IProduct
 from pcommerce.core.currency import CurrencyAware
 
+
 class NewViewlet(ViewletBase):
     index = ViewPageTemplateFile('new.pt')
-        
+
     def products(self):
         catalog = getToolByName(self.context, 'portal_catalog')
         portal_properties = getToolByName(self.context, 'portal_properties')

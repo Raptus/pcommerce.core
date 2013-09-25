@@ -5,7 +5,10 @@ Changelog
 1.0b14 (unreleased)
 -------------------
 
-- Nothing changed yet.
+* Improved viewlets to explicitly get the product view rather
+  than assuming they are rendered on it [simu]
+* Fixed AttributeError in related products viewlet [simu]
+* No longer use the deprecated jq alias in JavaScript [simu]
 
 
 1.0b13 (2013-01-08)

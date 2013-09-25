@@ -10,17 +10,19 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from pcommerce.core.interfaces import IPricing, IProduct
 from pcommerce.core.currency import CurrencyAware
 
+
 class RelatedViewlet(ViewletBase):
     index = ViewPageTemplateFile('related.pt')
-    
+
     def update(self):
-        self.view = getMultiAdapter((self.context, self.request), name=u'view')
-    
+        super(RelatedViewlet, self).update()
+        self.product_view = getMultiAdapter((self.context, self.request), name=u'view')
+
     @property
     @memoize
     def product(self):
-        return self.view.product
-        
+        return self.product_view.product
+
     @property
     @memoize
     def related_items(self):
@@ -38,10 +40,10 @@ class RelatedViewlet(ViewletBase):
                 i += 1
                 adapter = IPricing(item)
                 image = None
+                url = item.absolute_url()
                 if item.getImage():
                     image = {'caption': item.getImageCaption(),
-                             'thumb': '%s/%s' % (item.absolute_url(), width)}
-                url = item.getURL()
+                             'thumb': '%s/%s' % (url, width)}
                 if item.portal_type in use_view_action:
                     url += '/view'
                 items.append({'uid': item.UID(),
