@@ -15,6 +15,26 @@ PCommerce (Plone commerce) provides a simple shop system which supports:
 * multiple currencies by using Products.CurrencyUtility
 
 
+Installation
+------------
+
+Just add a pcommerce.core section to your buildout.cfg:
+
+.. code-block:: bash
+
+  [buildout]
+  parts += pcommerce.core
+
+There are some plugins like:
+
+`pcommerce.payment.paypal
+<https://pypi.python.org/pypi/pcommerce.payment.paypal/>`_
+
+`pcommerce.payment.invoice
+<https://pypi.python.org/pypi/pcommerce.payment.invoice>`_
+
+Just check pypi for more.
+
 Pluggable Payment Methods
 -------------------------
 
